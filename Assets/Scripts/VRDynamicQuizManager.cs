@@ -1,0 +1,171 @@
+using System.Collections.Generic;
+using TMPro;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class VRDynamicQuizManager : MonoBehaviour
+{
+    [Header("UI Text References")]
+    public TMP_Text questionTextUI;
+    public TMP_Text progressTextUI;
+
+    // --- NEW: The Warning Text GameObject ---
+    public GameObject warningTextObj;
+
+    [Header("Radio Button Toggles")]
+    public Toggle[] optionToggles;
+    public TMP_Text[] optionLabelsUI;
+
+    [Header("Action Buttons")]
+    public GameObject prevButton;
+    public GameObject nextButton;
+    public GameObject submitButton;
+
+    [System.Serializable]
+    public class QuizQuestion
+    {
+        public string questionText;
+        public string[] options;
+    }
+
+    [Header("Your Questions")]
+    public QuizQuestion[] questions;
+
+    private int currentIndex = 0;
+    private int[] savedAnswers;
+
+    void Start()
+    {
+        savedAnswers = new int[questions.Length];
+        for (int i = 0; i < savedAnswers.Length; i++) savedAnswers[i] = -1;
+
+        // Ensure warning is hidden at the very beginning
+        if (warningTextObj != null) warningTextObj.SetActive(false);
+
+        UpdatePanel();
+    }
+
+    // Attach to the "Next" Button OnClick()
+    public void OnNextClick()
+    {
+        // 1. VALIDATION CHECK
+        if (!SaveCurrentAnswer())
+        {
+            // If they didn't pick an option, show warning and STOP!
+            warningTextObj.SetActive(true);
+            return;
+        }
+
+        // 2. If successful, proceed to next question
+        if (currentIndex < questions.Length - 1)
+        {
+            currentIndex++;
+            UpdatePanel();
+        }
+    }
+
+    // Attach to the "Prev" Button OnClick()
+    public void OnPrevClick()
+    {
+        // We still save whatever they had checked (if anything) before moving back
+        SaveCurrentAnswer();
+
+        if (currentIndex > 0)
+        {
+            currentIndex--;
+            UpdatePanel();
+        }
+    }
+
+    // Attach to the "Submit" Button OnClick()
+    public void OnSubmitClick()
+    {
+        // 1. VALIDATION CHECK FOR THE LAST QUESTION
+        if (!SaveCurrentAnswer())
+        {
+            warningTextObj.SetActive(true);
+            return;
+        }
+
+        // 2. Calculate the score
+        int totalScore = 0;
+        foreach (int answerIndex in savedAnswers)
+        {
+            if (answerIndex != -1)
+            {
+                totalScore += (answerIndex + 1);
+            }
+        }
+
+        // 3. Drop it in the Backpack
+        SessionDataStore.anxietyScore = totalScore;
+        SessionDataStore.anxietyAnswers = new List<int>(savedAnswers);
+        Debug.Log($"<color=green>ANXIETY TEST COMPLETE!</color> Total Score: {SessionDataStore.anxietyScore} saved to Backpack.");
+
+        // 4. Disable UI 
+        questionTextUI.text = "Assessment Complete! Please proceed to the next area.";
+        submitButton.SetActive(false);
+        prevButton.SetActive(false);
+        warningTextObj.SetActive(false);
+
+        foreach (Toggle t in optionToggles) t.gameObject.SetActive(false);
+    }
+
+    // --- INTERNAL HELPER FUNCTIONS ---
+
+    // CHANGED: Now returns a boolean (true if answered, false if blank)
+    private bool SaveCurrentAnswer()
+    {
+        for (int i = 0; i < optionToggles.Length; i++)
+        {
+            if (optionToggles[i].gameObject.activeSelf && optionToggles[i].isOn)
+            {
+                savedAnswers[currentIndex] = i;
+                return true; // Found an answer!
+            }
+        }
+        return false; // No toggles were checked
+    }
+
+    private void UpdatePanel()
+    {
+        // Hide the warning text every time a new question loads
+        if (warningTextObj != null) warningTextObj.SetActive(false);
+
+        progressTextUI.text = $"{currentIndex + 1} / {questions.Length}";
+        questionTextUI.text = questions[currentIndex].questionText;
+
+        for (int i = 0; i < optionToggles.Length; i++)
+        {
+            if (i < questions[currentIndex].options.Length)
+            {
+                optionToggles[i].gameObject.SetActive(true);
+                optionLabelsUI[i].text = questions[currentIndex].options[i];
+            }
+            else
+            {
+                optionToggles[i].gameObject.SetActive(false);
+            }
+        }
+
+        // Restore the previous answer OR uncheck everything if unanswered (-1)
+        int previousAnswer = savedAnswers[currentIndex];
+        for (int i = 0; i < optionToggles.Length; i++)
+        {
+            optionToggles[i].SetIsOnWithoutNotify(i == previousAnswer);
+        }
+
+        prevButton.SetActive(currentIndex > 0);
+
+        if (currentIndex == questions.Length - 1)
+        {
+            nextButton.SetActive(false);
+            submitButton.SetActive(true);
+        }
+        else
+        {
+            nextButton.SetActive(true);
+            submitButton.SetActive(false);
+        }
+    }
+}
