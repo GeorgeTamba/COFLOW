@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: f2948ed069aadaf4bb0909cc1d2a25ff
+timeCreated: 1499070355
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 104882
+  packageName: Super Pivot FREE Modifier
+  packageVersion: 2.6
+  assetPath: Assets/Plugins/SuperPivot/Samples/ChangeAtRuntime/mat_green.mat
+  uploadId: 822764

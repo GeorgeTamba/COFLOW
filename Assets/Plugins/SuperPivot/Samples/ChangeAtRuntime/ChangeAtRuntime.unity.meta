@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 71b0a6ecca10aae41beb0af4e431a548
+timeCreated: 1499070063
+licenseType: Store
+DefaultImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 104882
+  packageName: Super Pivot FREE Modifier
+  packageVersion: 2.6
+  assetPath: Assets/Plugins/SuperPivot/Samples/ChangeAtRuntime/ChangeAtRuntime.unity
+  uploadId: 822764
