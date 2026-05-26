@@ -8,14 +8,11 @@ public class VRLoginManager : MonoBehaviour
     private string validateUrl = "http://localhost:3000/api/vr/validate";
     private string startSessionUrl = "http://localhost:3000/api/vr/start-session";
 
-    // GLOBAL VARIABLE to hold our session ID for the end of the game!
-    public static string currentSessionId = ""; 
-
     // Classes for packing/unpacking JSON
     [System.Serializable] public class ValidateReq { public string code; }
     [System.Serializable] public class ValidateRes { public string message; public ValidateData data; }
     [System.Serializable] public class ValidateData { public string code_id; public string patient_id; }
-    
+
     [System.Serializable] public class StartSessionReq { public string patientId; public string codeId; public string device; public string appVersion; }
     [System.Serializable] public class StartSessionRes { public string message; public string sessionId; }
 
@@ -33,14 +30,14 @@ public class VRLoginManager : MonoBehaviour
         // ==========================================
         ValidateReq valReq = new ValidateReq { code = code };
         UnityWebRequest req1 = CreatePostRequest(validateUrl, JsonUtility.ToJson(valReq));
-        
+
         yield return req1.SendWebRequest();
 
         if (req1.result != UnityWebRequest.Result.Success)
         {
             Debug.LogError("Code Invalid! Turn keypad screen red.");
             // Stop the chain right here.
-            yield break; 
+            yield break;
         }
 
         // Unpack the Waiter's box to get the IDs
@@ -53,16 +50,16 @@ public class VRLoginManager : MonoBehaviour
         // ==========================================
         // STEP 2: START THE SESSION
         // ==========================================
-        StartSessionReq startReq = new StartSessionReq 
-        { 
-            patientId = pId, 
-            codeId = cId, 
-            device = "Meta Quest 2", 
-            appVersion = "1.0" 
+        StartSessionReq startReq = new StartSessionReq
+        {
+            patientId = pId,
+            codeId = cId,
+            device = "Meta Quest 2",
+            appVersion = "1.0"
         };
-        
+
         UnityWebRequest req2 = CreatePostRequest(startSessionUrl, JsonUtility.ToJson(startReq));
-        
+
         yield return req2.SendWebRequest();
 
         if (req2.result != UnityWebRequest.Result.Success)
@@ -73,10 +70,10 @@ public class VRLoginManager : MonoBehaviour
 
         // Unpack the final box to get our Golden Ticket
         StartSessionRes startResponse = JsonUtility.FromJson<StartSessionRes>(req2.downloadHandler.text);
-        
+
         // SAVE IT GLOBALLY!
-        currentSessionId = startResponse.sessionId; 
-        Debug.Log("<color=green>SESSION STARTED!</color> Session ID: " + currentSessionId);
+        SessionDataStore.sessionId = startResponse.sessionId;
+        Debug.Log("<color=green>SESSION STARTED!</color> Session ID: " + SessionDataStore.sessionId);
 
         // ==========================================
         // STEP 3: LOAD THE HOSPITAL
