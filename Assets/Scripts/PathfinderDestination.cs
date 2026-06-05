@@ -6,6 +6,8 @@ public class PathfinderDestination : MonoBehaviour
     [Tooltip("If true, the arrows won't accidentally turn off again if the player walks back through this area.")]
     public bool disableAfterArrival = true;
 
+    public GameObject dialogPanel;
+
     private void OnTriggerEnter(Collider other)
     {
         // Remember: Ensure your VR Player's tag is set to "Player" in the Inspector!
@@ -23,6 +25,8 @@ public class PathfinderDestination : MonoBehaviour
             {
                 GetComponent<Collider>().enabled = false;
             }
+
+            dialogPanel.SetActive(true);
         }
     }
 }

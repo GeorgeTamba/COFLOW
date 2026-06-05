@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PathfinderTrigger : MonoBehaviour
 {
@@ -20,11 +21,13 @@ public class PathfinderTrigger : MonoBehaviour
     public void ActivateGuidance()
     {
         VRPathfinderManager manager = FindAnyObjectByType<VRPathfinderManager>();
+        GameObject currentButton = EventSystem.current.currentSelectedGameObject;
 
         if (manager != null && destinationTarget != null)
         {
             manager.StartGuidingPlayer(destinationTarget);
             Debug.Log("<color=cyan>GPS Activated! Leading patient to: " + destinationTarget.name + "</color>");
+            currentButton.transform.parent.gameObject.SetActive(false);
         }
         else
         {
