@@ -9,8 +9,10 @@ public class VREducationalQuizManager : MonoBehaviour
     public TMP_Text questionTextUI;
     public TMP_Text progressTextUI;
     public GameObject warningTextObj;
+    public TMP_Text completeText;
 
     [Header("Radio Button Toggles")]
+    public GameObject choicesContainer;
     public Toggle[] optionToggles;
     public TMP_Text[] optionLabelsUI;
 
@@ -100,11 +102,14 @@ public class VREducationalQuizManager : MonoBehaviour
         Debug.Log($"<color=green>QUIZ GRADED!</color> They got {totalCorrect}/{questions.Length} correct. Final Scaled Score: {SessionDataStore.quizScore}/10 saved to Backpack.");
 
         // Disable UI 
-        questionTextUI.text = "Educational Assessment Complete! You are now prepared.";
+        completeText.text = "Tes Penilaian Slesai";
+        completeText.gameObject.SetActive(true);
+        questionTextUI.gameObject.SetActive(false);
         submitButton.SetActive(false);
         prevButton.SetActive(false);
         warningTextObj.SetActive(false);
 
+        choicesContainer.SetActive(false);
         foreach (Toggle t in optionToggles) t.gameObject.SetActive(false);
     }
 
@@ -137,6 +142,7 @@ public class VREducationalQuizManager : MonoBehaviour
             }
             else
             {
+                optionToggles[i].transform.parent.gameObject.SetActive(false);
                 optionToggles[i].gameObject.SetActive(false);
             }
         }
