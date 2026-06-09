@@ -95,6 +95,7 @@ public class VRIFDialogueSystem : MonoBehaviour
     public void ResumeDialogue()
     {
         isWaitingForInput = false;
+        Debug.Log("Dialog resumed!");
     }
 
     private void EndDialogueSequence()
