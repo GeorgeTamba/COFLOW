@@ -2,7 +2,7 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.UI; // Wajib dipanggil untuk mengakses GraphicRaycaster
+using UnityEngine.UI;
 
 [System.Serializable]
 public class DialogueLine
@@ -19,8 +19,12 @@ public class VRIFDialogueSystem : MonoBehaviour
 {
     [Header("References")]
     public TextMeshProUGUI dialogueTextDisplay;
-    public GameObject dialogueUIPanel; // Biarkan tetap terisi objek 'Background'
+    public GameObject dialogueUIPanel;
     public TeleportFade teleportFadeScript;
+
+    [Header("End Sequence Actions")]
+    [Tooltip("Hapus centang ini jika ingin teleport dikendalikan oleh hal lain (misal: Video Selesai)")]
+    public bool autoTeleportOnEnd = true; // --- TAMBAHAN BARU ---
 
     [Header("Typewriter Settings")]
     public float typeSpeed = 0.05f;
@@ -31,15 +35,15 @@ public class VRIFDialogueSystem : MonoBehaviour
 
     private bool isWaitingForInput = false;
 
-    // --- VARIABEL BARU UNTUK TEMBOK INVISIBLE ---
     private Canvas parentCanvas;
     private GraphicRaycaster parentRaycaster;
+    private CanvasGroup canvasGroup;
 
     private void Start()
     {
-        // Secara otomatis mencari komponen pemblokir laser di objek induk
         parentCanvas = GetComponent<Canvas>();
         parentRaycaster = GetComponent<GraphicRaycaster>();
+        canvasGroup = GetComponent<CanvasGroup>();
 
         ToggleUI(false);
     }
@@ -54,10 +58,7 @@ public class VRIFDialogueSystem : MonoBehaviour
     {
         foreach (DialogueLine line in dialogueLines)
         {
-            if (dialogueUIPanel != null && !dialogueUIPanel.activeSelf)
-            {
-                ToggleUI(true);
-            }
+            ToggleUI(true);
 
             yield return StartCoroutine(TypeSentence(line.sentence));
 
@@ -67,7 +68,7 @@ public class VRIFDialogueSystem : MonoBehaviour
             {
                 if (line.hideMainPanelDuringWait)
                 {
-                    ToggleUI(false); // Panggil fungsi pintar untuk mematikan semuanya
+                    ToggleUI(false);
                 }
 
                 isWaitingForInput = true;
@@ -101,17 +102,26 @@ public class VRIFDialogueSystem : MonoBehaviour
     private void EndDialogueSequence()
     {
         ToggleUI(false);
-        if (teleportFadeScript != null) teleportFadeScript.OnMissionComplete();
+        // --- MODIFIKASI: Hanya teleport jika autoTeleportOnEnd dicentang ---
+        if (autoTeleportOnEnd && teleportFadeScript != null)
+        {
+            teleportFadeScript.OnMissionComplete();
+        }
     }
 
-    // --- FUNGSI PINTAR BARU ---
-    // Fungsi ini akan mematikan visual sekaligus melumpuhkan penghalang lasernya
     private void ToggleUI(bool isActive)
     {
-        // 1. Matikan/nyalakan objek visualnya (Background)
-        if (dialogueUIPanel != null) dialogueUIPanel.SetActive(isActive);
+        if (canvasGroup != null)
+        {
+            canvasGroup.alpha = isActive ? 1f : 0f;
+            canvasGroup.interactable = isActive;
+            canvasGroup.blocksRaycasts = isActive;
+        }
+        else if (dialogueUIPanel != null)
+        {
+            dialogueUIPanel.SetActive(isActive);
+        }
 
-        // 2. Matikan/nyalakan penangkap laser (Graphic Raycaster & Canvas)
         if (parentCanvas != null) parentCanvas.enabled = isActive;
         if (parentRaycaster != null) parentRaycaster.enabled = isActive;
     }
