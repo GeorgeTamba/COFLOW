@@ -1,14 +1,15 @@
 using UnityEngine;
 using UnityEngine.Video;
+using UnityEngine.Events; // Wajib dipanggil untuk memunculkan kolom Event di Inspector
 
 [RequireComponent(typeof(VideoPlayer))]
 public class VRVideoSequence : MonoBehaviour
 {
     private VideoPlayer videoPlayer;
 
-    [Header("Teleport Settings")]
-    [Tooltip("Masukkan objek TeleportTrigger Doctor ke sini")]
-    public TeleportFade teleportFadeScript;
+    [Header("Video Events")]
+    [Tooltip("Semua yang ada di list ini akan tereksekusi otomatis saat video selesai, fungsinya persis seperti OnClick pada Button")]
+    public UnityEvent onVideoFinished;
 
     private void Start()
     {
@@ -24,10 +25,9 @@ public class VRVideoSequence : MonoBehaviour
     // Fungsi ini akan otomatis terpanggil oleh sistem Unity saat video selesai berputar
     private void OnVideoEnd(VideoPlayer vp)
     {
-        Debug.Log("Video Dokter Selesai! Memulai teleport...");
-        if (teleportFadeScript != null)
-        {
-            teleportFadeScript.OnMissionComplete();
-        }
+        Debug.Log("<color=orange>Video Selesai! Mengeksekusi semua event di daftar...</color>");
+
+        // Memanggil/menjalankan semua fungsi yang kamu daftarkan di Inspector
+        onVideoFinished?.Invoke();
     }
 }

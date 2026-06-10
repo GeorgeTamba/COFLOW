@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
-using BNG; // VRIF Namespace
+using BNG;
+using UnityEngine.Events;
 
 public class TeleportFade : MonoBehaviour
 {
@@ -13,15 +14,19 @@ public class TeleportFade : MonoBehaviour
     public VRIFDialogueSystem dialogueSystem;
 
     [Header("Teleport Settings")]
+    [Tooltip("Hapus centang ini jika area ini HANYA memicu dialog TANPA teleportasi & layar gelap (Contoh: Poli)")]
+    public bool useTeleport = true;
     public float fadeDuration = 1.0f;
 
     [Header("Movement Control")]
-    [Tooltip("Jika dicentang, pemain tidak bisa bergerak (WASD/Analog) selama misi aktif.")]
     public bool lockMovementDuringMission = true;
 
     [Space(10)]
     public Transform missionTargetPosition;
     public Transform postMissionTargetPosition;
+
+    [Header("Sequence Events (Sistem Estafet)")]
+    public UnityEvent onPostTeleportFinished;
 
     private SmoothLocomotion smoothMove;
     private PlayerTeleport teleportMove;
@@ -35,11 +40,23 @@ public class TeleportFade : MonoBehaviour
 
         if (playerController != null)
         {
-            // Mencari komponen pergerakan di object atau child-nya
             smoothMove = playerController.GetComponentInChildren<SmoothLocomotion>();
             teleportMove = playerController.GetComponentInChildren<PlayerTeleport>();
         }
         triggerCollider = GetComponent<Collider>();
+    }
+
+    private void Update()
+    {
+        // Hanya tahan posisi jika misi berjalan, pergerakan dikunci, ADA target posisi, DAN menggunakan fitur teleport
+        if (hasMissionStarted && lockMovementDuringMission && missionTargetPosition != null && useTeleport)
+        {
+            if (playerController != null)
+            {
+                // TETAP KUNCI POSISI (termasuk height/sumbu Y agar tidak jatuh/melayang)
+                playerController.transform.position = missionTargetPosition.position;
+            }
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -60,52 +77,80 @@ public class TeleportFade : MonoBehaviour
         hasMissionStarted = true;
         if (triggerCollider != null) triggerCollider.enabled = false;
 
-        // Panggil teleport & kunci pergerakan
-        StartCoroutine(ExecuteTeleport(missionTargetPosition, lockMovementDuringMission, isDialogueMission));
+        // MODIFIKASI: Cek apakah missionTargetPosition tidak kosong
+        if (useTeleport && missionTargetPosition != null)
+        {
+            // Mode Normal: Pindah tempat dan layar gelap
+            StartCoroutine(ExecuteTeleport(missionTargetPosition, lockMovementDuringMission, isDialogueMission));
+        }
+        else
+        {
+            // Mode Tanpa Teleport Awal: Kunci pergerakan dan langsung putar dialog (tanpa fade)
+            SetMovementEnabled(!lockMovementDuringMission);
+            if (isDialogueMission && dialogueSystem != null)
+            {
+                dialogueSystem.StartDialogueSequence();
+            }
+        }
     }
 
     public void OnMissionComplete()
     {
-        // Buka kembali pergerakan (lockMovement = false)
-        StartCoroutine(ExecuteTeleport(postMissionTargetPosition, false, false));
         hasMissionStarted = false;
+
+        // MODIFIKASI: Cek apakah postMissionTargetPosition tidak kosong
+        if (useTeleport && postMissionTargetPosition != null)
+        {
+            // Mode Normal: Teleport setelah misi selesai dengan fade
+            StartCoroutine(ExecutePostMissionTeleport());
+        }
+        else
+        {
+            // Mode Tanpa Post-Teleport: Buka pergerakan dan langsung tembak event estafet
+            SetMovementEnabled(true);
+            onPostTeleportFinished?.Invoke();
+        }
     }
 
+    // --- COROUTINE UNTUK MODE TELEPORT ---
     private IEnumerator ExecuteTeleport(Transform targetPos, bool lockMovement, bool startDialogue)
     {
-        if (screenFader != null)
-        {
-            screenFader.DoFadeIn();
-            yield return new WaitForSeconds(fadeDuration);
-        }
+        if (screenFader != null) { screenFader.DoFadeIn(); yield return new WaitForSeconds(fadeDuration); }
+        MovePlayer(targetPos, lockMovement);
+        if (screenFader != null) { screenFader.DoFadeOut(); yield return new WaitForSeconds(fadeDuration); }
+        if (startDialogue && dialogueSystem != null) dialogueSystem.StartDialogueSequence();
+    }
 
+    private IEnumerator ExecutePostMissionTeleport()
+    {
+        if (screenFader != null) { screenFader.DoFadeIn(); yield return new WaitForSeconds(fadeDuration); }
+        MovePlayer(postMissionTargetPosition, false);
+        if (screenFader != null) { screenFader.DoFadeOut(); yield return new WaitForSeconds(fadeDuration); }
+        onPostTeleportFinished?.Invoke();
+    }
+
+    // --- FUNGSI PEMBANTU ---
+    private void MovePlayer(Transform targetPos, bool lockMovement)
+    {
         if (playerController != null && targetPos != null)
         {
             CharacterController cc = playerController.GetComponent<CharacterController>();
-
-            // 1. Matikan sementara untuk teleport
             if (cc != null) cc.enabled = false;
 
             playerController.transform.position = targetPos.position;
             playerController.transform.rotation = targetPos.rotation;
-
-            // 2. KUNCI UTAMA: Hanya nyalakan kembali CharacterController jika lockMovement adalah false
-            if (cc != null) cc.enabled = !lockMovement;
         }
+        SetMovementEnabled(!lockMovement);
+    }
 
-        // Kunci komponen VRIF tambahan
-        if (smoothMove != null) smoothMove.enabled = !lockMovement;
-        if (teleportMove != null) teleportMove.enabled = !lockMovement;
-
-        if (screenFader != null)
+    private void SetMovementEnabled(bool canMove)
+    {
+        if (playerController != null)
         {
-            screenFader.DoFadeOut();
-            yield return new WaitForSeconds(fadeDuration);
+            CharacterController cc = playerController.GetComponent<CharacterController>();
+            if (cc != null) cc.enabled = canMove;
         }
-
-        if (startDialogue && dialogueSystem != null)
-        {
-            dialogueSystem.StartDialogueSequence();
-        }
+        if (smoothMove != null) smoothMove.enabled = canMove;
+        if (teleportMove != null) teleportMove.enabled = canMove;
     }
 }
