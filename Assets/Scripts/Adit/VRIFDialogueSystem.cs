@@ -9,6 +9,10 @@ public class DialogueLine
 {
     [TextArea(3, 5)]
     public string sentence;
+
+    [Tooltip("Masukkan audio suara untuk dialog ini (opsional)")]
+    public AudioClip dialogueAudio; // --- FITUR BARU: Slot Audio ---
+
     public bool waitForButtonPress = false;
     public bool hideMainPanelDuringWait = true;
     [Space(5)]
@@ -22,9 +26,12 @@ public class VRIFDialogueSystem : MonoBehaviour
     public GameObject dialogueUIPanel;
     public TeleportFade teleportFadeScript;
 
+    [Tooltip("Komponen AudioSource untuk memutar suara dialog")]
+    public AudioSource audioSource; // --- FITUR BARU: Referensi AudioSource ---
+
     [Header("End Sequence Actions")]
     [Tooltip("Hapus centang ini jika ingin teleport dikendalikan oleh hal lain (misal: Video Selesai)")]
-    public bool autoTeleportOnEnd = true; // --- TAMBAHAN BARU ---
+    public bool autoTeleportOnEnd = true;
 
     [Header("Typewriter Settings")]
     public float typeSpeed = 0.05f;
@@ -59,6 +66,14 @@ public class VRIFDialogueSystem : MonoBehaviour
         foreach (DialogueLine line in dialogueLines)
         {
             ToggleUI(true);
+
+            // --- FITUR BARU: Mainkan Audio Dialog ---
+            if (audioSource != null && line.dialogueAudio != null)
+            {
+                audioSource.Stop(); // Hentikan audio sebelumnya (jika ada)
+                audioSource.clip = line.dialogueAudio;
+                audioSource.Play();
+            }
 
             yield return StartCoroutine(TypeSentence(line.sentence));
 
@@ -102,7 +117,6 @@ public class VRIFDialogueSystem : MonoBehaviour
     private void EndDialogueSequence()
     {
         ToggleUI(false);
-        // --- MODIFIKASI: Hanya teleport jika autoTeleportOnEnd dicentang ---
         if (autoTeleportOnEnd && teleportFadeScript != null)
         {
             teleportFadeScript.OnMissionComplete();

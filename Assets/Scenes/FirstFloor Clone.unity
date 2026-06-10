@@ -869,11 +869,13 @@ MonoBehaviour:
   dialogueTextDisplay: {fileID: 1826978467}
   dialogueUIPanel: {fileID: 96445292}
   teleportFadeScript: {fileID: 0}
+  audioSource: {fileID: 0}
   autoTeleportOnEnd: 0
   typeSpeed: 0.005
   delayBetweenSentences: 0
   dialogueLines:
   - sentence: Selanjutnya Menuju ke poli Rehab Medic
+    dialogueAudio: {fileID: 0}
     waitForButtonPress: 0
     hideMainPanelDuringWait: 0
     onLineFinished:
@@ -1747,7 +1749,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 209160109}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: 5f2c59893f050d2469a053b206b730a9, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: 328cd40457856564f8e43d52531089fa, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
@@ -6957,7 +6959,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 725324025}
   m_LocalRotation: {x: 0, y: -0.08715578, z: 0, w: 0.9961947}
-  m_LocalPosition: {x: 0, y: 0, z: -8.49}
+  m_LocalPosition: {x: 0, y: 0, z: -8.77}
   m_LocalScale: {x: 0.002, y: 0.002, z: 0.002}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -6966,8 +6968,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: -10, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 7.921, y: 2.44}
-  m_SizeDelta: {x: 1920, y: 1080}
+  m_AnchoredPosition: {x: 6.33, y: 1.8866}
+  m_SizeDelta: {x: 1080, y: 1920}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &725324027
 MonoBehaviour:
@@ -8546,10 +8548,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1505656253}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 75}
-  m_SizeDelta: {x: 1720, y: 880}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -724}
+  m_SizeDelta: {x: 766, y: 1361.7001}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &842191154
 MonoBehaviour:
@@ -8711,6 +8713,7 @@ GameObject:
   - component: {fileID: 872599006}
   - component: {fileID: 872599009}
   - component: {fileID: 872599008}
+  - component: {fileID: 872599010}
   m_Layer: 0
   m_Name: Background Doctor
   m_TagString: Untagged
@@ -8793,12 +8796,14 @@ MonoBehaviour:
   dialogueTextDisplay: {fileID: 1872119624}
   dialogueUIPanel: {fileID: 872599004}
   teleportFadeScript: {fileID: 981523879}
+  audioSource: {fileID: 872599010}
   autoTeleportOnEnd: 0
   typeSpeed: 0.005
   delayBetweenSentences: 0
   dialogueLines:
   - sentence: Saya akan menjelaskan secara singkat mengenai tindakan CABG, lokasi
       pembedahan dan resikonya
+    dialogueAudio: {fileID: 8300000, guid: e42e3d8269401354b85bbc5ade8a0ae6, type: 3}
     waitForButtonPress: 0
     hideMainPanelDuringWait: 1
     onLineFinished:
@@ -8828,6 +8833,103 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!82 &872599010
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 872599004}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &893269333
 GameObject:
   m_ObjectHideFlags: 0
@@ -10623,12 +10725,14 @@ MonoBehaviour:
   dialogueTextDisplay: {fileID: 1152406276}
   dialogueUIPanel: {fileID: 1014623924}
   teleportFadeScript: {fileID: 0}
+  audioSource: {fileID: 0}
   autoTeleportOnEnd: 0
   typeSpeed: 0.005
   delayBetweenSentences: 0
   dialogueLines:
   - sentence: Untuk persiapan operasi, Anda akan menjalani pemeriksaan oleh beberapa
       dokter.
+    dialogueAudio: {fileID: 0}
     waitForButtonPress: 0
     hideMainPanelDuringWait: 0
     onLineFinished:
@@ -12998,7 +13102,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 50}
+  m_AnchoredPosition: {x: 0, y: 35}
   m_SizeDelta: {x: 500, y: 150}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1260569182
@@ -14406,6 +14510,7 @@ MonoBehaviour:
   dialogueTextDisplay: {fileID: 1572952320}
   dialogueUIPanel: {fileID: 1448354738}
   teleportFadeScript: {fileID: 0}
+  audioSource: {fileID: 0}
   autoTeleportOnEnd: 0
   typeSpeed: 0.005
   delayBetweenSentences: 0
@@ -14413,6 +14518,7 @@ MonoBehaviour:
   - sentence: Poli Penyakit Dalam merupakan tempat dokter mengevaluasi kondisi klinis
       dan hasil pemeriksaan pasien untuk menentukan toleransi pasien terhadap tindakan
       operasi
+    dialogueAudio: {fileID: 0}
     waitForButtonPress: 0
     hideMainPanelDuringWait: 1
     onLineFinished:
@@ -14940,10 +15046,10 @@ RectTransform:
   - {fileID: 1260569181}
   m_Father: {fileID: 725324026}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -30, y: 15.5}
-  m_SizeDelta: {x: 1920, y: 1190}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 36.3, y: 54}
+  m_SizeDelta: {x: -211.5, y: -286.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1505656254
 MonoBehaviour:
@@ -15133,6 +15239,7 @@ GameObject:
   - component: {fileID: 1525364775}
   - component: {fileID: 1525364777}
   - component: {fileID: 1525364778}
+  - component: {fileID: 1525364779}
   m_Layer: 0
   m_Name: Background Nurse Station
   m_TagString: Untagged
@@ -15215,6 +15322,7 @@ MonoBehaviour:
   dialogueTextDisplay: {fileID: 1516794423}
   dialogueUIPanel: {fileID: 1525364773}
   teleportFadeScript: {fileID: 1211890172}
+  audioSource: {fileID: 1525364779}
   autoTeleportOnEnd: 1
   typeSpeed: 0.005
   delayBetweenSentences: 0
@@ -15223,6 +15331,7 @@ MonoBehaviour:
       awal di nurse station sebagai bagian dari persiapan tindakan CABG. Kami akan
       melakukan pemeriksaan tekanan darah, nadi, dan suhu tubuh untuk memantau kondisi
       kesehatan anda saat ini
+    dialogueAudio: {fileID: 8300000, guid: ce7417f46a337f14a9e776068f92094e, type: 3}
     waitForButtonPress: 0
     hideMainPanelDuringWait: 1
     onLineFinished:
@@ -15231,6 +15340,7 @@ MonoBehaviour:
   - sentence: Setelah pemeriksaan, kami akan memberikan edukasi terkait persiapan
       dan perawatan, serta melakukan pengecekan obat yang sedang dikonsumsi pasien
       untuk memastikan keamanan selama perawatan
+    dialogueAudio: {fileID: 8300000, guid: 8379cb0a3f3e7cc4caa59eef13e4fdb3, type: 3}
     waitForButtonPress: 0
     hideMainPanelDuringWait: 1
     onLineFinished:
@@ -15240,6 +15350,7 @@ MonoBehaviour:
       operasi, apabila ada obat herbal atau obat cina yang berdampak terhadap risiko
       perdarahan maka wajib info ke dokter atau perawat. Perawat akan membantu mengatur
       pengingat penghentian obat di handphone Anda
+    dialogueAudio: {fileID: 8300000, guid: ffb2b0d149b769b40b54aa5dd325c4df, type: 3}
     waitForButtonPress: 0
     hideMainPanelDuringWait: 1
     onLineFinished:
@@ -15247,6 +15358,7 @@ MonoBehaviour:
         m_Calls: []
   - sentence: Apakah obat pengencer darah  yang Anda minum ada didalam daftar obat
       berikut? Jika ada silahkan di ceklis
+    dialogueAudio: {fileID: 8300000, guid: 1a072dd84d2be4b42a6914d5087bad35, type: 3}
     waitForButtonPress: 1
     hideMainPanelDuringWait: 1
     onLineFinished:
@@ -15266,6 +15378,7 @@ MonoBehaviour:
           m_CallState: 2
   - sentence: Selanjutnya, Anda akan mengikuti anxiety test untuk mengetahui kondisi
       psikologis sebelum tindakan
+    dialogueAudio: {fileID: 8300000, guid: 0e4d02d2747c00b498fac7b7165a1cd2, type: 3}
     waitForButtonPress: 1
     hideMainPanelDuringWait: 1
     onLineFinished:
@@ -15295,6 +15408,103 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!82 &1525364779
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1525364773}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1540114617
 GameObject:
   m_ObjectHideFlags: 0
@@ -16469,12 +16679,14 @@ MonoBehaviour:
   dialogueTextDisplay: {fileID: 834605150}
   dialogueUIPanel: {fileID: 1628591454}
   teleportFadeScript: {fileID: 0}
+  audioSource: {fileID: 0}
   autoTeleportOnEnd: 0
   typeSpeed: 0.005
   delayBetweenSentences: 0
   dialogueLines:
   - sentence: Poli Paru merupakan tempat dokter spesialis paru mengevaluasi hasil
       spirometri untuk menilai toleransi pasien terhadap tindakan operasi.
+    dialogueAudio: {fileID: 0}
     waitForButtonPress: 0
     hideMainPanelDuringWait: 1
     onLineFinished:
@@ -16696,12 +16908,14 @@ MonoBehaviour:
   dialogueTextDisplay: {fileID: 637043008}
   dialogueUIPanel: {fileID: 1666122978}
   teleportFadeScript: {fileID: 0}
+  audioSource: {fileID: 0}
   autoTeleportOnEnd: 0
   typeSpeed: 0.005
   delayBetweenSentences: 0
   dialogueLines:
   - sentence: Ruang Echocardiography merupakan pemeriksaan untuk menilai kondisi
       dan fungsi jantung sebelum tindakan operasi dilakukan
+    dialogueAudio: {fileID: 0}
     waitForButtonPress: 0
     hideMainPanelDuringWait: 1
     onLineFinished:
@@ -16838,12 +17052,14 @@ MonoBehaviour:
   dialogueTextDisplay: {fileID: 1558037483}
   dialogueUIPanel: {fileID: 1699717510}
   teleportFadeScript: {fileID: 0}
+  audioSource: {fileID: 0}
   autoTeleportOnEnd: 0
   typeSpeed: 0.005
   delayBetweenSentences: 0
   dialogueLines:
   - sentence: Poli Anestesi merupakan tempat dokter anestesi menilai kondisi pasien
       untuk menentukan tindakan anestesi yang tepat saat operasi
+    dialogueAudio: {fileID: 0}
     waitForButtonPress: 0
     hideMainPanelDuringWait: 1
     onLineFinished:
@@ -17773,12 +17989,14 @@ MonoBehaviour:
   dialogueTextDisplay: {fileID: 274736920}
   dialogueUIPanel: {fileID: 1790801127}
   teleportFadeScript: {fileID: 135725882}
+  audioSource: {fileID: 0}
   autoTeleportOnEnd: 0
   typeSpeed: 0.005
   delayBetweenSentences: 0
   dialogueLines:
   - sentence: Anda akan dikonsulkan ke dr. Deddy Terjasukmana B, Sp.KFR(K), MARS,
       MM, dan fisioterapis
+    dialogueAudio: {fileID: 0}
     waitForButtonPress: 0
     hideMainPanelDuringWait: 1
     onLineFinished:
@@ -17787,6 +18005,7 @@ MonoBehaviour:
   - sentence: Selama disini anda akan mendapatkan edukasi praoperasi meliputi latihan
       rentang gerak bahu, ankle pumping, latihan pernapasan diafragma, latihan duduk
       dengan sternal precaution, serta latihan pernapasan menggunakan incentive spirometry
+    dialogueAudio: {fileID: 0}
     waitForButtonPress: 0
     hideMainPanelDuringWait: 1
     onLineFinished:
@@ -17795,6 +18014,7 @@ MonoBehaviour:
   - sentence: Setelah Semua pemeriksaan dilalui dan dokter menyatakan siap untuk
       operasi maka anda akan kami jadwalkan untuk tindakan operasi dan akan diberikan
       surat pengantar rawat
+    dialogueAudio: {fileID: 0}
     waitForButtonPress: 0
     hideMainPanelDuringWait: 1
     onLineFinished:
@@ -19970,11 +20190,13 @@ MonoBehaviour:
   dialogueTextDisplay: {fileID: 214773970}
   dialogueUIPanel: {fileID: 2074835270}
   teleportFadeScript: {fileID: 0}
+  audioSource: {fileID: 0}
   autoTeleportOnEnd: 0
   typeSpeed: 0.005
   delayBetweenSentences: 0
   dialogueLines:
   - sentence: Selanjutnya kita akan keruangan dokter untuk pemeriksaan lebih lanjut
+    dialogueAudio: {fileID: 8300000, guid: 316710fe737d9034092a48be1e7a1e4d, type: 3}
     waitForButtonPress: 0
     hideMainPanelDuringWait: 0
     onLineFinished:
