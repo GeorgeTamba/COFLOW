@@ -825,6 +825,7 @@ GameObject:
   - component: {fileID: 96445296}
   - component: {fileID: 96445295}
   - component: {fileID: 96445294}
+  - component: {fileID: 96445298}
   m_Layer: 0
   m_Name: Background OTW Rehab Medis
   m_TagString: Untagged
@@ -869,13 +870,18 @@ MonoBehaviour:
   dialogueTextDisplay: {fileID: 1826978467}
   dialogueUIPanel: {fileID: 96445292}
   teleportFadeScript: {fileID: 0}
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 96445298}
+  targetCamera: {fileID: 2129123523}
+  distance: 2
+  followSpeed: 3
+  rotationSpeed: 5
+  positionOffset: {x: 0, y: -0.1, z: 0}
   autoTeleportOnEnd: 0
-  typeSpeed: 0.005
-  delayBetweenSentences: 0
+  typeSpeed: 0.065
+  delayBetweenSentences: 2
   dialogueLines:
-  - sentence: Selanjutnya Menuju ke poli Rehab Medic
-    dialogueAudio: {fileID: 0}
+  - sentence: Selanjutnya Menuju ke poli Rehab Medis
+    dialogueAudio: {fileID: 8300000, guid: 2c0e0208908f46a4b986a01210d4c098, type: 3}
     waitForButtonPress: 0
     hideMainPanelDuringWait: 0
     onLineFinished:
@@ -931,6 +937,103 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 96445292}
   m_CullTransparentMesh: 1
+--- !u!82 &96445298
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 96445292}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &111195982
 GameObject:
   m_ObjectHideFlags: 0
@@ -2231,6 +2334,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06d354df5d42023468f32307206b3150, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::VRPanelController
+  targetCamera: {fileID: 2129123523}
+  distance: 2
+  followSpeed: 3
+  rotationSpeed: 5
+  positionOffset: {x: 0, y: -0.1, z: 0}
 --- !u!1 &254644572
 GameObject:
   m_ObjectHideFlags: 0
@@ -5992,6 +6100,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06d354df5d42023468f32307206b3150, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::VRPanelController
+  targetCamera: {fileID: 2129123523}
+  distance: 2
+  followSpeed: 3
+  rotationSpeed: 5
+  positionOffset: {x: 0, y: -0.1, z: 0}
 --- !u!1 &601883741
 GameObject:
   m_ObjectHideFlags: 0
@@ -6958,17 +7071,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 725324025}
-  m_LocalRotation: {x: 0, y: -0.08715578, z: 0, w: 0.9961947}
+  m_LocalRotation: {x: -0, y: -0.2588186, z: -0, w: 0.965926}
   m_LocalPosition: {x: 0, y: 0, z: -8.77}
   m_LocalScale: {x: 0.002, y: 0.002, z: 0.002}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1505656253}
   m_Father: {fileID: 904410728}
-  m_LocalEulerAnglesHint: {x: 0, y: -10, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -30, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 6.33, y: 1.8866}
+  m_AnchoredPosition: {x: 7.262, y: 1.998}
   m_SizeDelta: {x: 1080, y: 1920}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &725324027
@@ -7059,6 +7172,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06d354df5d42023468f32307206b3150, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::VRPanelController
+  targetCamera: {fileID: 2129123523}
+  distance: 2
+  followSpeed: 3
+  rotationSpeed: 5
+  positionOffset: {x: 0, y: -0.1, z: 0}
 --- !u!225 &725324032
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -8542,7 +8660,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 842191152}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8550,8 +8668,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -724}
-  m_SizeDelta: {x: 766, y: 1361.7001}
+  m_AnchoredPosition: {x: -3, y: -730}
+  m_SizeDelta: {x: 769.8, y: 1368.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &842191154
 MonoBehaviour:
@@ -8797,12 +8915,17 @@ MonoBehaviour:
   dialogueUIPanel: {fileID: 872599004}
   teleportFadeScript: {fileID: 981523879}
   audioSource: {fileID: 872599010}
+  targetCamera: {fileID: 2129123523}
+  distance: 2
+  followSpeed: 3
+  rotationSpeed: 5
+  positionOffset: {x: 0, y: -0.1, z: 0}
   autoTeleportOnEnd: 0
-  typeSpeed: 0.005
-  delayBetweenSentences: 0
+  typeSpeed: 0.07
+  delayBetweenSentences: 2
   dialogueLines:
-  - sentence: Saya akan menjelaskan secara singkat mengenai tindakan CABG, lokasi
-      pembedahan dan resikonya
+  - sentence: Saya akan menjelaskan secara singkat mengenai tindakan operasi CABG,
+      lokasi pembedahan dan resikonya
     dialogueAudio: {fileID: 8300000, guid: e42e3d8269401354b85bbc5ade8a0ae6, type: 3}
     waitForButtonPress: 0
     hideMainPanelDuringWait: 1
@@ -10681,6 +10804,7 @@ GameObject:
   - component: {fileID: 1014623928}
   - component: {fileID: 1014623927}
   - component: {fileID: 1014623926}
+  - component: {fileID: 1014623930}
   m_Layer: 0
   m_Name: Background OTW Poli
   m_TagString: Untagged
@@ -10725,14 +10849,19 @@ MonoBehaviour:
   dialogueTextDisplay: {fileID: 1152406276}
   dialogueUIPanel: {fileID: 1014623924}
   teleportFadeScript: {fileID: 0}
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 1014623930}
+  targetCamera: {fileID: 2129123523}
+  distance: 2
+  followSpeed: 3
+  rotationSpeed: 5
+  positionOffset: {x: 0, y: -0.1, z: 0}
   autoTeleportOnEnd: 0
-  typeSpeed: 0.005
-  delayBetweenSentences: 0
+  typeSpeed: 0.065
+  delayBetweenSentences: 2
   dialogueLines:
-  - sentence: Untuk persiapan operasi, Anda akan menjalani pemeriksaan oleh beberapa
+  - sentence: Untuk persiapan operasi, anda akan menjalani pemeriksaan oleh beberapa
       dokter.
-    dialogueAudio: {fileID: 0}
+    dialogueAudio: {fileID: 8300000, guid: 316710fe737d9034092a48be1e7a1e4d, type: 3}
     waitForButtonPress: 0
     hideMainPanelDuringWait: 0
     onLineFinished:
@@ -10788,6 +10917,103 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1014623924}
   m_CullTransparentMesh: 1
+--- !u!82 &1014623930
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1014623924}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1023050146
 GameObject:
   m_ObjectHideFlags: 0
@@ -14466,6 +14692,7 @@ GameObject:
   - component: {fileID: 1448354742}
   - component: {fileID: 1448354741}
   - component: {fileID: 1448354740}
+  - component: {fileID: 1448354744}
   m_Layer: 0
   m_Name: Background Poli Penyakit Dalam
   m_TagString: Untagged
@@ -14481,7 +14708,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1448354738}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: -7715.8926}
+  m_LocalPosition: {x: 0, y: 0, z: -7102}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -14492,7 +14719,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 3988.8877, y: 108}
+  m_AnchoredPosition: {x: 4215, y: 108}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1448354740
@@ -14510,15 +14737,20 @@ MonoBehaviour:
   dialogueTextDisplay: {fileID: 1572952320}
   dialogueUIPanel: {fileID: 1448354738}
   teleportFadeScript: {fileID: 0}
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 1448354744}
+  targetCamera: {fileID: 2129123523}
+  distance: 2
+  followSpeed: 3
+  rotationSpeed: 5
+  positionOffset: {x: 0, y: -0.1, z: 0}
   autoTeleportOnEnd: 0
-  typeSpeed: 0.005
-  delayBetweenSentences: 0
+  typeSpeed: 0.065
+  delayBetweenSentences: 2
   dialogueLines:
   - sentence: Poli Penyakit Dalam merupakan tempat dokter mengevaluasi kondisi klinis
-      dan hasil pemeriksaan pasien untuk menentukan toleransi pasien terhadap tindakan
+      dan hasil pemeriksaan anda untuk menentukan toleransi anda terhadap tindakan
       operasi
-    dialogueAudio: {fileID: 0}
+    dialogueAudio: {fileID: 8300000, guid: d5ded44efce7c5a4084e111f2871e92d, type: 3}
     waitForButtonPress: 0
     hideMainPanelDuringWait: 1
     onLineFinished:
@@ -14586,6 +14818,103 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1448354738}
   m_CullTransparentMesh: 1
+--- !u!82 &1448354744
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1448354738}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &1457488933
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15323,14 +15652,19 @@ MonoBehaviour:
   dialogueUIPanel: {fileID: 1525364773}
   teleportFadeScript: {fileID: 1211890172}
   audioSource: {fileID: 1525364779}
+  targetCamera: {fileID: 2129123523}
+  distance: 2
+  followSpeed: 3
+  rotationSpeed: 5
+  positionOffset: {x: 0, y: -0.1, z: 0}
   autoTeleportOnEnd: 1
-  typeSpeed: 0.005
-  delayBetweenSentences: 0
+  typeSpeed: 0.065
+  delayBetweenSentences: 2
   dialogueLines:
   - sentence: Selamat datang, Bapak/Ibu. Saat ini kami akan melakukan pemeriksaan
-      awal di nurse station sebagai bagian dari persiapan tindakan CABG. Kami akan
-      melakukan pemeriksaan tekanan darah, nadi, dan suhu tubuh untuk memantau kondisi
-      kesehatan anda saat ini
+      awal di nurse station sebagai bagian dari persiapan tindakan operasi CABG.
+      Kami akan melakukan pemeriksaan tekanan darah, nadi, pernapasan dan suhu tubuh
+      untuk memantau kondisi kesehatan anda saat ini
     dialogueAudio: {fileID: 8300000, guid: ce7417f46a337f14a9e776068f92094e, type: 3}
     waitForButtonPress: 0
     hideMainPanelDuringWait: 1
@@ -15338,7 +15672,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
   - sentence: Setelah pemeriksaan, kami akan memberikan edukasi terkait persiapan
-      dan perawatan, serta melakukan pengecekan obat yang sedang dikonsumsi pasien
+      dan perawatan, serta melakukan pengecekan obat yang sedang dikonsumsi anda
       untuk memastikan keamanan selama perawatan
     dialogueAudio: {fileID: 8300000, guid: 8379cb0a3f3e7cc4caa59eef13e4fdb3, type: 3}
     waitForButtonPress: 0
@@ -15356,7 +15690,7 @@ MonoBehaviour:
     onLineFinished:
       m_PersistentCalls:
         m_Calls: []
-  - sentence: Apakah obat pengencer darah  yang Anda minum ada didalam daftar obat
+  - sentence: Apakah obat pengencer darah yang anda minum ada didalam daftar obat
       berikut? Jika ada silahkan di ceklis
     dialogueAudio: {fileID: 8300000, guid: 1a072dd84d2be4b42a6914d5087bad35, type: 3}
     waitForButtonPress: 1
@@ -15376,7 +15710,7 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 1
           m_CallState: 2
-  - sentence: Selanjutnya, Anda akan mengikuti anxiety test untuk mengetahui kondisi
+  - sentence: Selanjutnya, anda akan mengikuti anxiety test untuk mengetahui kondisi
       psikologis sebelum tindakan
     dialogueAudio: {fileID: 8300000, guid: 0e4d02d2747c00b498fac7b7165a1cd2, type: 3}
     waitForButtonPress: 1
@@ -16657,6 +16991,7 @@ GameObject:
   - component: {fileID: 1628591458}
   - component: {fileID: 1628591457}
   - component: {fileID: 1628591455}
+  - component: {fileID: 1628591460}
   m_Layer: 0
   m_Name: Background Poli Paru
   m_TagString: Untagged
@@ -16679,14 +17014,19 @@ MonoBehaviour:
   dialogueTextDisplay: {fileID: 834605150}
   dialogueUIPanel: {fileID: 1628591454}
   teleportFadeScript: {fileID: 0}
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 96445298}
+  targetCamera: {fileID: 2129123523}
+  distance: 2
+  followSpeed: 3
+  rotationSpeed: 5
+  positionOffset: {x: 0, y: -0.1, z: 0}
   autoTeleportOnEnd: 0
-  typeSpeed: 0.005
-  delayBetweenSentences: 0
+  typeSpeed: 0.065
+  delayBetweenSentences: 2
   dialogueLines:
   - sentence: Poli Paru merupakan tempat dokter spesialis paru mengevaluasi hasil
-      spirometri untuk menilai toleransi pasien terhadap tindakan operasi.
-    dialogueAudio: {fileID: 0}
+      spirometri untuk menilai toleransi anda terhadap tindakan operasi.
+    dialogueAudio: {fileID: 8300000, guid: ef219f7c23d6df546a37aefca4098815, type: 3}
     waitForButtonPress: 0
     hideMainPanelDuringWait: 1
     onLineFinished:
@@ -16712,7 +17052,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1628591454}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: -9215.894}
+  m_LocalPosition: {x: 0, y: 0, z: -9497}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -16723,7 +17063,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 3988.8877, y: 108}
+  m_AnchoredPosition: {x: 4215, y: 108}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!225 &1628591457
@@ -16776,6 +17116,103 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1628591454}
   m_CullTransparentMesh: 1
+--- !u!82 &1628591460
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1628591454}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1634834010
 GameObject:
   m_ObjectHideFlags: 0
@@ -16864,6 +17301,7 @@ GameObject:
   - component: {fileID: 1666122982}
   - component: {fileID: 1666122981}
   - component: {fileID: 1666122980}
+  - component: {fileID: 1666122984}
   m_Layer: 0
   m_Name: Background Echocardiography
   m_TagString: Untagged
@@ -16878,7 +17316,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1666122978}
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0.000000119209275}
+  m_LocalRotation: {x: -0, y: 0.99144495, z: -0, w: -0.13052587}
   m_LocalPosition: {x: 0, y: 0, z: -15811}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -16887,7 +17325,7 @@ RectTransform:
   - {fileID: 1062872186}
   - {fileID: 1897514629}
   m_Father: {fileID: 1011497843}
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 195, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 2833, y: 108}
@@ -16908,14 +17346,19 @@ MonoBehaviour:
   dialogueTextDisplay: {fileID: 637043008}
   dialogueUIPanel: {fileID: 1666122978}
   teleportFadeScript: {fileID: 0}
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 1666122984}
+  targetCamera: {fileID: 2129123523}
+  distance: 2
+  followSpeed: 3
+  rotationSpeed: 5
+  positionOffset: {x: 0, y: -0.1, z: 0}
   autoTeleportOnEnd: 0
-  typeSpeed: 0.005
-  delayBetweenSentences: 0
+  typeSpeed: 0.065
+  delayBetweenSentences: 2
   dialogueLines:
   - sentence: Ruang Echocardiography merupakan pemeriksaan untuk menilai kondisi
       dan fungsi jantung sebelum tindakan operasi dilakukan
-    dialogueAudio: {fileID: 0}
+    dialogueAudio: {fileID: 8300000, guid: 1950b69f68222614eb0f1cdbd36cb0ca, type: 3}
     waitForButtonPress: 0
     hideMainPanelDuringWait: 1
     onLineFinished:
@@ -16995,6 +17438,103 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1666122978}
   m_CullTransparentMesh: 1
+--- !u!82 &1666122984
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1666122978}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1699717510
 GameObject:
   m_ObjectHideFlags: 0
@@ -17008,6 +17548,7 @@ GameObject:
   - component: {fileID: 1699717514}
   - component: {fileID: 1699717513}
   - component: {fileID: 1699717512}
+  - component: {fileID: 1699717516}
   m_Layer: 0
   m_Name: Background Poli Anestesi
   m_TagString: Untagged
@@ -17052,14 +17593,19 @@ MonoBehaviour:
   dialogueTextDisplay: {fileID: 1558037483}
   dialogueUIPanel: {fileID: 1699717510}
   teleportFadeScript: {fileID: 0}
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 1699717516}
+  targetCamera: {fileID: 2129123523}
+  distance: 2
+  followSpeed: 3
+  rotationSpeed: 5
+  positionOffset: {x: 0, y: -0.1, z: 0}
   autoTeleportOnEnd: 0
-  typeSpeed: 0.005
-  delayBetweenSentences: 0
+  typeSpeed: 0.065
+  delayBetweenSentences: 2
   dialogueLines:
-  - sentence: Poli Anestesi merupakan tempat dokter anestesi menilai kondisi pasien
+  - sentence: Poli Anestesi merupakan tempat dokter anestesi menilai kondisi anda
       untuk menentukan tindakan anestesi yang tepat saat operasi
-    dialogueAudio: {fileID: 0}
+    dialogueAudio: {fileID: 8300000, guid: f7fcbf6865d08ea4aa96c4d7e69d2816, type: 3}
     waitForButtonPress: 0
     hideMainPanelDuringWait: 1
     onLineFinished:
@@ -17127,6 +17673,103 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1699717510}
   m_CullTransparentMesh: 1
+--- !u!82 &1699717516
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1699717510}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1714131795
 GameObject:
   m_ObjectHideFlags: 0
@@ -17945,6 +18588,7 @@ GameObject:
   - component: {fileID: 1790801131}
   - component: {fileID: 1790801130}
   - component: {fileID: 1790801129}
+  - component: {fileID: 1790801133}
   m_Layer: 0
   m_Name: Background Rehab Medic
   m_TagString: Untagged
@@ -17989,14 +18633,19 @@ MonoBehaviour:
   dialogueTextDisplay: {fileID: 274736920}
   dialogueUIPanel: {fileID: 1790801127}
   teleportFadeScript: {fileID: 135725882}
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 1790801133}
+  targetCamera: {fileID: 2129123523}
+  distance: 2
+  followSpeed: 3
+  rotationSpeed: 5
+  positionOffset: {x: 0, y: -0.1, z: 0}
   autoTeleportOnEnd: 0
-  typeSpeed: 0.005
-  delayBetweenSentences: 0
+  typeSpeed: 0.065
+  delayBetweenSentences: 2
   dialogueLines:
   - sentence: Anda akan dikonsulkan ke dr. Deddy Terjasukmana B, Sp.KFR(K), MARS,
       MM, dan fisioterapis
-    dialogueAudio: {fileID: 0}
+    dialogueAudio: {fileID: 8300000, guid: 37291c8256bdea44fb501a225c8c6fcb, type: 3}
     waitForButtonPress: 0
     hideMainPanelDuringWait: 1
     onLineFinished:
@@ -18005,7 +18654,7 @@ MonoBehaviour:
   - sentence: Selama disini anda akan mendapatkan edukasi praoperasi meliputi latihan
       rentang gerak bahu, ankle pumping, latihan pernapasan diafragma, latihan duduk
       dengan sternal precaution, serta latihan pernapasan menggunakan incentive spirometry
-    dialogueAudio: {fileID: 0}
+    dialogueAudio: {fileID: 8300000, guid: 51d9bdef56bb02c4183cac101be9695e, type: 3}
     waitForButtonPress: 0
     hideMainPanelDuringWait: 1
     onLineFinished:
@@ -18014,7 +18663,7 @@ MonoBehaviour:
   - sentence: Setelah Semua pemeriksaan dilalui dan dokter menyatakan siap untuk
       operasi maka anda akan kami jadwalkan untuk tindakan operasi dan akan diberikan
       surat pengantar rawat
-    dialogueAudio: {fileID: 0}
+    dialogueAudio: {fileID: 8300000, guid: ad46db5d979d5374684ac6acb2d4e4ac, type: 3}
     waitForButtonPress: 0
     hideMainPanelDuringWait: 1
     onLineFinished:
@@ -18082,6 +18731,103 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1790801127}
   m_CullTransparentMesh: 1
+--- !u!82 &1790801133
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1790801127}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1824079068
 GameObject:
   m_ObjectHideFlags: 0
@@ -20146,6 +20892,7 @@ GameObject:
   - component: {fileID: 2074835274}
   - component: {fileID: 2074835273}
   - component: {fileID: 2074835272}
+  - component: {fileID: 2074835276}
   m_Layer: 0
   m_Name: Background OTW Dokter
   m_TagString: Untagged
@@ -20190,13 +20937,18 @@ MonoBehaviour:
   dialogueTextDisplay: {fileID: 214773970}
   dialogueUIPanel: {fileID: 2074835270}
   teleportFadeScript: {fileID: 0}
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 2074835276}
+  targetCamera: {fileID: 2129123523}
+  distance: 2
+  followSpeed: 3
+  rotationSpeed: 5
+  positionOffset: {x: 0, y: -0.1, z: 0}
   autoTeleportOnEnd: 0
-  typeSpeed: 0.005
-  delayBetweenSentences: 0
+  typeSpeed: 0.065
+  delayBetweenSentences: 2
   dialogueLines:
   - sentence: Selanjutnya kita akan keruangan dokter untuk pemeriksaan lebih lanjut
-    dialogueAudio: {fileID: 8300000, guid: 316710fe737d9034092a48be1e7a1e4d, type: 3}
+    dialogueAudio: {fileID: 8300000, guid: 51c2c9d716b18694daedeb3106a6ce11, type: 3}
     waitForButtonPress: 0
     hideMainPanelDuringWait: 0
     onLineFinished:
@@ -20252,6 +21004,103 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2074835270}
   m_CullTransparentMesh: 1
+--- !u!82 &2074835276
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2074835270}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &2075527585
 PrefabInstance:
   m_ObjectHideFlags: 0
