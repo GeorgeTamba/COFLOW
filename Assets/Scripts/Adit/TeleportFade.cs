@@ -96,9 +96,9 @@ public class TeleportFade : MonoBehaviour
 
     public void OnMissionComplete()
     {
-        hasMissionStarted = false;
+        // JANGAN set hasMissionStarted = false di sini dulu! Biarkan terkunci.
 
-        // MODIFIKASI: Cek apakah postMissionTargetPosition tidak kosong
+        // Cek apakah postMissionTargetPosition tidak kosong
         if (useTeleport && postMissionTargetPosition != null)
         {
             // Mode Normal: Teleport setelah misi selesai dengan fade
@@ -107,6 +107,7 @@ public class TeleportFade : MonoBehaviour
         else
         {
             // Mode Tanpa Post-Teleport: Buka pergerakan dan langsung tembak event estafet
+            hasMissionStarted = false;
             SetMovementEnabled(true);
             onPostTeleportFinished?.Invoke();
         }
@@ -124,8 +125,13 @@ public class TeleportFade : MonoBehaviour
     private IEnumerator ExecutePostMissionTeleport()
     {
         if (screenFader != null) { screenFader.DoFadeIn(); yield return new WaitForSeconds(fadeDuration); }
-        MovePlayer(postMissionTargetPosition, false);
+
+        MovePlayer(postMissionTargetPosition, false); // Teleport terjadi di sini
+
         if (screenFader != null) { screenFader.DoFadeOut(); yield return new WaitForSeconds(fadeDuration); }
+
+        // BARU DILEPAS DI SINI: Setelah layar kembali terang dan teleport selesai
+        hasMissionStarted = false;
         onPostTeleportFinished?.Invoke();
     }
 

@@ -67,20 +67,24 @@ public class VRIFDialogueSystem : MonoBehaviour
         {
             ToggleUI(true);
 
-            // --- FITUR BARU: Mainkan Audio Dialog ---
+            // Memutar Audio Dialog
             if (audioSource != null && line.dialogueAudio != null)
             {
-                audioSource.Stop(); // Hentikan audio sebelumnya (jika ada)
+                audioSource.Stop();
                 audioSource.clip = line.dialogueAudio;
                 audioSource.Play();
             }
 
+            // Menunggu efek mesin tik selesai
             yield return StartCoroutine(TypeSentence(line.sentence));
 
-            line.onLineFinished?.Invoke();
-
+            // --- PERBAIKAN LOGIKA EVENT ---
             if (line.waitForButtonPress)
             {
+                // Jika dialog ini butuh tombol ditekan, Event HARUS dieksekusi duluan
+                // agar panel (seperti opsi obat/tes kecemasan) muncul dan bisa diklik.
+                line.onLineFinished?.Invoke();
+
                 if (line.hideMainPanelDuringWait)
                 {
                     ToggleUI(false);
@@ -91,7 +95,10 @@ public class VRIFDialogueSystem : MonoBehaviour
             }
             else
             {
+                // Jika otomatis (tanpa tombol), sistem WAJIB menunggu delay habis dulu,
+                // barulah event panel/video dimunculkan.
                 yield return new WaitForSeconds(delayBetweenSentences);
+                line.onLineFinished?.Invoke();
             }
         }
 
