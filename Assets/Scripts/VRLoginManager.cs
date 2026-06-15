@@ -5,8 +5,8 @@ using System.Text;
 
 public class VRLoginManager : MonoBehaviour
 {
-    private string validateUrl = "http://localhost:3000/api/vr/validate";
-    private string startSessionUrl = "http://localhost:3000/api/vr/start-session";
+    private string validateUrl = "http://10.229.17.118:3000/api/vr/validate";
+    private string startSessionUrl = "http://10.229.17.118:3000/api/vr/start-session";
 
     // Classes for packing/unpacking JSON
     [System.Serializable] public class ValidateReq { public string code; }
@@ -78,7 +78,7 @@ public class VRLoginManager : MonoBehaviour
         // ==========================================
         // STEP 3: LOAD THE HOSPITAL
         // ==========================================
-        UnityEngine.SceneManagement.SceneManager.LoadScene("MainLobby");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("MainLobby_Part1");
     }
 
     // Helper function to keep our code clean

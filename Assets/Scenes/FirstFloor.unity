@@ -3684,7 +3684,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58aaf80e4cb35bb48b61be01553ae553, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PathfinderDestination
-  disableAfterArrival: 0
+  disableAfterArrival: 1
   dialogPanel: {fileID: 1505656252}
 --- !u!65 &579780081
 BoxCollider:
@@ -9755,7 +9755,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1505656253
 RectTransform:
   m_ObjectHideFlags: 0

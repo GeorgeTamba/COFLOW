@@ -6,7 +6,7 @@ using System.Text;
 
 public class VRSubmitResults : MonoBehaviour
 {
-    private string submitUrl = "http://localhost:3000/api/vr/submit-results";
+    private string submitUrl = "http://10.229.17.118:3000/api/vr/submit-results";
 
     // --- JSON BLUEPRINTS ---
     // Notice how perfectly these match your Node.js index.js req.body!
