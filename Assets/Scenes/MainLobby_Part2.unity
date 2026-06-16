@@ -1119,7 +1119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce0dc692d9d69d64783e8dc4598dd68b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TempSceneChanger
-  targetSceneName: Cattleya_Part1
+  targetSceneName: Cattleya Part 1
 --- !u!1 &451077709
 GameObject:
   m_ObjectHideFlags: 0

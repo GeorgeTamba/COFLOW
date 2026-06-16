@@ -5,27 +5,6 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/BNG Framework/Scenes/Weapons.unity
-    guid: 2626939ed08e1ec41bee0433a7f068d9
-  - enabled: 0
-    path: Assets/BNG Framework/Scenes/XR Demo.unity
-    guid: a1360534006d3f845bc79b46b93cfec5
-  - enabled: 0
-    path: Assets/BNG Framework/Scenes/Scene Transitioning.unity
-    guid: 9d7c9629abf9c99449e358b0938b47d0
-  - enabled: 0
-    path: Assets/BNG Framework/Scenes/Physics Hands.unity
-    guid: 34a4579517c578e4080d0a6ef2c96294
-  - enabled: 0
-    path: Assets/BNG Framework/Scenes/Rigidbody Player.unity
-    guid: 57fc97c5771a777449aa8bd02514df22
-  - enabled: 0
-    path: Assets/BNG Framework/Scenes/Vehicle Example.unity
-    guid: d96233ee44d985d4fb8dc23a907c06eb
-  - enabled: 0
-    path: Assets/BNG Framework/Scenes/Quest Demo.unity
-    guid: 20abffae0ea5004438fe0e95b6627841
   - enabled: 1
     path: Assets/Scenes/LoginLobby.unity
     guid: 98ffb49ab9bd3d4468b5ccd3820be91f
@@ -45,8 +24,11 @@ EditorBuildSettings:
     path: Assets/Scenes/ThirdFloor.unity
     guid: 983c024fa8caac64f8740afba2748e0c
   - enabled: 1
-    path: Assets/Scenes/Cattleya_Part1.unity
-    guid: 75d63cb2a18dea541beec31e6c1b08f4
+    path: Assets/Scenes/Cattleya Part 1.unity
+    guid: fd0dfe0266cc63e4a87abcb0340cba11
+  - enabled: 1
+    path: Assets/Scenes/Cattleya Part 2.unity
+    guid: 8372f0f847b6ff747a1686e783ea193b
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 69ef7fa30ea842743b1603daae453153,
       type: 2}
