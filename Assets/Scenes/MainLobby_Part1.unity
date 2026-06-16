@@ -2155,7 +2155,7 @@ MonoBehaviour:
   chevronPrefab: {fileID: 3665537277007098595, guid: 2da494787971dcb46b6e1ee34c8cc0d1,
     type: 3}
   chevronSpacing: 1.2
-  heightOffset: -0.1
+  heightOffset: -0.06
   updateInterval: 0
   hideDistance: 1.5
 --- !u!4 &912320652
