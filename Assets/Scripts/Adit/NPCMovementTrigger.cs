@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Events;
@@ -5,27 +6,20 @@ using UnityEngine.Events;
 public class NPCMovementTrigger : MonoBehaviour
 {
     [Header("NPC Components")]
-    [Tooltip("The NavMeshAgent component on the NPC")]
     public NavMeshAgent npcAgent;
-    [Tooltip("The Animator component on the NPC")]
     public Animator npcAnimator;
 
     [Header("Animation States")]
-    [Tooltip("The state name for the walking animation")]
     public string walkAnimationState = "Walk";
-    [Tooltip("The state name for the idle animation when arriving")]
     public string idleAnimationState = "Idle";
 
     [Header("Movement Target")]
-    [Tooltip("Create an empty GameObject at the target location and drag it here")]
     public Transform destinationTarget;
 
     [Header("Player Detection")]
-    [Tooltip("The tag assigned to your VR Player or Controller Collider")]
     public string playerTag = "Player";
 
     [Header("Events (Optional)")]
-    [Tooltip("Actions to trigger exactly when the NPC reaches the destination")]
     public UnityEvent onNPCArrived;
 
     private bool hasTriggered = false;
@@ -33,7 +27,6 @@ public class NPCMovementTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        // Trigger only once when the player enters the collider zone
         if (!hasTriggered && other.CompareTag(playerTag))
         {
             hasTriggered = true;
@@ -45,11 +38,9 @@ public class NPCMovementTrigger : MonoBehaviour
     {
         if (npcAgent != null && destinationTarget != null)
         {
-            // Tell NavMeshAgent to calculate path and move to target
             npcAgent.SetDestination(destinationTarget.position);
             isWalking = true;
 
-            // Transition smoothly to walking animation
             if (npcAnimator != null && !string.IsNullOrEmpty(walkAnimationState))
             {
                 npcAnimator.CrossFade(walkAnimationState, 0.2f);
@@ -59,10 +50,8 @@ public class NPCMovementTrigger : MonoBehaviour
 
     private void Update()
     {
-        // Monitor if the NPC has reached its destination
         if (isWalking && npcAgent != null)
         {
-            // Check if path is calculated and remaining distance is less than stopping threshold
             if (!npcAgent.pathPending && npcAgent.remainingDistance <= npcAgent.stoppingDistance)
             {
                 if (!npcAgent.hasPath || npcAgent.velocity.sqrMagnitude == 0f)
@@ -77,16 +66,53 @@ public class NPCMovementTrigger : MonoBehaviour
     {
         isWalking = false;
 
-        // Transition smoothly back to idle animation
+        // 1. Matikan mesin NavMesh secara total
+        if (npcAgent != null)
+        {
+            npcAgent.isStopped = true;
+            npcAgent.ResetPath();
+        }
+
+        // 2. Putar animasi ke Idle
         if (npcAnimator != null && !string.IsNullOrEmpty(idleAnimationState))
         {
             npcAnimator.CrossFade(idleAnimationState, 0.3f);
         }
 
-        // Trigger any event assigned in the Inspector (e.g., open next dialogue or mission step)
+        // 3. Putar badan menghadap target, baru eksekusi Event
+        if (destinationTarget != null)
+        {
+            StartCoroutine(RotateToFaceTarget(destinationTarget.rotation));
+        }
+        else
+        {
+            onNPCArrived?.Invoke();
+            this.enabled = false;
+        }
+    }
+
+    // Coroutine untuk memutar NPC dengan halus
+    private IEnumerator RotateToFaceTarget(Quaternion targetRotation)
+    {
+        float duration = 0.5f; // Durasi waktu berputar (setengah detik)
+        float elapsed = 0f;
+        Quaternion startRotation = npcAgent.transform.rotation;
+
+        while (elapsed < duration)
+        {
+            // Slerp membuat putaran menjadi sangat mulus
+            npcAgent.transform.rotation = Quaternion.Slerp(startRotation, targetRotation, elapsed / duration);
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        // Pastikan rotasi benar-benar presisi di akhir
+        npcAgent.transform.rotation = targetRotation;
+
+        // Eksekusi event/dialog SETELAH NPC selesai menghadap depan
         onNPCArrived?.Invoke();
 
-        // Disable this script so it doesn't run Update anymore
+        // Matikan skrip
         this.enabled = false;
     }
 }

@@ -22,8 +22,8 @@ public class BedTransitionSequence : MonoBehaviour
     public NavMeshAgent bedAgent;
     public Transform bedMountPoint;
 
-    [Tooltip("Titik lokasi kasur akan MUNCUL setelah layar gelap (misal: lorong depan kamar)")]
-    public Transform bedSpawnPoint; // BARU: Titik spawn kasur
+    [Tooltip("Titik lokasi kasur akan MUNCUL setelah layar gelap")]
+    public Transform bedSpawnPoint;
 
     [Tooltip("Titik tujuan berurutan setelah kasur spawn.")]
     public Transform[] bedDestinations;
@@ -50,6 +50,10 @@ public class BedTransitionSequence : MonoBehaviour
 
     private IEnumerator PlayBedSequence()
     {
+        // 0. KUNCI PERGERAKAN SEJAK DETIK PERTAMA!
+        // Pemain langsung beku seketika saat menyentuh trigger
+        LockPlayerMovement(true);
+
         // 1. Layar Gelap
         if (screenFader != null) screenFader.DoFadeIn();
         yield return new WaitForSeconds(fadeDuration);
@@ -62,22 +66,16 @@ public class BedTransitionSequence : MonoBehaviour
             nextDayTextCanvas.alpha = 0f;
         }
 
-        // 3. Kunci Player dan Pindahkan Kasur & Player (Di Balik Layar Gelap)
-        LockPlayerMovement(true);
-
+        // 3. Pindahkan Kasur & Player (Di Balik Layar Gelap)
         if (bedAgent != null && bedSpawnPoint != null)
         {
-            // Matikan Agent agar kasur bisa di-teleport paksa
             bedAgent.enabled = false;
-
-            // Pindah kasur ke luar kamar
             bedAgent.transform.position = bedSpawnPoint.position;
             bedAgent.transform.rotation = bedSpawnPoint.rotation;
         }
 
         if (bedMountPoint != null)
         {
-            // Pindah player ke atas kasur yang sudah ada di luar kamar
             playerRig.position = bedMountPoint.position;
             playerRig.rotation = bedMountPoint.rotation;
             playerRig.SetParent(bedAgent.transform);
@@ -90,7 +88,7 @@ public class BedTransitionSequence : MonoBehaviour
         // 5. Kasur mulai jalan menyusuri Waypoints
         if (bedAgent != null && bedDestinations.Length > 0)
         {
-            bedAgent.enabled = true; // Nyalakan lagi mesinnya
+            bedAgent.enabled = true;
 
             foreach (Transform target in bedDestinations)
             {
