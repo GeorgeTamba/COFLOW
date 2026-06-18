@@ -50,6 +50,11 @@ public class BedTransitionSequence : MonoBehaviour
     public NavMeshAgent bedAgent;
     public Transform bedMountPoint;
 
+    [Tooltip("Posisi awal kasur saat sequence dimulai (mis. tepat di DEPAN PINTU). " +
+             "Kasur dipindah ke sini selagi layar MASIH GELAP, jadi player langsung muncul di depan pintu, " +
+             "bukan di posisi parkir kasur (di dalam kamar). Kosongkan jika kasur sudah diletakkan di posisi awal yang benar di editor.")]
+    public Transform bedStartPosition;
+
     [Tooltip("Daftar titik halte kasur secara berurutan")]
     public BedWaypoint[] bedWaypoints; // ARRAY MODULAR KITA
 
@@ -113,15 +118,30 @@ public class BedTransitionSequence : MonoBehaviour
             yield return new WaitForSeconds(0.5f);
         }
 
-        // Pindahkan player ke kasur
-        if (bedMountPoint != null)
+        // ============================================================
+        // PENEMPATAN AWAL (LAYAR MASIH GELAP)
+        // ------------------------------------------------------------
+        // Pindahkan kasur ke posisi awal (mis. depan pintu) SEBELUM fade out.
+        // Inilah yang mencegah "mampir ke dalam kamar": reveal hanya terjadi
+        // SEKALI, di tempat kasur yang sudah benar.
+        // ============================================================
+        if (bedAgent != null)
         {
-            playerRig.position = bedMountPoint.position;
-            playerRig.rotation = bedMountPoint.rotation;
-            playerRig.SetParent(bedAgent.transform);
+            bedAgent.enabled = false; // matikan NavMesh agar bisa dipindah manual
+            if (bedStartPosition != null)
+                bedAgent.transform.SetPositionAndRotation(bedStartPosition.position, bedStartPosition.rotation);
         }
 
-        // Layar terang, game dimulai!
+        // Dudukkan player di kasur YANG SUDAH di posisi awal.
+        // CATATAN PENTING: bedMountPoint harus jadi CHILD dari kasur (bedAgent),
+        // supaya posisinya ikut berpindah saat kasur dipindah ke bedStartPosition.
+        if (bedMountPoint != null && playerRig != null)
+        {
+            playerRig.SetParent(bedAgent != null ? bedAgent.transform : null);
+            playerRig.SetPositionAndRotation(bedMountPoint.position, bedMountPoint.rotation);
+        }
+
+        // Reveal SEKALI: layar terang, player sudah di depan pintu di atas kasur.
         if (screenFader != null) screenFader.DoFadeOut();
         yield return new WaitForSeconds(fadeDuration);
 
@@ -140,13 +160,12 @@ public class BedTransitionSequence : MonoBehaviour
 
                 if (bedAgent != null) bedAgent.enabled = false;
 
-                // Pindah posisi
-                bedAgent.transform.position = waypoint.destination.position;
-                bedAgent.transform.rotation = waypoint.destination.rotation;
+                // Pindah posisi kasur (player ikut karena di-parent ke kasur)
+                bedAgent.transform.SetPositionAndRotation(waypoint.destination.position, waypoint.destination.rotation);
 
-                // Samakan kepala player
-                playerRig.position = bedMountPoint.position;
-                playerRig.rotation = bedMountPoint.rotation;
+                // Samakan kepala player ke titik duduk kasur
+                if (bedMountPoint != null && playerRig != null)
+                    playerRig.SetPositionAndRotation(bedMountPoint.position, bedMountPoint.rotation);
 
                 if (screenFader != null) screenFader.DoFadeOut();
                 yield return new WaitForSeconds(fadeDuration);
@@ -157,6 +176,9 @@ public class BedTransitionSequence : MonoBehaviour
                 if (bedAgent != null)
                 {
                     bedAgent.enabled = true;
+                    // Warp agar agent ter-snap rapi ke NavMesh setelah dipindah manual
+                    bedAgent.Warp(bedAgent.transform.position);
+                    bedAgent.isStopped = false;
                     bedAgent.SetDestination(waypoint.destination.position);
 
                     // Tunggu sampai jarak ke halte tersisa sangat dekat

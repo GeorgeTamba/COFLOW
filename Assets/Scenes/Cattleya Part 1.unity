@@ -2763,7 +2763,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &480409381
 Transform:
   m_ObjectHideFlags: 0
@@ -3075,15 +3075,8 @@ MonoBehaviour:
   movementScripts: []
   bedAgent: {fileID: 862304271}
   bedMountPoint: {fileID: 2018892748}
+  bedStartPosition: {fileID: 1367050473}
   bedWaypoints:
-  - waypointName: Transit1
-    destination: {fileID: 480409381}
-    useTeleport: 1
-    onArrived:
-      m_PersistentCalls:
-        m_Calls: []
-    waitForExternalTrigger: 0
-    delayAfterArrive: 0
   - waypointName: Transit2
     destination: {fileID: 250038171}
     useTeleport: 0
