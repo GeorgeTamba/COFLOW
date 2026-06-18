@@ -48,6 +48,7 @@ public class VRIFDialogueSystem : MonoBehaviour
     public float endTransitionDuration = 0.3f;
 
     [Header("End Sequence Actions")]
+    public UnityEvent onDialogueSequenceEnded; 
     [Tooltip("Uncheck this if teleportation is handled by an external event (e.g., a video ending)")]
     public bool autoTeleportOnEnd = true;
 
@@ -152,10 +153,13 @@ public class VRIFDialogueSystem : MonoBehaviour
         // --- TRANSITION BACK TO THE ENDING ANIMATION STATE ---
         if (npcAnimator != null && !string.IsNullOrEmpty(endAnimationStateName))
         {
-            // Smoothly ease the bone positions back to the default state (e.g., arms lowered to Idle)
             npcAnimator.CrossFade(endAnimationStateName, endTransitionDuration);
         }
 
+        // --- PANGGIL EVENT BARU KITA DI SINI ---
+        onDialogueSequenceEnded?.Invoke();
+
+        // (Biarkan kode lama tetap ada di bawahnya)
         if (autoTeleportOnEnd && teleportFadeScript != null)
         {
             teleportFadeScript.OnMissionComplete();
