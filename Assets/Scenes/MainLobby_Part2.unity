@@ -767,6 +767,51 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
+--- !u!1 &317077079
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 317077081}
+  - component: {fileID: 317077080}
+  m_Layer: 0
+  m_Name: Change Scene Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &317077080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 317077079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce0dc692d9d69d64783e8dc4598dd68b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TempSceneChanger
+  targetSceneName: Cattleya Part 1
+--- !u!4 &317077081
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 317077079}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &355482533
 GameObject:
   m_ObjectHideFlags: 0
@@ -2257,6 +2302,18 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
+--- !u!114 &829216878 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4276642494963342732, guid: 4ac7df741a9c0a2418ec19477729ee3d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1476425312}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 829216868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac09bf699d4234448aa42c086c9f964c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &831694816
 GameObject:
   m_ObjectHideFlags: 0
@@ -2359,7 +2416,7 @@ GameObject:
   - component: {fileID: 853425139}
   - component: {fileID: 853425138}
   m_Layer: 0
-  m_Name: Target Registration (1)
+  m_Name: 'Target Registration Nurse '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2392,14 +2449,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1b06e4988608734c96ac2bc66fe2a0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TeleportFade
-  playerController: {fileID: 0}
-  screenFader: {fileID: 0}
+  playerController: {fileID: 1924026642}
+  screenFader: {fileID: 829216878}
   isDialogueMission: 1
-  dialogueSystem: {fileID: 0}
+  dialogueSystem: {fileID: 1108648016}
   useTeleport: 1
   fadeDuration: 1
   lockMovementDuringMission: 1
-  missionTargetPosition: {fileID: 0}
+  missionTargetPosition: {fileID: 1989429235}
   postMissionTargetPosition: {fileID: 0}
   onPostTeleportFinished:
     m_PersistentCalls:
@@ -2900,10 +2957,20 @@ MonoBehaviour:
   typeSpeed: 0.05
   delayBetweenSentences: 0
   dialogueLines:
-  - sentence: Selamat pagi Bapak/Ibu. Saat ini proses pendaftaran untuk persiapan
-      tindakan operasi CABG telah dilakukan. Selanjutnya, Anda akan dijadwalkan untuk
-      pemeriksaan laboratorium, radiologi, dan konsultasi dokter
-    dialogueAudio: {fileID: 8300000, guid: 8463b0ac32efedb47a99b08a2ee182d5, type: 3}
+  - sentence: Anda akan didaftarkan untuk ruang perawatan rawat inap
+    dialogueAudio: {fileID: 8300000, guid: 44a05dab9446b4c44acecc55d9a0ed56, type: 3}
+    animationStateName: NPCDialogue
+    waitForButtonPress: 0
+    hideMainPanelDuringWait: 0
+    onLineStarted:
+      m_PersistentCalls:
+        m_Calls: []
+    onLineFinished:
+      m_PersistentCalls:
+        m_Calls: []
+  - sentence: Setelah mendapatkan Kamar perawatan Anda akan diantar ke ruang rawat
+      inap oleh petugas kami
+    dialogueAudio: {fileID: 8300000, guid: ce546f4526c2c4a40beb77e621e8ba11, type: 3}
     animationStateName: NPCDialogue
     waitForButtonPress: 0
     hideMainPanelDuringWait: 0
@@ -2913,7 +2980,7 @@ MonoBehaviour:
     onLineFinished:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 317077080}
           m_TargetAssemblyTypeName: TempSceneChanger, Assembly-CSharp
           m_MethodName: LoadTargetScene
           m_Mode: 1
@@ -3168,7 +3235,7 @@ GameObject:
   - component: {fileID: 1301797748}
   - component: {fileID: 1301797747}
   m_Layer: 0
-  m_Name: Dialogue Registration Nurse Canvas   (1)
+  m_Name: 'Dialogue Registration Nurse Canvas  '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5894,6 +5961,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 814181318}
   m_LocalEulerAnglesHint: {x: 270, y: 0, z: 0}
+--- !u!114 &1924026642 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8416742705891564269, guid: 4ac7df741a9c0a2418ec19477729ee3d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1476425312}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4688ae0e7d3f7c7498dd85852dfd2622, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1955131136
 GameObject:
   m_ObjectHideFlags: 0
@@ -28994,3 +29073,4 @@ SceneRoots:
   - {fileID: 1743915430}
   - {fileID: 1746951725}
   - {fileID: 65499896}
+  - {fileID: 317077081}
