@@ -875,6 +875,9 @@ MonoBehaviour:
   dialogueTransitionDuration: 0.4
   endAnimationStateName: Idle
   endTransitionDuration: 0.3
+  onDialogueSequenceEnded:
+    m_PersistentCalls:
+      m_Calls: []
   autoTeleportOnEnd: 0
   typeSpeed: 0.065
   delayBetweenSentences: 2
@@ -8994,6 +8997,9 @@ MonoBehaviour:
   dialogueTransitionDuration: 0.4
   endAnimationStateName: Idle
   endTransitionDuration: 0.3
+  onDialogueSequenceEnded:
+    m_PersistentCalls:
+      m_Calls: []
   autoTeleportOnEnd: 0
   typeSpeed: 0.07
   delayBetweenSentences: 2
@@ -10944,6 +10950,9 @@ MonoBehaviour:
   dialogueTransitionDuration: 0.4
   endAnimationStateName: Idle
   endTransitionDuration: 0.3
+  onDialogueSequenceEnded:
+    m_PersistentCalls:
+      m_Calls: []
   autoTeleportOnEnd: 0
   typeSpeed: 0.065
   delayBetweenSentences: 2
@@ -15010,6 +15019,9 @@ MonoBehaviour:
   dialogueTransitionDuration: 0.4
   endAnimationStateName: Idle
   endTransitionDuration: 0.3
+  onDialogueSequenceEnded:
+    m_PersistentCalls:
+      m_Calls: []
   autoTeleportOnEnd: 0
   typeSpeed: 0.065
   delayBetweenSentences: 2
@@ -15939,6 +15951,9 @@ MonoBehaviour:
   dialogueTransitionDuration: 0.4
   endAnimationStateName: Idle
   endTransitionDuration: 0.3
+  onDialogueSequenceEnded:
+    m_PersistentCalls:
+      m_Calls: []
   autoTeleportOnEnd: 1
   typeSpeed: 0.065
   delayBetweenSentences: 2
@@ -17321,6 +17336,9 @@ MonoBehaviour:
   dialogueTransitionDuration: 0.4
   endAnimationStateName: Idle
   endTransitionDuration: 0.3
+  onDialogueSequenceEnded:
+    m_PersistentCalls:
+      m_Calls: []
   autoTeleportOnEnd: 0
   typeSpeed: 0.065
   delayBetweenSentences: 2
@@ -17668,6 +17686,9 @@ MonoBehaviour:
   dialogueTransitionDuration: 0.4
   endAnimationStateName: Idle
   endTransitionDuration: 0.3
+  onDialogueSequenceEnded:
+    m_PersistentCalls:
+      m_Calls: []
   autoTeleportOnEnd: 0
   typeSpeed: 0.065
   delayBetweenSentences: 2
@@ -17930,6 +17951,9 @@ MonoBehaviour:
   dialogueTransitionDuration: 0.4
   endAnimationStateName: Idle
   endTransitionDuration: 0.3
+  onDialogueSequenceEnded:
+    m_PersistentCalls:
+      m_Calls: []
   autoTeleportOnEnd: 0
   typeSpeed: 0.065
   delayBetweenSentences: 2
@@ -18991,6 +19015,9 @@ MonoBehaviour:
   dialogueTransitionDuration: 0.4
   endAnimationStateName: Idle
   endTransitionDuration: 0.3
+  onDialogueSequenceEnded:
+    m_PersistentCalls:
+      m_Calls: []
   autoTeleportOnEnd: 0
   typeSpeed: 0.065
   delayBetweenSentences: 2
@@ -21306,6 +21333,9 @@ MonoBehaviour:
   dialogueTransitionDuration: 0.4
   endAnimationStateName: Idle
   endTransitionDuration: 0.3
+  onDialogueSequenceEnded:
+    m_PersistentCalls:
+      m_Calls: []
   autoTeleportOnEnd: 0
   typeSpeed: 0.065
   delayBetweenSentences: 2

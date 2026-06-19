@@ -126,12 +126,13 @@ public class TeleportFade : MonoBehaviour
     {
         if (screenFader != null) { screenFader.DoFadeIn(); yield return new WaitForSeconds(fadeDuration); }
 
+        // MATIKAN KUNCI POSISI DI SINI, SEBELUM TELEPORT
+        hasMissionStarted = false;
+
         MovePlayer(postMissionTargetPosition, false); // Teleport terjadi di sini
 
         if (screenFader != null) { screenFader.DoFadeOut(); yield return new WaitForSeconds(fadeDuration); }
 
-        // BARU DILEPAS DI SINI: Setelah layar kembali terang dan teleport selesai
-        hasMissionStarted = false;
         onPostTeleportFinished?.Invoke();
     }
 
