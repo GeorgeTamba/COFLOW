@@ -61,6 +61,12 @@ public class BedTransitionSequence : MonoBehaviour
     [Header("Scene Berikutnya")]
     public string nextSceneName;
 
+    // === TAMBAHAN BARU: EVENT OPSIONAL ===
+    [Header("Optional Events")]
+    [Tooltip("Dipanggil tepat setelah layar kembali terang dan pemain sudah berada di atas kasur awal")]
+    public UnityEvent onInitialTeleportComplete;
+    // =====================================
+
     private bool sequenceStarted = false;
     private bool isWaitingForResume = false; // Kunci penahan kasur
 
@@ -144,6 +150,10 @@ public class BedTransitionSequence : MonoBehaviour
         // Reveal SEKALI: layar terang, player sudah di depan pintu di atas kasur.
         if (screenFader != null) screenFader.DoFadeOut();
         yield return new WaitForSeconds(fadeDuration);
+
+        // === TAMBAHAN BARU: PANGGIL EVENT SETELAH REVEAL ===
+        onInitialTeleportComplete?.Invoke();
+        // ===================================================
 
         // ============================================
         // MESIN MODULAR: Eksekusi setiap Halte

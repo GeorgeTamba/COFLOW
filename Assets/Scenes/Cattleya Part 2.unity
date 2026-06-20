@@ -579,6 +579,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1297720723319818612, guid: 61bd7371221094b4db04761f3d4ee7ad,
+        type: 3}
+      propertyPath: questionTextUI
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1671350882355957145, guid: 61bd7371221094b4db04761f3d4ee7ad,
         type: 3}
       propertyPath: m_IsActive
@@ -1358,7 +1363,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Perawat
+  m_text: 'Informasi
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2134,6 +2141,31 @@ PrefabInstance:
       propertyPath: m_StoppingDistance
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 2360109362490121148, guid: e0ae8107cc1800344ab7ea8b6465f434,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -26.59
+      objectReference: {fileID: 0}
+    - target: {fileID: 2360109362490121148, guid: e0ae8107cc1800344ab7ea8b6465f434,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -8.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2360109362490121148, guid: e0ae8107cc1800344ab7ea8b6465f434,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.79335254
+      objectReference: {fileID: 0}
+    - target: {fileID: 2360109362490121148, guid: e0ae8107cc1800344ab7ea8b6465f434,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.6087625
+      objectReference: {fileID: 0}
+    - target: {fileID: 2360109362490121148, guid: e0ae8107cc1800344ab7ea8b6465f434,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -285
+      objectReference: {fileID: 0}
     - target: {fileID: 3215970538553532781, guid: e0ae8107cc1800344ab7ea8b6465f434,
         type: 3}
       propertyPath: m_Name
@@ -2384,10 +2416,25 @@ MonoBehaviour:
     useTeleport: 1
     onArrived:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 1654872918}
+          m_TargetAssemblyTypeName: VRIFDialogueSystem, Assembly-CSharp
+          m_MethodName: StartDialogueSequence
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
     waitForExternalTrigger: 0
     delayAfterArrive: 0
   nextSceneName: 
+  onInitialTeleportComplete:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!65 &405383179
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3686,9 +3733,9 @@ RectTransform:
   - {fileID: 1099244360}
   m_Father: {fileID: 823821768}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 450, y: -85}
   m_SizeDelta: {x: 900, y: 90}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &695710778
@@ -5885,7 +5932,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1261213801
 Transform:
   m_ObjectHideFlags: 0
@@ -7733,8 +7780,8 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1654872914}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -27149.082}
+  m_LocalRotation: {x: -0, y: 0.79335237, z: -0, w: 0.6087627}
+  m_LocalPosition: {x: 0, y: 0, z: -23388}
   m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -7742,10 +7789,10 @@ RectTransform:
   - {fileID: 137801664}
   - {fileID: 1877725425}
   m_Father: {fileID: 70505508}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 105, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 13189.14, y: 1342.8602}
+  m_AnchoredPosition: {x: 18743, y: 1402.9999}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!82 &1654872916
@@ -7880,41 +7927,38 @@ MonoBehaviour:
   onDialogueSequenceEnded:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: BedTransitionSequence, Assembly-CSharp
-        m_MethodName: ResumeSequence
-        m_Mode: 1
+      - m_Target: {fileID: 1261213800}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SmoothDoorTrigger, Assembly-CSharp
-        m_MethodName: ActivateReturnRoute
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
   autoTeleportOnEnd: 1
   typeSpeed: 0.065
   delayBetweenSentences: 2
   dialogueLines:
-  - sentence: Setelah operasi, Anda akan dirawat di ICU untuk pemantauan intensif.
-      Saat ini akan terpasang alat bantu napas, infus, kateter, dan monitor jantung.
-      Meskipun mungkin terlihat banyak, alat-alat tersebut merupakan bagian normal
-      dari perawatan setelah operasi dan berfungsi untuk membantu pemulihan anda.
-      Tim medis akan selalu memantau dan mendampingi anda selama proses ini. Fisioterapis
-      juga akan membantu latihan mobilisasi secara bertahap
-    dialogueAudio: {fileID: 8300000, guid: 1dcdd6b50e2077a478892275bb89f211, type: 3}
+  - sentence: Anda akan diobservasi di ruang rawat inap kurang lebih 3-4 hari
+    dialogueAudio: {fileID: 8300000, guid: cbff81e55c7b300449bfd4c52342fa62, type: 3}
+    animationStateName: 
+    waitForButtonPress: 0
+    hideMainPanelDuringWait: 0
+    onLineStarted:
+      m_PersistentCalls:
+        m_Calls: []
+    onLineFinished:
+      m_PersistentCalls:
+        m_Calls: []
+  - sentence: Selama perawatan, Anda akan mendapatkan edukasi mengenai Manajemen
+      Perawatan Luka, Proteksi tulang dada,aktivitas fisik dan rehabilitasi, Kepatuhan
+      Terapi obat , Manajemen Gizi dan pola makan ,Pemantauan Psikologis dan Tanda
+      Bahaya Darurat ( Red Flags).
+    dialogueAudio: {fileID: 8300000, guid: 6282ae7e58a80214c8d8f798db4f9464, type: 3}
     animationStateName: 
     waitForButtonPress: 0
     hideMainPanelDuringWait: 0
@@ -8577,9 +8621,9 @@ RectTransform:
   - {fileID: 1689101259}
   m_Father: {fileID: 823821768}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 450, y: -45}
   m_SizeDelta: {x: 900, y: 90}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1838743070
@@ -9077,9 +9121,9 @@ RectTransform:
   - {fileID: 1870519120}
   m_Father: {fileID: 823821768}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 450, y: -170}
   m_SizeDelta: {x: 900, y: 90}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1956472804

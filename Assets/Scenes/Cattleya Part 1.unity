@@ -1182,6 +1182,56 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 595081688482409075, guid: e0ae8107cc1800344ab7ea8b6465f434,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 595081688482409075, guid: e0ae8107cc1800344ab7ea8b6465f434,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 595081688482409075, guid: e0ae8107cc1800344ab7ea8b6465f434,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 595081688482409075, guid: e0ae8107cc1800344ab7ea8b6465f434,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 595081688482409075, guid: e0ae8107cc1800344ab7ea8b6465f434,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 857356454514726036, guid: e0ae8107cc1800344ab7ea8b6465f434,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.60876274
+      objectReference: {fileID: 0}
+    - target: {fileID: 857356454514726036, guid: e0ae8107cc1800344ab7ea8b6465f434,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 857356454514726036, guid: e0ae8107cc1800344ab7ea8b6465f434,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7933523
+      objectReference: {fileID: 0}
+    - target: {fileID: 857356454514726036, guid: e0ae8107cc1800344ab7ea8b6465f434,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 857356454514726036, guid: e0ae8107cc1800344ab7ea8b6465f434,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -105
+      objectReference: {fileID: 0}
     - target: {fileID: 1786702295838018843, guid: e0ae8107cc1800344ab7ea8b6465f434,
         type: 3}
       propertyPath: m_StoppingDistance
@@ -1191,6 +1241,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Kasur
+      objectReference: {fileID: 0}
+    - target: {fileID: 3733566731029339926, guid: e0ae8107cc1800344ab7ea8b6465f434,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.60876286
+      objectReference: {fileID: 0}
+    - target: {fileID: 3733566731029339926, guid: e0ae8107cc1800344ab7ea8b6465f434,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3733566731029339926, guid: e0ae8107cc1800344ab7ea8b6465f434,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7933523
+      objectReference: {fileID: 0}
+    - target: {fileID: 3733566731029339926, guid: e0ae8107cc1800344ab7ea8b6465f434,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3733566731029339926, guid: e0ae8107cc1800344ab7ea8b6465f434,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 105
       objectReference: {fileID: 0}
     - target: {fileID: 5265193169582274248, guid: e0ae8107cc1800344ab7ea8b6465f434,
         type: 3}
@@ -3094,6 +3169,9 @@ MonoBehaviour:
     waitForExternalTrigger: 0
     delayAfterArrive: 0
   nextSceneName: ThirdFloor
+  onInitialTeleportComplete:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &526363714
 GameObject:
   m_ObjectHideFlags: 0
