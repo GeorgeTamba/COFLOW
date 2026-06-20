@@ -18315,9 +18315,9 @@ MonoBehaviour:
   teleportFadeScript: {fileID: 442210130}
   audioSource: {fileID: 1334971967}
   npcAnimator: {fileID: 1324185994}
-  dialogueTransitionDuration: 0.4
+  dialogueTransitionDuration: 0.1
   endAnimationStateName: Idle
-  endTransitionDuration: 0.3
+  endTransitionDuration: 0.1
   onDialogueSequenceEnded:
     m_PersistentCalls:
       m_Calls: []
@@ -29741,8 +29741,8 @@ Transform:
   m_GameObject: {fileID: 8956798955420972541}
   serializedVersion: 2
   m_LocalRotation: {x: -0.5000002, y: 0.4999998, z: 0.49999988, w: 0.5000001}
-  m_LocalPosition: {x: -3.21397, y: 0.8169791, z: -37.27393}
-  m_LocalScale: {x: 32.071445, y: 32.071445, z: 32.071445}
+  m_LocalPosition: {x: -3.21397, y: 0.8169791, z: -37.197}
+  m_LocalScale: {x: 50.68571, y: 32.071445, z: 32.071445}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7501654609989697751}
@@ -31791,8 +31791,8 @@ Transform:
   m_GameObject: {fileID: 1383579164261521546}
   serializedVersion: 2
   m_LocalRotation: {x: -0.5000001, y: -0.49999985, z: -0.49999988, w: 0.5000001}
-  m_LocalPosition: {x: -0.6139697, y: 0.8169791, z: -37.27393}
-  m_LocalScale: {x: 32.071445, y: 32.071445, z: 32.071445}
+  m_LocalPosition: {x: -0.6139697, y: 0.8169791, z: -37.197}
+  m_LocalScale: {x: 50.68571, y: 32.071445, z: 32.071445}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7501654609989697751}
