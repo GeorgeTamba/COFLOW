@@ -130,16 +130,32 @@ public class VRIFDialogueSystem : MonoBehaviour
         EndDialogueSequence();
     }
 
-    private IEnumerator TypeSentence(string textToType)
+    // Ganti fungsi atau Coroutine efek ketik kamu yang lama dengan ini HANYA di bagian dalamnya saja:
+    public IEnumerator TypeSentence(string sentence)
     {
-        dialogueTextDisplay.text = "";
-        foreach (char character in textToType.ToCharArray())
+        // 1. Masukkan seluruh teks dari awal
+        dialogueTextDisplay.text = sentence;
+
+        // 2. Sembunyikan semua karakter di awal
+        dialogueTextDisplay.maxVisibleCharacters = 0;
+
+        // 3. Paksa TextMeshPro untuk mengkalkulasi layout/baris seketika itu juga
+        dialogueTextDisplay.ForceMeshUpdate();
+
+        // Dapatkan total huruf yang akan ditampilkan
+        int totalVisibleCharacters = dialogueTextDisplay.textInfo.characterCount;
+        int counter = 0;
+
+        // 4. Munculkan karakter satu per satu menggunakan maxVisibleCharacters
+        while (counter <= totalVisibleCharacters)
         {
-            dialogueTextDisplay.text += character;
+            dialogueTextDisplay.maxVisibleCharacters = counter;
+            counter++;
+
+            // Gunakan variabel 'typeSpeed' LAMA milikmu agar tidak merusak scene lain
             yield return new WaitForSeconds(typeSpeed);
         }
     }
-
     public void ResumeDialogue()
     {
         isWaitingForInput = false;

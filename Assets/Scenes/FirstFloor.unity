@@ -3158,6 +3158,7 @@ MonoBehaviour:
   dialogueTextDisplay: {fileID: 1108962542}
   dialogueUIPanel: {fileID: 370645702}
   teleportFadeScript: {fileID: 407062341}
+  typingSpeed: 0.05
   audioSource: {fileID: 370645704}
   npcAnimator: {fileID: 0}
   dialogueTransitionDuration: 0.4
@@ -3846,6 +3847,7 @@ MonoBehaviour:
   dialogueTextDisplay: {fileID: 119120179}
   dialogueUIPanel: {fileID: 434910651}
   teleportFadeScript: {fileID: 0}
+  typingSpeed: 0.05
   audioSource: {fileID: 370645704}
   npcAnimator: {fileID: 0}
   dialogueTransitionDuration: 0.4
@@ -10473,6 +10475,7 @@ MonoBehaviour:
   dialogueTextDisplay: {fileID: 1107774364}
   dialogueUIPanel: {fileID: 668675644}
   teleportFadeScript: {fileID: 0}
+  typingSpeed: 0.05
   audioSource: {fileID: 668675646}
   npcAnimator: {fileID: 0}
   dialogueTransitionDuration: 0.4
@@ -12747,6 +12750,7 @@ MonoBehaviour:
   dialogueTextDisplay: {fileID: 1628775122}
   dialogueUIPanel: {fileID: 902178618}
   teleportFadeScript: {fileID: 1324198928}
+  typingSpeed: 0.05
   audioSource: {fileID: 902178620}
   npcAnimator: {fileID: 0}
   dialogueTransitionDuration: 0.4
@@ -16362,6 +16366,7 @@ MonoBehaviour:
   dialogueTextDisplay: {fileID: 2078362353}
   dialogueUIPanel: {fileID: 1271439901}
   teleportFadeScript: {fileID: 0}
+  typingSpeed: 0.05
   audioSource: {fileID: 1271439903}
   npcAnimator: {fileID: 0}
   dialogueTransitionDuration: 0.4
@@ -16882,6 +16887,7 @@ MonoBehaviour:
   dialogueTextDisplay: {fileID: 1731979783}
   dialogueUIPanel: {fileID: 1334971965}
   teleportFadeScript: {fileID: 442210130}
+  typingSpeed: 0.05
   audioSource: {fileID: 1334971967}
   npcAnimator: {fileID: 1324185994}
   dialogueTransitionDuration: 0.1
@@ -21600,6 +21606,7 @@ MonoBehaviour:
   dialogueTextDisplay: {fileID: 107284196}
   dialogueUIPanel: {fileID: 1778590421}
   teleportFadeScript: {fileID: 0}
+  typingSpeed: 0.05
   audioSource: {fileID: 1778590423}
   npcAnimator: {fileID: 0}
   dialogueTransitionDuration: 0.4
@@ -22280,6 +22287,7 @@ MonoBehaviour:
   dialogueTextDisplay: {fileID: 508892516}
   dialogueUIPanel: {fileID: 1856619247}
   teleportFadeScript: {fileID: 2110889938}
+  typingSpeed: 0.05
   audioSource: {fileID: 1856619249}
   npcAnimator: {fileID: 249750924143507533}
   dialogueTransitionDuration: 0.4
@@ -23121,6 +23129,7 @@ MonoBehaviour:
   dialogueTextDisplay: {fileID: 1119484582}
   dialogueUIPanel: {fileID: 1928222488}
   teleportFadeScript: {fileID: 0}
+  typingSpeed: 0.05
   audioSource: {fileID: 1928222490}
   npcAnimator: {fileID: 0}
   dialogueTransitionDuration: 0.4
@@ -23703,6 +23712,7 @@ MonoBehaviour:
   dialogueTextDisplay: {fileID: 1266265625}
   dialogueUIPanel: {fileID: 2003071287}
   teleportFadeScript: {fileID: 407062341}
+  typingSpeed: 0.05
   audioSource: {fileID: 2003071289}
   npcAnimator: {fileID: 0}
   dialogueTransitionDuration: 0.4

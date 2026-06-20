@@ -178,7 +178,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Perawat
+  m_text: Informasi
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1543,11 +1543,9 @@ MonoBehaviour:
   typeSpeed: 0.065
   delayBetweenSentences: 2
   dialogueLines:
-  - sentence: Selamat datang, Bapak/Ibu. Saat ini kami akan melakukan pemeriksaan
-      awal di nurse station sebagai bagian dari persiapan tindakan operasi CABG.
-      Kami akan melakukan pemeriksaan tekanan darah, nadi, pernapasan dan suhu tubuh
-      untuk memantau kondisi kesehatan anda saat ini
-    dialogueAudio: {fileID: 8300000, guid: ce7417f46a337f14a9e776068f92094e, type: 3}
+  - sentence: Setengah jam sebelum operasi ditentukan Anda akan diantar ke ruang
+      operasi
+    dialogueAudio: {fileID: 8300000, guid: 28cfbb371d78562408d7f8f29935b415, type: 3}
     animationStateName: NPCDialogue
     waitForButtonPress: 0
     hideMainPanelDuringWait: 1
@@ -1557,81 +1555,6 @@ MonoBehaviour:
     onLineFinished:
       m_PersistentCalls:
         m_Calls: []
-  - sentence: Setelah pemeriksaan, kami akan memberikan edukasi terkait persiapan
-      dan perawatan, serta melakukan pengecekan obat yang sedang dikonsumsi anda
-      untuk memastikan keamanan selama perawatan
-    dialogueAudio: {fileID: 8300000, guid: 8379cb0a3f3e7cc4caa59eef13e4fdb3, type: 3}
-    animationStateName: Idle
-    waitForButtonPress: 0
-    hideMainPanelDuringWait: 1
-    onLineStarted:
-      m_PersistentCalls:
-        m_Calls: []
-    onLineFinished:
-      m_PersistentCalls:
-        m_Calls: []
-  - sentence: Anda harus berhenti meminum obat pengencer 7 hari sebelum tindakan
-      operasi, apabila ada obat herbal atau obat cina yang berdampak terhadap risiko
-      perdarahan maka wajib info ke dokter atau perawat. Perawat akan membantu mengatur
-      pengingat penghentian obat di handphone Anda
-    dialogueAudio: {fileID: 8300000, guid: ffb2b0d149b769b40b54aa5dd325c4df, type: 3}
-    animationStateName: NPCDialogue
-    waitForButtonPress: 0
-    hideMainPanelDuringWait: 1
-    onLineStarted:
-      m_PersistentCalls:
-        m_Calls: []
-    onLineFinished:
-      m_PersistentCalls:
-        m_Calls: []
-  - sentence: Apakah obat pengencer darah yang anda minum ada didalam daftar obat
-      berikut? Jika ada silahkan di ceklis
-    dialogueAudio: {fileID: 8300000, guid: 1a072dd84d2be4b42a6914d5087bad35, type: 3}
-    animationStateName: Idle
-    waitForButtonPress: 1
-    hideMainPanelDuringWait: 1
-    onLineStarted:
-      m_PersistentCalls:
-        m_Calls: []
-    onLineFinished:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: VRPanelController, Assembly-CSharp
-          m_MethodName: ShowPanel
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 2
-  - sentence: Selanjutnya, anda akan mengikuti anxiety test untuk mengetahui kondisi
-      psikologis sebelum tindakan
-    dialogueAudio: {fileID: 8300000, guid: 0e4d02d2747c00b498fac7b7165a1cd2, type: 3}
-    animationStateName: Idle
-    waitForButtonPress: 1
-    hideMainPanelDuringWait: 1
-    onLineStarted:
-      m_PersistentCalls:
-        m_Calls: []
-    onLineFinished:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: VRPanelController, Assembly-CSharp
-          m_MethodName: ShowPanel
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 2
 --- !u!114 &251060478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3171,7 +3094,19 @@ MonoBehaviour:
   nextSceneName: ThirdFloor
   onInitialTeleportComplete:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 251060477}
+        m_TargetAssemblyTypeName: VRIFDialogueSystem, Assembly-CSharp
+        m_MethodName: StartDialogueSequence
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &526363714
 GameObject:
   m_ObjectHideFlags: 0
@@ -3590,7 +3525,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &660956375
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3598,17 +3533,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 660956374}
-  m_LocalRotation: {x: -0, y: -0.70710576, z: -0, w: 0.7071079}
-  m_LocalPosition: {x: 0, y: 0, z: -38.68428}
-  m_LocalScale: {x: 0.0020000003, y: 0.0019999999, z: 0.0020000003}
+  m_LocalRotation: {x: -0, y: 0.9914446, z: -0, w: 0.13052888}
+  m_LocalPosition: {x: 0, y: 0, z: 4.02}
+  m_LocalScale: {x: 0.003983626, y: 0.003983625, z: 0.003983626}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 251060474}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+  m_Father: {fileID: 862304270}
+  m_LocalEulerAnglesHint: {x: 0, y: 165, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -1.1985189, y: 1.8011}
+  m_AnchoredPosition: {x: 1.5911884, y: 3.617}
   m_SizeDelta: {x: 1004.6729, y: 834.6514}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!225 &660956376
@@ -4231,6 +4166,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1698213091}
+  - {fileID: 660956375}
   m_Father: {fileID: 1191751546}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!195 &862304271
@@ -9817,7 +9753,6 @@ SceneRoots:
   - {fileID: 101388231}
   - {fileID: 1176100798}
   - {fileID: 1321616475}
-  - {fileID: 660956375}
   - {fileID: 1339687064}
   - {fileID: 1490058424}
   - {fileID: 761193021}
