@@ -20,7 +20,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: f605bfec04d183d488708af00ccba7f3, type: 2}
+  m_Motion: {fileID: 7400000, guid: 977f8ec9019a66443bdd04072a659ebc, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -32,7 +32,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: NPCDialogue
+  m_Name: NPCDialogueDocter
   serializedVersion: 5
   m_AnimatorParameters: []
   m_AnimatorLayers:
@@ -62,7 +62,7 @@ AnimatorStateMachine:
     m_Position: {x: 450, y: 150, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 7956913145768083391}
-    m_Position: {x: 440, y: 290, z: 0}
+    m_Position: {x: 450, y: 290, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 4984992857900827145}
     m_Position: {x: 80, y: 270, z: 0}
@@ -96,7 +96,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 796a5a84d1b131f41ae53aa68f67a1ee, type: 2}
+  m_Motion: {fileID: 7400000, guid: 5afd9d84e97530f41ba3c7ae9b120bc4, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -145,7 +145,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: bce53e2ea7c530d41a93a43f3a299c52, type: 2}
+  m_Motion: {fileID: 7400000, guid: 54d4c31d966233b49a3970e2e5207b96, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
