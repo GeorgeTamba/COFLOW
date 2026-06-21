@@ -79,22 +79,23 @@ public class VRIFDialogueSystem : MonoBehaviour
 
     public void StartDialogueSequence()
     {
+        // PERBAIKAN: Nyalakan UI PERTAMA KALI agar script aktif (jika menempel pada objek yang mati)
+        // Dengan begini, StartCoroutine tidak akan diabaikan oleh Unity.
+        ToggleUI(true);
+
         // Call the main Coroutine to handle the sequence (Unfold -> Delay -> Start Text)
         StartCoroutine(HandleDialogueStartDelay());
     }
 
     private IEnumerator HandleDialogueStartDelay()
     {
-        // 1. Turn on UI first so the panel object is active and the animation is visible
-        ToggleUI(true);
-
-        // 2. Run the unfold animation and WAIT until it is completely finished
+        // 1. Run the unfold animation and WAIT until it is completely finished
         yield return StartCoroutine(UnfoldPanel());
 
-        // 3. Delay for 1 second before starting the text (adjust this value if needed)
-        yield return new WaitForSeconds(0.3f);
+        // 2. Delay for 1 second before starting the text (adjust this value if needed)
+        yield return new WaitForSeconds(1f);
 
-        // 4. Run the dialogue sequence
+        // 3. Run the dialogue sequence
         StartCoroutine(PlayDialogueSequence());
     }
 
