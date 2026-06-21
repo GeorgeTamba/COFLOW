@@ -46,80 +46,62 @@ public class TeleportFade : MonoBehaviour
         triggerCollider = GetComponent<Collider>();
     }
 
-    private void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        // Hanya tahan posisi jika misi berjalan, pergerakan dikunci, ADA target posisi, DAN menggunakan fitur teleport
-        if (hasMissionStarted && lockMovementDuringMission && missionTargetPosition != null && useTeleport)
+        if (hasMissionStarted) return; // Cegah trigger ganda
+
+        if (other.CompareTag("Player"))
         {
-            if (playerController != null)
-            {
-                // TETAP KUNCI POSISI (termasuk height/sumbu Y agar tidak jatuh/melayang)
-                playerController.transform.position = missionTargetPosition.position;
-            }
+            hasMissionStarted = true;
+            if (triggerCollider != null) triggerCollider.enabled = false;
+
+            StartCoroutine(ExecuteMissionSequence());
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private IEnumerator ExecuteMissionSequence()
     {
-        if (hasMissionStarted) return;
-        BNGPlayerController player = other.GetComponentInParent<BNGPlayerController>();
-        if (player != null && player == playerController) StartMissionSequence();
-    }
+        // 1. Kunci pergerakan pemain jika diaktifkan
+        if (lockMovementDuringMission) SetMovementEnabled(false);
 
-    public void OnMissionStart()
-    {
-        if (hasMissionStarted) return;
-        StartMissionSequence();
-    }
-
-    private void StartMissionSequence()
-    {
-        hasMissionStarted = true;
-        if (triggerCollider != null) triggerCollider.enabled = false;
-
-        // MODIFIKASI: Cek apakah missionTargetPosition tidak kosong
+        // 2. Jika ini adalah area yang butuh teleport awal (seperti masuk ruangan), jalankan teleport
         if (useTeleport && missionTargetPosition != null)
         {
-            // Mode Normal: Pindah tempat dan layar gelap
-            StartCoroutine(ExecuteTeleport(missionTargetPosition, lockMovementDuringMission, isDialogueMission));
+            if (screenFader != null) { screenFader.DoFadeIn(); yield return new WaitForSeconds(fadeDuration); }
+
+            MovePlayer(missionTargetPosition, lockMovementDuringMission);
+
+            // [PERBAIKAN]: Beri waktu tunggu 1 frame agar posisi & rotasi Headset VR terkalibrasi dengan benar!
+            yield return null;
+
+            if (screenFader != null) { screenFader.DoFadeOut(); yield return new WaitForSeconds(fadeDuration); }
+        }
+
+        // 3. Jalankan dialog (jika ada)
+        if (isDialogueMission && dialogueSystem != null)
+        {
+            dialogueSystem.StartDialogueSequence();
         }
         else
         {
-            // Mode Tanpa Teleport Awal: Kunci pergerakan dan langsung putar dialog (tanpa fade)
-            SetMovementEnabled(!lockMovementDuringMission);
-            if (isDialogueMission && dialogueSystem != null)
-            {
-                dialogueSystem.StartDialogueSequence();
-            }
+            // Jika tidak ada dialog, langsung anggap misi selesai
+            OnMissionComplete();
         }
     }
 
+    // Fungsi ini dipanggil dari luar (misal oleh VRIFDialogueSystem saat dialog usai atau dari video player)
     public void OnMissionComplete()
     {
-        // JANGAN set hasMissionStarted = false di sini dulu! Biarkan terkunci.
-
-        // Cek apakah postMissionTargetPosition tidak kosong
-        if (useTeleport && postMissionTargetPosition != null)
+        if (postMissionTargetPosition != null)
         {
-            // Mode Normal: Teleport setelah misi selesai dengan fade
             StartCoroutine(ExecutePostMissionTeleport());
         }
         else
         {
-            // Mode Tanpa Post-Teleport: Buka pergerakan dan langsung tembak event estafet
-            hasMissionStarted = false;
+            // Buka kunci pergerakan jika tidak ada teleportasi lanjutan
             SetMovementEnabled(true);
-            onPostTeleportFinished?.Invoke();
+            hasMissionStarted = false;
         }
-    }
-
-    // --- COROUTINE UNTUK MODE TELEPORT ---
-    private IEnumerator ExecuteTeleport(Transform targetPos, bool lockMovement, bool startDialogue)
-    {
-        if (screenFader != null) { screenFader.DoFadeIn(); yield return new WaitForSeconds(fadeDuration); }
-        MovePlayer(targetPos, lockMovement);
-        if (screenFader != null) { screenFader.DoFadeOut(); yield return new WaitForSeconds(fadeDuration); }
-        if (startDialogue && dialogueSystem != null) dialogueSystem.StartDialogueSequence();
     }
 
     private IEnumerator ExecutePostMissionTeleport()
@@ -130,6 +112,9 @@ public class TeleportFade : MonoBehaviour
         hasMissionStarted = false;
 
         MovePlayer(postMissionTargetPosition, false); // Teleport terjadi di sini
+
+        // [PERBAIKAN]: Beri waktu tunggu 1 frame agar posisi & rotasi Headset VR terkalibrasi dengan benar!
+        yield return null;
 
         if (screenFader != null) { screenFader.DoFadeOut(); yield return new WaitForSeconds(fadeDuration); }
 
@@ -142,11 +127,14 @@ public class TeleportFade : MonoBehaviour
         if (playerController != null && targetPos != null)
         {
             CharacterController cc = playerController.GetComponent<CharacterController>();
+            // Matikan CharacterController SESAAT SEBELUM PINDAH agar tidak bertabrakan (bug mental)
             if (cc != null) cc.enabled = false;
 
             playerController.transform.position = targetPos.position;
             playerController.transform.rotation = targetPos.rotation;
         }
+
+        // Nyalakan kembali berdasarkan penguncian yang diinginkan
         SetMovementEnabled(!lockMovement);
     }
 

@@ -27,7 +27,10 @@ public class PathfinderDestination : MonoBehaviour
                 GetComponent<Collider>().enabled = false;
             }
 
-            dialogPanel.SetActive(true);
+            if (dialogPanel != null)
+            {
+                dialogPanel.SetActive(true);
+            }
         }
     }
 }
