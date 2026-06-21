@@ -58,6 +58,10 @@ public class BedTransitionSequence : MonoBehaviour
     [Tooltip("Daftar titik halte kasur secara berurutan")]
     public BedWaypoint[] bedWaypoints; // ARRAY MODULAR KITA
 
+    [Header("Audio Kasur")]
+    [Tooltip("Masukkan komponen AudioSource yang berisi suara roda kasur.")]
+    public AudioSource bedMovementAudio;
+
     [Header("Scene Berikutnya")]
     public string nextSceneName;
 
@@ -74,6 +78,14 @@ public class BedTransitionSequence : MonoBehaviour
     {
         if (nextDayTextCanvas != null) nextDayTextCanvas.alpha = 0f;
         if (bedAgent != null) bedAgent.enabled = false;
+
+        // --- PENGATURAN OTOMATIS AUDIO ---
+        if (bedMovementAudio != null)
+        {
+            bedMovementAudio.loop = true; // Memaksa audio 8 detikmu me-looping terus
+            bedMovementAudio.playOnAwake = false; // Mencegah suara bocor di awal scene
+        }
+        // ----------------------------------
 
         // MODE SCENE BARU: Langsung eksekusi tanpa trigger
         if (autoStartOnAwake)
@@ -127,10 +139,6 @@ public class BedTransitionSequence : MonoBehaviour
         // ============================================================
         // PENEMPATAN AWAL (LAYAR MASIH GELAP)
         // ------------------------------------------------------------
-        // Pindahkan kasur ke posisi awal (mis. depan pintu) SEBELUM fade out.
-        // Inilah yang mencegah "mampir ke dalam kamar": reveal hanya terjadi
-        // SEKALI, di tempat kasur yang sudah benar.
-        // ============================================================
         if (bedAgent != null)
         {
             bedAgent.enabled = false; // matikan NavMesh agar bisa dipindah manual
@@ -139,8 +147,6 @@ public class BedTransitionSequence : MonoBehaviour
         }
 
         // Dudukkan player di kasur YANG SUDAH di posisi awal.
-        // CATATAN PENTING: bedMountPoint harus jadi CHILD dari kasur (bedAgent),
-        // supaya posisinya ikut berpindah saat kasur dipindah ke bedStartPosition.
         if (bedMountPoint != null && playerRig != null)
         {
             playerRig.SetParent(bedAgent != null ? bedAgent.transform : null);
@@ -151,9 +157,8 @@ public class BedTransitionSequence : MonoBehaviour
         if (screenFader != null) screenFader.DoFadeOut();
         yield return new WaitForSeconds(fadeDuration);
 
-        // === TAMBAHAN BARU: PANGGIL EVENT SETELAH REVEAL ===
+        // PANGGIL EVENT SETELAH REVEAL
         onInitialTeleportComplete?.Invoke();
-        // ===================================================
 
         // ============================================
         // MESIN MODULAR: Eksekusi setiap Halte
@@ -191,6 +196,12 @@ public class BedTransitionSequence : MonoBehaviour
                     bedAgent.isStopped = false;
                     bedAgent.SetDestination(waypoint.destination.position);
 
+                    // --- NYALAKAN SUARA RODA KASUR (Looping akan bekerja otomatis) ---
+                    if (bedMovementAudio != null && !bedMovementAudio.isPlaying)
+                    {
+                        bedMovementAudio.Play();
+                    }
+
                     // Tunggu sampai jarak ke halte tersisa sangat dekat
                     while (bedAgent.pathPending || bedAgent.remainingDistance > 0.1f)
                     {
@@ -201,6 +212,12 @@ public class BedTransitionSequence : MonoBehaviour
                     bedAgent.isStopped = true;
                     bedAgent.ResetPath();
                     bedAgent.enabled = false;
+
+                    // --- MATIKAN SUARA RODA KASUR (Begitu kasur berhenti, audio ikut mati) ---
+                    if (bedMovementAudio != null && bedMovementAudio.isPlaying)
+                    {
+                        bedMovementAudio.Stop();
+                    }
                 }
             }
 
