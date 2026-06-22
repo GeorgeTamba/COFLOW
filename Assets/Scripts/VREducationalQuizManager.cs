@@ -20,6 +20,7 @@ public class VREducationalQuizManager : MonoBehaviour
     public GameObject prevButton;
     public GameObject nextButton;
     public GameObject submitButton;
+    public GameObject finishButton;
 
     // --- UPGRADE: Added correctAnswerIndex to grade the quiz! ---
     [System.Serializable]
@@ -101,8 +102,9 @@ public class VREducationalQuizManager : MonoBehaviour
 
         Debug.Log($"<color=green>QUIZ GRADED!</color> They got {totalCorrect}/{questions.Length} correct. Final Scaled Score: {SessionDataStore.quizScore}/10 saved to Backpack.");
 
-        // Disable UI 
+        //UI Actions 
         completeText.text = "Tes Penilaian Slesai";
+        finishButton.SetActive(true);
         completeText.gameObject.SetActive(true);
         questionTextUI.gameObject.SetActive(false);
         submitButton.SetActive(false);
