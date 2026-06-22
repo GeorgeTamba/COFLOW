@@ -6868,7 +6868,7 @@ PrefabInstance:
     - target: {fileID: 3719865058671406942, guid: 4ac7df741a9c0a2418ec19477729ee3d,
         type: 3}
       propertyPath: MovementSpeed
-      value: 7
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8615817035249217871, guid: 4ac7df741a9c0a2418ec19477729ee3d,
         type: 3}
@@ -9132,7 +9132,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 42d83ebc987f7304288a58a86ccf3e09, type: 3}
+  m_Resource: {fileID: 8300000, guid: 08ddfa2a1513ca241b73346ec892379c, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

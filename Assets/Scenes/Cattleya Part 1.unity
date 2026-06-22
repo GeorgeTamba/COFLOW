@@ -1313,6 +1313,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 674065444697966228, guid: e0ae8107cc1800344ab7ea8b6465f434,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 88.79029
+      objectReference: {fileID: 0}
+    - target: {fileID: 674065444697966228, guid: e0ae8107cc1800344ab7ea8b6465f434,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 7.393982
+      objectReference: {fileID: 0}
+    - target: {fileID: 674065444697966228, guid: e0ae8107cc1800344ab7ea8b6465f434,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 272.99167
+      objectReference: {fileID: 0}
+    - target: {fileID: 674065444697966228, guid: e0ae8107cc1800344ab7ea8b6465f434,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 17.98
+      objectReference: {fileID: 0}
     - target: {fileID: 857356454514726036, guid: e0ae8107cc1800344ab7ea8b6465f434,
         type: 3}
       propertyPath: m_LocalRotation.w
@@ -1337,6 +1357,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: -105
+      objectReference: {fileID: 0}
+    - target: {fileID: 1178101548562669397, guid: e0ae8107cc1800344ab7ea8b6465f434,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 134.63548
+      objectReference: {fileID: 0}
+    - target: {fileID: 1178101548562669397, guid: e0ae8107cc1800344ab7ea8b6465f434,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 28.688467
+      objectReference: {fileID: 0}
+    - target: {fileID: 1178101548562669397, guid: e0ae8107cc1800344ab7ea8b6465f434,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 38.51267
+      objectReference: {fileID: 0}
+    - target: {fileID: 1178101548562669397, guid: e0ae8107cc1800344ab7ea8b6465f434,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 8.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1178101548562669397, guid: e0ae8107cc1800344ab7ea8b6465f434,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 28.94
+      objectReference: {fileID: 0}
+    - target: {fileID: 1786702295838018843, guid: e0ae8107cc1800344ab7ea8b6465f434,
+        type: 3}
+      propertyPath: m_Speed
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1786702295838018843, guid: e0ae8107cc1800344ab7ea8b6465f434,
         type: 3}
@@ -1427,6 +1477,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7483592180456119566, guid: e0ae8107cc1800344ab7ea8b6465f434,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 88.79029
+      objectReference: {fileID: 0}
+    - target: {fileID: 7483592180456119566, guid: e0ae8107cc1800344ab7ea8b6465f434,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 7.393982
+      objectReference: {fileID: 0}
+    - target: {fileID: 7483592180456119566, guid: e0ae8107cc1800344ab7ea8b6465f434,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 272.99167
+      objectReference: {fileID: 0}
+    - target: {fileID: 7483592180456119566, guid: e0ae8107cc1800344ab7ea8b6465f434,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 17.98
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -1788,6 +1858,7 @@ MonoBehaviour:
   prevButton: {fileID: 348529779}
   nextButton: {fileID: 1065481066}
   submitButton: {fileID: 526363714}
+  finishButton: {fileID: 0}
   questions:
   - questionText: 1. Apakah Anda mengetahui tujuan utama dari tindakan operasi CABG?
     options:
@@ -2884,7 +2955,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 42d83ebc987f7304288a58a86ccf3e09, type: 3}
+  m_Resource: {fileID: 8300000, guid: 08ddfa2a1513ca241b73346ec892379c, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -4858,7 +4929,7 @@ Transform:
   m_GameObject: {fileID: 862304269}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -40.827988, y: 1.81, z: 23.76}
+  m_LocalPosition: {x: -40.827988, y: 1.99, z: 23.76}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6759,7 +6830,7 @@ PrefabInstance:
     - target: {fileID: 3719865058671406942, guid: 4ac7df741a9c0a2418ec19477729ee3d,
         type: 3}
       propertyPath: MovementSpeed
-      value: 7
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8615817035249217871, guid: 4ac7df741a9c0a2418ec19477729ee3d,
         type: 3}
