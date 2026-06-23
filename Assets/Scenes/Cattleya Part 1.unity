@@ -5397,7 +5397,7 @@ MonoBehaviour:
     triggerZone: {fileID: 13593028}
     animationSpeed: 1
     requiresManualActivation: 0
-    oneTimeUseOnly: 1
+    oneTimeUseOnly: 0
     doorPanels:
     - panelTransform: {fileID: 1108232515}
       axis: 1
