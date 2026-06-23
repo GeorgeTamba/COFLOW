@@ -2495,6 +2495,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Kasur
       objectReference: {fileID: 0}
+    - target: {fileID: 4552509883004134721, guid: e0ae8107cc1800344ab7ea8b6465f434,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 5.4245577
+      objectReference: {fileID: 0}
+    - target: {fileID: 4552509883004134721, guid: e0ae8107cc1800344ab7ea8b6465f434,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 5.4245577
+      objectReference: {fileID: 0}
+    - target: {fileID: 4552509883004134721, guid: e0ae8107cc1800344ab7ea8b6465f434,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 5.4245577
+      objectReference: {fileID: 0}
+    - target: {fileID: 4552509883004134721, guid: e0ae8107cc1800344ab7ea8b6465f434,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.8099995
+      objectReference: {fileID: 0}
     - target: {fileID: 5265193169582274248, guid: e0ae8107cc1800344ab7ea8b6465f434,
         type: 3}
       propertyPath: m_Name
@@ -2574,6 +2594,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9147904276069691158, guid: e0ae8107cc1800344ab7ea8b6465f434,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 5.4245577
+      objectReference: {fileID: 0}
+    - target: {fileID: 9147904276069691158, guid: e0ae8107cc1800344ab7ea8b6465f434,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 5.4245577
+      objectReference: {fileID: 0}
+    - target: {fileID: 9147904276069691158, guid: e0ae8107cc1800344ab7ea8b6465f434,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 5.4245577
+      objectReference: {fileID: 0}
+    - target: {fileID: 9147904276069691158, guid: e0ae8107cc1800344ab7ea8b6465f434,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.81
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
