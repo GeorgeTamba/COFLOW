@@ -50,6 +50,7 @@ public class CustomKeypad : MonoBehaviour
         if (currentInput.Length > 0)
         {
             Debug.Log("Sending code from Keypad: " + currentInput);
+            displayField.text = "";
             numLineText.text = "";
             validatingText.SetActive(true);
 
