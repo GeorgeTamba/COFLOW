@@ -6445,7 +6445,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 773461889}
-  - {fileID: 1301797746}
   m_Father: {fileID: 829216869}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &480895590
@@ -7822,7 +7821,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   autoTeleportOnEnd: 1
-  typeSpeed: 0.08
+  typeSpeed: 0.07
   delayBetweenSentences: 1
   dialogueLines:
   - sentence: 'Pada H-1 operasi, Anda datang untuk pendaftaran rawat inap dengan
@@ -11461,7 +11460,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -189}
+  m_AnchoredPosition: {x: 0, y: -154}
   m_SizeDelta: {x: 1000, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &750024451
@@ -11964,17 +11963,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 773461888}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: -17.975}
+  m_LocalRotation: {x: -0, y: 0.99144495, z: -0, w: -0.13052598}
+  m_LocalPosition: {x: 0, y: 0, z: -18.43}
   m_LocalScale: {x: 0.002, y: 0.002, z: 0.002}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 573164473}
   m_Father: {fileID: 479110844}
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 195, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -10.994, y: 1.7569}
+  m_AnchoredPosition: {x: -9.649, y: 1.7569}
   m_SizeDelta: {x: 1000, y: 574.9227}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &773461890
@@ -12038,7 +12037,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!1 &777953793
 GameObject:
@@ -12326,6 +12325,38 @@ Transform:
   m_Children:
   - {fileID: 1823383965}
   m_Father: {fileID: 222403859}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &793389092
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 793389093}
+  m_Layer: 0
+  m_Name: Canvas (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &793389093
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 793389092}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: 0, w: 1}
+  m_LocalPosition: {x: 16.38351, y: 0, z: -18.77407}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1301797746}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &800933688
 GameObject:
@@ -16275,7 +16306,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   autoTeleportOnEnd: 1
-  typeSpeed: 0.05
+  typeSpeed: 0.07
   delayBetweenSentences: 2
   dialogueLines:
   - sentence: Anda akan didaftarkan untuk ruang perawatan rawat inap
@@ -18822,16 +18853,16 @@ RectTransform:
   m_GameObject: {fileID: 1301797745}
   m_LocalRotation: {x: -0, y: -0.13052638, z: -0, w: 0.9914448}
   m_LocalPosition: {x: 0, y: 0, z: -1.6790009}
-  m_LocalScale: {x: 0.0020000003, y: 0.002, z: 0.0020000003}
+  m_LocalScale: {x: 0.0020000006, y: 0.002, z: 0.0020000006}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1108648014}
-  m_Father: {fileID: 479110844}
+  m_Father: {fileID: 793389093}
   m_LocalEulerAnglesHint: {x: 0, y: -15, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 3.273, y: 2.087}
-  m_SizeDelta: {x: 700, y: 205.2772}
+  m_AnchoredPosition: {x: 3.273, y: 2.0289}
+  m_SizeDelta: {x: 700, y: 263.4068}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1301797747
 MonoBehaviour:
@@ -18894,7 +18925,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!1 &1310046900
 GameObject:
@@ -20612,7 +20643,7 @@ PrefabInstance:
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 2683195716758988412, guid: 4ac7df741a9c0a2418ec19477729ee3d,
         type: 3}
-      insertIndex: -1
+      insertIndex: 0
       addedObject: {fileID: 479110844}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2683195716758895194, guid: 4ac7df741a9c0a2418ec19477729ee3d,
@@ -52024,6 +52055,7 @@ SceneRoots:
   - {fileID: 1524309841}
   - {fileID: 563131935}
   - {fileID: 287772782}
+  - {fileID: 793389093}
   - {fileID: 7736237053624664129}
   - {fileID: 912320652}
   - {fileID: 1743915430}

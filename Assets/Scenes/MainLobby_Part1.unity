@@ -1508,7 +1508,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   autoTeleportOnEnd: 1
-  typeSpeed: 0.05
+  typeSpeed: 0.07
   delayBetweenSentences: 2
   dialogueLines:
   - sentence: Selamat pagi Bapak/Ibu. Saat ini proses pendaftaran untuk persiapan
@@ -6192,7 +6192,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1037652041}
-  - {fileID: 1893482512}
   - {fileID: 1854940624}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6448,7 +6447,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1774523045}
-  - {fileID: 1294658159}
   - {fileID: 717526127}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7142,6 +7140,38 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 730300164}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &530919841
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 530919842}
+  m_Layer: 0
+  m_Name: Canvas (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &530919842
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 530919841}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
+  m_LocalPosition: {x: -18.38351, y: -1.7, z: 16.064072}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1893482512}
+  m_Father: {fileID: 829216869}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &534013912
 GameObject:
@@ -8898,7 +8928,7 @@ Transform:
   m_GameObject: {fileID: 717526126}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 18.71, y: 0, z: -18.33}
+  m_LocalPosition: {x: 16.176, y: 0, z: -17.166}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8923,7 +8953,7 @@ MonoBehaviour:
   useTeleport: 1
   fadeDuration: 1
   lockMovementDuringMission: 1
-  missionTargetPosition: {fileID: 0}
+  missionTargetPosition: {fileID: 1927466281}
   postMissionTargetPosition: {fileID: 0}
   onPostTeleportFinished:
     m_PersistentCalls:
@@ -10778,7 +10808,7 @@ MonoBehaviour:
   dialogueTextDisplay: {fileID: 79599884}
   dialogueUIPanel: {fileID: 829052173}
   unfoldDuration: 0.3
-  teleportFadeScript: {fileID: 1294658157}
+  teleportFadeScript: {fileID: 0}
   audioSource: {fileID: 829052177}
   npcAnimator: {fileID: 0}
   dialogueTransitionDuration: 0.4
@@ -10788,7 +10818,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   autoTeleportOnEnd: 1
-  typeSpeed: 0.05
+  typeSpeed: 0.07
   delayBetweenSentences: 2
   dialogueLines:
   - sentence: Anda menuju ke bagian Administrasi untuk penjadwalan pemeriksaan laboratorium,
@@ -13662,8 +13692,8 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1037652040}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 14.056}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 14.055999}
   m_LocalScale: {x: 0.002, y: 0.002, z: 0.002}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -17087,84 +17117,6 @@ Transform:
   - {fileID: 1012073207}
   m_Father: {fileID: 961744577}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1294658156
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1294658159}
-  - component: {fileID: 1294658158}
-  - component: {fileID: 1294658157}
-  m_Layer: 0
-  m_Name: 'Trigger Registration '
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1294658157
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1294658156}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1b06e4988608734c96ac2bc66fe2a0e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TeleportFade
-  playerController: {fileID: 0}
-  screenFader: {fileID: 0}
-  isDialogueMission: 1
-  dialogueSystem: {fileID: 829052178}
-  useTeleport: 1
-  fadeDuration: 1
-  lockMovementDuringMission: 0
-  missionTargetPosition: {fileID: 0}
-  postMissionTargetPosition: {fileID: 1927466281}
-  onPostTeleportFinished:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!65 &1294658158
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1294658156}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 2.879505, z: 1}
-  m_Center: {x: 0, y: 0.9397527, z: 0}
---- !u!4 &1294658159
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1294658156}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 16.22, y: 0.307, z: -17.4}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 489987096}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1294680052
 GameObject:
   m_ObjectHideFlags: 0
@@ -19959,7 +19911,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 2683195716758988412, guid: 4ac7df741a9c0a2418ec19477729ee3d,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 530919842}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2683195716758895194, guid: 4ac7df741a9c0a2418ec19477729ee3d,
         type: 3}
@@ -25368,17 +25324,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1893482511}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.531}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 14.055999}
   m_LocalScale: {x: 0.002, y: 0.002, z: 0.002}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 829052176}
-  m_Father: {fileID: 479110844}
+  m_Father: {fileID: 530919842}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0.085, y: 2.327}
+  m_AnchoredPosition: {x: -18.367, y: 1.9619839}
   m_SizeDelta: {x: 1000, y: 472.7771}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1893482513
@@ -26036,7 +25992,7 @@ Transform:
   m_GameObject: {fileID: 1927466280}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0.0000029653306}
-  m_LocalPosition: {x: 18.607277, y: 1.087, z: -18.203}
+  m_LocalPosition: {x: 18.607277, y: 1.607, z: -18.203}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -27880,14 +27836,26 @@ MonoBehaviour:
   endTransitionDuration: 0.3
   onDialogueSequenceEnded:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 829052178}
+        m_TargetAssemblyTypeName: VRIFDialogueSystem, Assembly-CSharp
+        m_MethodName: StartDialogueSequence
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   autoTeleportOnEnd: 1
-  typeSpeed: 0.05
+  typeSpeed: 0.08
   delayBetweenSentences: 2
   dialogueLines:
   - sentence: Selamat datang di layanan tindakan operasi CABG Primaya Bekasi Barat.
       anda akan mendapatkan edukasi mengenai persiapan, operasi, dan perawatan pascaoperasi.
-    dialogueAudio: {fileID: 8300000, guid: c09a3e3f5a85df6438d34eac43bdf5a0, type: 3}
+    dialogueAudio: {fileID: 8300000, guid: 763c5ab104a572345b296b98e97f08ff, type: 3}
     animationStateName: 
     waitForButtonPress: 0
     hideMainPanelDuringWait: 0
