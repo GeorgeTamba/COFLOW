@@ -1,4 +1,5 @@
 using UnityEngine;
+using BNG; // Wajib ditambahkan untuk mengakses SmoothLocomotion
 
 public class MissionFlowManager : MonoBehaviour
 {
@@ -9,6 +10,12 @@ public class MissionFlowManager : MonoBehaviour
     [Header("Daftar Target Pathway (Opsional)")]
     [Tooltip("Masukkan objek Pathway (yang memiliki script PathfinderDestination) sejajar dengan urutan Misi di atas. Biarkan slot kosong/None jika step tersebut tidak butuh pathway.")]
     public GameObject[] pathwayDestinations;
+
+    [Header("Pengaturan Kecepatan Player (Opsional)")]
+    [Tooltip("Tarik objek PlayerController (atau yang punya SmoothLocomotion) ke sini")]
+    public SmoothLocomotion playerLocomotion;
+    [Tooltip("Kecepatan jalan normal/biasa")]
+    public float normalSpeed = 1.25f;
 
     private int currentStep = 0;
 
@@ -50,6 +57,32 @@ public class MissionFlowManager : MonoBehaviour
         if (currentStep < pathwayDestinations.Length && pathwayDestinations[currentStep] != null)
         {
             pathwayDestinations[currentStep].SetActive(true);
+        }
+    }
+
+    // ==========================================
+    // FUNGSI BARU UNTUK MENGUBAH KECEPATAN (VIA EVENT)
+    // ==========================================
+
+    public void ChangePlayerSpeed(float newSpeed)
+    {
+        if (playerLocomotion != null)
+        {
+            playerLocomotion.MovementSpeed = newSpeed;
+            Debug.Log($"<color=cyan>[SPEED] Kecepatan diubah dari MissionManager menjadi: {newSpeed}</color>");
+        }
+        else
+        {
+            Debug.LogWarning("Player Locomotion belum dimasukkan ke MissionFlowManager!");
+        }
+    }
+
+    public void ResetPlayerSpeed()
+    {
+        if (playerLocomotion != null)
+        {
+            playerLocomotion.MovementSpeed = normalSpeed;
+            Debug.Log($"<color=cyan>[SPEED] Kecepatan dikembalikan ke Normal: {normalSpeed}</color>");
         }
     }
 }

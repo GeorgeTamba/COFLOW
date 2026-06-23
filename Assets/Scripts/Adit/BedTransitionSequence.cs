@@ -25,6 +25,10 @@ public class BedWaypoint
 
     [Tooltip("Jeda waktu sebelum mengeksekusi Event, atau jeda sebelum lanjut jalan")]
     public float delayAfterArrive = 1.0f;
+
+    // === TAMBAHAN BARU: KECEPATAN KASUR ===
+    [Tooltip("Kecepatan jalan kasur MENUJU halte ini. (Misal: 3.5 untuk normal, 1.5 untuk pelan)")]
+    public float moveSpeed = 3.5f;
 }
 
 [RequireComponent(typeof(Collider))]
@@ -65,11 +69,9 @@ public class BedTransitionSequence : MonoBehaviour
     [Header("Scene Berikutnya")]
     public string nextSceneName;
 
-    // === TAMBAHAN BARU: EVENT OPSIONAL ===
     [Header("Optional Events")]
     [Tooltip("Dipanggil tepat setelah layar kembali terang dan pemain sudah berada di atas kasur awal")]
     public UnityEvent onInitialTeleportComplete;
-    // =====================================
 
     private bool sequenceStarted = false;
     private bool isWaitingForResume = false; // Kunci penahan kasur
@@ -193,6 +195,10 @@ public class BedTransitionSequence : MonoBehaviour
                     bedAgent.enabled = true;
                     // Warp agar agent ter-snap rapi ke NavMesh setelah dipindah manual
                     bedAgent.Warp(bedAgent.transform.position);
+
+                    // --- ATUR KECEPATAN NAVMESH SESUAI WAYPOINT ---
+                    bedAgent.speed = waypoint.moveSpeed;
+
                     bedAgent.isStopped = false;
                     bedAgent.SetDestination(waypoint.destination.position);
 
