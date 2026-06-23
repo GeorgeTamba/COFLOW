@@ -16600,10 +16600,10 @@ MonoBehaviour:
   inputAxis: 03000000
   RotateAction: {fileID: -6493913391331992944, guid: e39f4b35a6db18348b41eb0262520e69,
     type: 3}
-  RotationType: 0
+  RotationType: 1
   SnapRotationAmount: 45
   SnapInputAmount: 0.75
-  SmoothTurnSpeed: 40
+  SmoothTurnSpeed: 50
   SmoothTurnMinInput: 0.1
 --- !u!114 &8449739408642836996
 MonoBehaviour:
