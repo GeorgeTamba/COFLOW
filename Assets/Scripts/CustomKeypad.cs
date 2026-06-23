@@ -47,18 +47,18 @@ public class CustomKeypad : MonoBehaviour
     // 3. Connect this to your Enter Button!
     public void ButtonPress_Enter()
     {
-        //if (currentInput.Length > 0)
-        //{
-        Debug.Log("Sending code from Keypad: " + currentInput);
-        numLineText.text = "";
-        validatingText.SetActive(true);
+        if (currentInput.Length > 0)
+        {
+            Debug.Log("Sending code from Keypad: " + currentInput);
+            numLineText.text = "";
+            validatingText.SetActive(true);
 
-        //// Hand the code over to the big API manager we built earlier!
-        //loginManager.OnSubmitCode(currentInput);
+            // Hand the code over to the big API manager we built earlier!
+            loginManager.OnSubmitCode(currentInput);
 
-        //// Clear the keypad for the next try
-        //currentInput = ""; 
-        //}
+            // Clear the keypad for the next try
+            currentInput = "";
+        }
     }
 
     // Updates the screen so the player sees what they typed
