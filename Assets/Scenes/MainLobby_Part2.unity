@@ -4606,7 +4606,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &355198722
 Transform:
   m_ObjectHideFlags: 0
@@ -16307,7 +16307,7 @@ MonoBehaviour:
       m_Calls: []
   autoTeleportOnEnd: 1
   typeSpeed: 0.07
-  delayBetweenSentences: 2
+  delayBetweenSentences: 1
   dialogueLines:
   - sentence: Anda akan didaftarkan untuk ruang perawatan rawat inap
     dialogueAudio: {fileID: 8300000, guid: 44a05dab9446b4c44acecc55d9a0ed56, type: 3}
