@@ -6921,13 +6921,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 479110843}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.00000058114523, z: -0, w: -1}
-  m_LocalPosition: {x: 11.033561, y: -1.7, z: 20.225916}
+  m_LocalRotation: {x: -0, y: -0, z: 0, w: 1}
+  m_LocalPosition: {x: 16.38351, y: 0, z: -18.77407}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 773461889}
-  m_Father: {fileID: 1924026643}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &480895590
 GameObject:
@@ -8273,6 +8273,7 @@ GameObject:
   - component: {fileID: 573164474}
   - component: {fileID: 573164471}
   - component: {fileID: 573164472}
+  - component: {fileID: 573164476}
   m_Layer: 0
   m_Name: Dialogue Main Lobby Panel
   m_TagString: Untagged
@@ -8490,6 +8491,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 573164470}
   m_CullTransparentMesh: 1
+--- !u!114 &573164476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 573164470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d38a3e4892c50eb4b99646ab02e37194, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VRFollowPanel
+  playerRoot: {fileID: 1924026643}
+  playerCamera: {fileID: 829216869}
+  spawnOffset: {x: 0, y: 1, z: 2}
+  liveEditOffset: 0
+  followSpeed: 5
 --- !u!1 &575662665
 GameObject:
   m_ObjectHideFlags: 0
@@ -22779,11 +22797,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 2093207351254462809, guid: 4ac7df741a9c0a2418ec19477729ee3d,
-        type: 3}
-      insertIndex: 0
-      addedObject: {fileID: 479110844}
+    m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2683195716758895194, guid: 4ac7df741a9c0a2418ec19477729ee3d,
         type: 3}
@@ -54835,6 +54849,7 @@ SceneRoots:
   - {fileID: 1476425312}
   - {fileID: 1524309841}
   - {fileID: 287772782}
+  - {fileID: 479110844}
   - {fileID: 793389093}
   - {fileID: 7736237053624664129}
   - {fileID: 912320652}
