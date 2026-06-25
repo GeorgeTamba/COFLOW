@@ -92,9 +92,7 @@ public class VREducationalQuizManager : MonoBehaviour
             }
         }
 
-        // Scale the score to be out of 10 (e.g., 4/5 correct = 8/10 score)
-        // Using Mathf.RoundToInt to ensure it stays a clean Integer for the database
-        int finalScore = Mathf.RoundToInt(((float)totalCorrect / questions.Length) * 10f);
+        int finalScore = totalCorrect;
 
         // REROUTED: Drop it into the quizScore slot in the Backpack!
         SessionDataStore.quizScore = finalScore;
