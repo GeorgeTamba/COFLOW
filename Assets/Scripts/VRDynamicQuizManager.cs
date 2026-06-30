@@ -5,9 +5,14 @@ using UnityEngine.UI;
 
 public class VRDynamicQuizManager : MonoBehaviour
 {
+    [Header("GameObject References")]
+    public GameObject anxietyPanel;
+    public GameObject resultPanel;
+
     [Header("UI Text References")]
     public TMP_Text questionTextUI;
     public TMP_Text progressTextUI;
+    public TMP_Text scoreTextUI;
 
     // --- NEW: The Warning Text GameObject ---
     public GameObject warningTextObj;
@@ -103,10 +108,9 @@ public class VRDynamicQuizManager : MonoBehaviour
         Debug.Log($"<color=green>ANXIETY TEST COMPLETE!</color> Total Score: {SessionDataStore.anxietyScore} saved to Backpack.");
 
         // 4. Disable UI 
-        questionTextUI.text = "Assessment Complete! Please proceed to the next area.";
-        submitButton.SetActive(false);
-        prevButton.SetActive(false);
-        warningTextObj.SetActive(false);
+        scoreTextUI.text = totalScore + " / " + questions.Length * 5;
+        anxietyPanel.gameObject.SetActive(false);
+        resultPanel.gameObject.SetActive(true);
 
         foreach (Toggle t in optionToggles) t.gameObject.SetActive(false);
     }

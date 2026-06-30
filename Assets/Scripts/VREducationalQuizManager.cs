@@ -8,8 +8,10 @@ public class VREducationalQuizManager : MonoBehaviour
     [Header("UI Text References")]
     public TMP_Text questionTextUI;
     public TMP_Text progressTextUI;
+    public TMP_Text scoreTextUI;
     public GameObject warningTextObj;
-    public TMP_Text completeText;
+    public GameObject evaluationPanel;
+    public GameObject resultPanel;
 
     [Header("Radio Button Toggles")]
     public GameObject choicesContainer;
@@ -20,7 +22,6 @@ public class VREducationalQuizManager : MonoBehaviour
     public GameObject prevButton;
     public GameObject nextButton;
     public GameObject submitButton;
-    public GameObject finishButton;
 
     // --- UPGRADE: Added correctAnswerIndex to grade the quiz! ---
     [System.Serializable]
@@ -94,7 +95,7 @@ public class VREducationalQuizManager : MonoBehaviour
 
         // Scale the score to be out of 10 (e.g., 4/5 correct = 8/10 score)
         // Using Mathf.RoundToInt to ensure it stays a clean Integer for the database
-        int finalScore = Mathf.RoundToInt(((float)totalCorrect / questions.Length) * 10f);
+        int finalScore = totalCorrect;
 
         // REROUTED: Drop it into the quizScore slot in the Backpack!
         SessionDataStore.quizScore = finalScore;
@@ -103,13 +104,9 @@ public class VREducationalQuizManager : MonoBehaviour
         Debug.Log($"<color=green>QUIZ GRADED!</color> They got {totalCorrect}/{questions.Length} correct. Final Scaled Score: {SessionDataStore.quizScore}/10 saved to Backpack.");
 
         //UI Actions 
-        completeText.text = "Tes Penilaian Slesai";
-        finishButton.SetActive(true);
-        completeText.gameObject.SetActive(true);
-        questionTextUI.gameObject.SetActive(false);
-        submitButton.SetActive(false);
-        prevButton.SetActive(false);
-        warningTextObj.SetActive(false);
+        scoreTextUI.text = totalCorrect + " / " + questions.Length;
+        evaluationPanel.gameObject.SetActive(false);
+        resultPanel.gameObject.SetActive(true);
 
         choicesContainer.SetActive(false);
         foreach (Toggle t in optionToggles) t.gameObject.SetActive(false);

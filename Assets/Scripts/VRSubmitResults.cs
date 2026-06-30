@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.Networking;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using System.Text;
 
 public class VRSubmitResults : MonoBehaviour
@@ -73,7 +74,7 @@ public class VRSubmitResults : MonoBehaviour
         if (request.result == UnityWebRequest.Result.Success)
         {
             Debug.Log("<color=green>RESULTS SAVED!</color> The database is updated!");
-
+            SceneManager.LoadScene("LoginLobby");
             // Clean out the backpack for the next player!
             SessionDataStore.ClearSession();
         }
