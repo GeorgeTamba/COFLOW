@@ -9105,7 +9105,7 @@ Transform:
   m_GameObject: {fileID: 206284342}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.8, z: 0}
+  m_LocalPosition: {x: -0, y: 1.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -15102,7 +15102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::VRFollowPanel
   playerRoot: {fileID: 993888166}
   playerCamera: {fileID: 479172956}
-  spawnOffset: {x: 1.7, y: 1.1, z: 0}
+  spawnOffset: {x: 2.6, y: 0.45, z: 0}
   liveEditOffset: 1
   followSpeed: 5
 --- !u!1 &371555091
@@ -32752,6 +32752,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 641599699}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &641599702
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37003,6 +37015,72 @@ MonoBehaviour:
   bedMountPoint: {fileID: 206284343}
   bedStartPosition: {fileID: 0}
   bedWaypoints:
+  - waypointName: Post Echocardiography
+    destination: {fileID: 1263536421}
+    useTeleport: 1
+    onArrived:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 370645705}
+          m_TargetAssemblyTypeName: VRIFDialogueSystem, Assembly-CSharp
+          m_MethodName: StartDialogueSequence
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 715009127}
+          m_TargetAssemblyTypeName: VRCameraAutofocus, Assembly-CSharp
+          m_MethodName: FocusOnPanel
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 370645703}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    waitForExternalTrigger: 0
+    delayAfterArrive: 0
+    moveSpeed: 3.5
+  - waypointName: OTW Rehab Medis
+    destination: {fileID: 358955710}
+    useTeleport: 0
+    onArrived:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2003071290}
+          m_TargetAssemblyTypeName: VRIFDialogueSystem, Assembly-CSharp
+          m_MethodName: StartDialogueSequence
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 715009127}
+          m_TargetAssemblyTypeName: VRCameraAutofocus, Assembly-CSharp
+          m_MethodName: FocusOnPanel
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 2003071288}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    waitForExternalTrigger: 1
+    delayAfterArrive: 0
+    moveSpeed: 4
   - waypointName: Prologue
     destination: {fileID: 206284343}
     useTeleport: 0
@@ -37099,7 +37177,16 @@ MonoBehaviour:
     waitForExternalTrigger: 0
     delayAfterArrive: 0
     moveSpeed: 3.5
-  - waypointName: Arah Dokter
+  - waypointName: Arah Dokter 1
+    destination: {fileID: 1884592097}
+    useTeleport: 0
+    onArrived:
+      m_PersistentCalls:
+        m_Calls: []
+    waitForExternalTrigger: 1
+    delayAfterArrive: 1
+    moveSpeed: 1.5
+  - waypointName: Arah Dokter 2
     destination: {fileID: 1362201747}
     useTeleport: 0
     onArrived:
@@ -37294,72 +37381,6 @@ MonoBehaviour:
     waitForExternalTrigger: 1
     delayAfterArrive: 0
     moveSpeed: 3.5
-  - waypointName: Post Echocardiography
-    destination: {fileID: 1263536421}
-    useTeleport: 1
-    onArrived:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 370645705}
-          m_TargetAssemblyTypeName: VRIFDialogueSystem, Assembly-CSharp
-          m_MethodName: StartDialogueSequence
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 715009127}
-          m_TargetAssemblyTypeName: VRCameraAutofocus, Assembly-CSharp
-          m_MethodName: FocusOnPanel
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 370645703}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    waitForExternalTrigger: 0
-    delayAfterArrive: 0
-    moveSpeed: 3.5
-  - waypointName: OTW Rehab Medis
-    destination: {fileID: 358955710}
-    useTeleport: 0
-    onArrived:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 2003071290}
-          m_TargetAssemblyTypeName: VRIFDialogueSystem, Assembly-CSharp
-          m_MethodName: StartDialogueSequence
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 715009127}
-          m_TargetAssemblyTypeName: VRCameraAutofocus, Assembly-CSharp
-          m_MethodName: FocusOnPanel
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 2003071288}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    waitForExternalTrigger: 1
-    delayAfterArrive: 0
-    moveSpeed: 4
   bedMovementAudio: {fileID: 0}
   nextSceneName: 
   onInitialTeleportComplete:
@@ -42360,6 +42381,7 @@ Transform:
   m_Children:
   - {fileID: 73957996}
   - {fileID: 1362201747}
+  - {fileID: 1884592097}
   - {fileID: 570557754}
   - {fileID: 504255650}
   - {fileID: 489519756}
@@ -80276,7 +80298,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 36117, y: -75.30002}
+  m_AnchoredPosition: {x: 36117, y: -242}
   m_SizeDelta: {x: 0, y: -70.64}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1629546499
@@ -80535,7 +80557,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::VRFollowPanel
   playerRoot: {fileID: 993888166}
   playerCamera: {fileID: 479172956}
-  spawnOffset: {x: 0, y: 1, z: 1.5}
+  spawnOffset: {x: 0, y: 0.55, z: 1.9}
   liveEditOffset: 1
   followSpeed: 5
 --- !u!1 &1631153789
@@ -91486,6 +91508,74 @@ Transform:
   - {fileID: 2074918090}
   m_Father: {fileID: 1606017582}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1884592096
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1884592097}
+  - component: {fileID: 1884592099}
+  - component: {fileID: 1884592098}
+  m_Layer: 0
+  m_Name: Arah Dokter2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1884592097
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1884592096}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -18.959538, y: -0.601, z: -0.34921837}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 822731749}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1884592098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1884592096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58aaf80e4cb35bb48b61be01553ae553, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PathfinderDestination
+  disableAfterArrival: 1
+  dialogPanel: {fileID: 666783005}
+--- !u!65 &1884592099
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1884592096}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1886070216
 GameObject:
   m_ObjectHideFlags: 0
@@ -93347,7 +93437,19 @@ MonoBehaviour:
   endTransitionDuration: 0.3
   onDialogueSequenceEnded:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 715009122}
+        m_TargetAssemblyTypeName: BedTransitionSequence, Assembly-CSharp
+        m_MethodName: ResumeSequence
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   autoTeleportOnEnd: 0
   typeSpeed: 0.065
   delayBetweenSentences: 2
@@ -93427,7 +93529,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::VRFollowPanel
   playerRoot: {fileID: 993888166}
   playerCamera: {fileID: 479172956}
-  spawnOffset: {x: -1.5, y: 1.1, z: 0}
+  spawnOffset: {x: -2, y: 0.55, z: 0}
   liveEditOffset: 1
   followSpeed: 5
 --- !u!1 &1928292430

@@ -2115,8 +2115,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82af0d96dd1f5034899d2478463b923b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::VRDynamicQuizManager
+  anxietyPanel: {fileID: 0}
+  resultPanel: {fileID: 0}
   questionTextUI: {fileID: 0}
   progressTextUI: {fileID: 0}
+  scoreTextUI: {fileID: 0}
+  anxietyStatusTextUI: {fileID: 0}
   warningTextObj: {fileID: 0}
   optionToggles:
   - {fileID: 0}
@@ -2701,8 +2705,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::VREducationalQuizManager
   questionTextUI: {fileID: 1771196402}
   progressTextUI: {fileID: 1210667671}
+  scoreTextUI: {fileID: 0}
   warningTextObj: {fileID: 392103314}
-  completeText: {fileID: 847798130}
+  evaluationPanel: {fileID: 0}
+  resultPanel: {fileID: 0}
   choicesContainer: {fileID: 1140289581}
   optionToggles:
   - {fileID: 806216853}
@@ -2719,7 +2725,6 @@ MonoBehaviour:
   prevButton: {fileID: 348529779}
   nextButton: {fileID: 1065481066}
   submitButton: {fileID: 526363714}
-  finishButton: {fileID: 0}
   questions:
   - questionText: 1. Apakah Anda mengetahui tujuan utama dari tindakan operasi CABG?
     options:
@@ -4559,8 +4564,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82af0d96dd1f5034899d2478463b923b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::VRDynamicQuizManager
+  anxietyPanel: {fileID: 0}
+  resultPanel: {fileID: 0}
   questionTextUI: {fileID: 1924802160}
   progressTextUI: {fileID: 0}
+  scoreTextUI: {fileID: 0}
+  anxietyStatusTextUI: {fileID: 0}
   warningTextObj: {fileID: 0}
   optionToggles:
   - {fileID: 0}
@@ -6685,8 +6694,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82af0d96dd1f5034899d2478463b923b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::VRDynamicQuizManager
+  anxietyPanel: {fileID: 0}
+  resultPanel: {fileID: 0}
   questionTextUI: {fileID: 0}
   progressTextUI: {fileID: 0}
+  scoreTextUI: {fileID: 0}
+  anxietyStatusTextUI: {fileID: 0}
   warningTextObj: {fileID: 0}
   optionToggles:
   - {fileID: 0}
@@ -10683,7 +10696,7 @@ Transform:
   m_GameObject: {fileID: 1282995149}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.819, z: 0}
+  m_LocalPosition: {x: 0, y: 1.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -16148,7 +16161,7 @@ Transform:
   m_GameObject: {fileID: 2018892747}
   serializedVersion: 2
   m_LocalRotation: {x: 0.49999985, y: 0.49999955, z: 0.49999985, w: 0.5000009}
-  m_LocalPosition: {x: -0.0655, y: -0, z: -0.0449}
+  m_LocalPosition: {x: -0.066, y: -0, z: 0.0363}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -1641,7 +1641,7 @@ Transform:
   m_GameObject: {fileID: 125282331}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.5, z: 0.504}
+  m_LocalPosition: {x: -0, y: 1, z: 0.504}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -35935,8 +35935,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82af0d96dd1f5034899d2478463b923b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::VRDynamicQuizManager
+  anxietyPanel: {fileID: 0}
+  resultPanel: {fileID: 0}
   questionTextUI: {fileID: 1788359714998826682}
   progressTextUI: {fileID: 0}
+  scoreTextUI: {fileID: 0}
+  anxietyStatusTextUI: {fileID: 0}
   warningTextObj: {fileID: 0}
   optionToggles:
   - {fileID: 0}
