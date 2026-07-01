@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,6 +14,7 @@ public class VRDynamicQuizManager : MonoBehaviour
     public TMP_Text questionTextUI;
     public TMP_Text progressTextUI;
     public TMP_Text scoreTextUI;
+    public TMP_Text anxietyStatusTextUI;
 
     // --- NEW: The Warning Text GameObject ---
     public GameObject warningTextObj;
@@ -100,6 +102,31 @@ public class VRDynamicQuizManager : MonoBehaviour
             {
                 totalScore += (answerIndex + 1);
             }
+        }
+
+        if (totalScore == 6)
+        {
+            anxietyStatusTextUI.text = "Tidak Cemas";
+        }
+        else if (totalScore >= 7 && totalScore <= 12)
+        {
+            anxietyStatusTextUI.text = "Cemas Ringan";
+        }
+        else if (totalScore >= 13 && totalScore <= 18)
+        {
+            anxietyStatusTextUI.text = "Cemas Sedang";
+        }
+        else if (totalScore >= 19 && totalScore <= 24)
+        {
+            anxietyStatusTextUI.text = "Cemas Berat";
+        }
+        else if (totalScore >= 25 && totalScore <= 30)
+        {
+            anxietyStatusTextUI.text = "Panik";
+        }
+        else
+        {
+            anxietyStatusTextUI.text = "N/A";
         }
 
         // 3. Drop it in the Backpack
