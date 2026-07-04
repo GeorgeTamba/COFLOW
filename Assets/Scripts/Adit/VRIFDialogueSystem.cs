@@ -20,8 +20,8 @@ public class DialogueLine
     public bool hideMainPanelDuringWait = true;
 
     [Space(5)]
-    public UnityEvent onLineStarted; // Useful for triggering external effects right when the line starts
-    public UnityEvent onLineFinished; // Useful for triggering external effects after the text finishes typing
+    public UnityEvent onLineStarted; 
+    public UnityEvent onLineFinished;
 }
 
 public class VRIFDialogueSystem : MonoBehaviour
@@ -31,8 +31,7 @@ public class VRIFDialogueSystem : MonoBehaviour
     public GameObject dialogueUIPanel;
 
     [Header("Panel Animation")]
-    public float unfoldDuration = 0.3f; // Unfold panel animation duration
-    public TeleportFade teleportFadeScript;
+    public float unfoldDuration = 0.3f;
 
     [Tooltip("AudioSource component used to play dialogue audio clips")]
     public AudioSource audioSource;
@@ -52,8 +51,6 @@ public class VRIFDialogueSystem : MonoBehaviour
 
     [Header("End Sequence Actions")]
     public UnityEvent onDialogueSequenceEnded;
-    [Tooltip("Uncheck this if teleportation is handled by an external event (e.g., a video ending)")]
-    public bool autoTeleportOnEnd = true;
 
     [Header("Typewriter Settings")]
     public float typeSpeed = 0.05f;
@@ -63,7 +60,6 @@ public class VRIFDialogueSystem : MonoBehaviour
     public DialogueLine[] dialogueLines;
 
     private bool isWaitingForInput = false;
-
     private Canvas parentCanvas;
     private GraphicRaycaster parentRaycaster;
     private CanvasGroup canvasGroup;
@@ -73,17 +69,12 @@ public class VRIFDialogueSystem : MonoBehaviour
         parentCanvas = GetComponent<Canvas>();
         parentRaycaster = GetComponent<GraphicRaycaster>();
         canvasGroup = GetComponent<CanvasGroup>();
-
         ToggleUI(false);
     }
 
     public void StartDialogueSequence()
     {
-        // PERBAIKAN: Nyalakan UI PERTAMA KALI agar script aktif (jika menempel pada objek yang mati)
-        // Dengan begini, StartCoroutine tidak akan diabaikan oleh Unity.
         ToggleUI(true);
-
-        // Call the main Coroutine to handle the sequence (Unfold -> Delay -> Start Text)
         StartCoroutine(HandleDialogueStartDelay());
     }
 
@@ -198,8 +189,6 @@ public class VRIFDialogueSystem : MonoBehaviour
         {
             dialogueTextDisplay.maxVisibleCharacters = counter;
             counter++;
-
-            // Use the OLD 'typeSpeed' variable to avoid breaking other scenes
             yield return new WaitForSeconds(typeSpeed);
         }
     }
@@ -213,21 +202,11 @@ public class VRIFDialogueSystem : MonoBehaviour
     private void EndDialogueSequence()
     {
         ToggleUI(false);
-
-        // --- TRANSITION BACK TO THE ENDING ANIMATION STATE ---
         if (npcAnimator != null && !string.IsNullOrEmpty(endAnimationStateName))
         {
             npcAnimator.CrossFade(endAnimationStateName, endTransitionDuration);
         }
-
-        // --- TRIGGER OUR NEW EVENT HERE ---
         onDialogueSequenceEnded?.Invoke();
-
-        // (Keep the old code below)
-        if (autoTeleportOnEnd && teleportFadeScript != null)
-        {
-            teleportFadeScript.OnMissionComplete();
-        }
     }
 
     private void ToggleUI(bool isActive)

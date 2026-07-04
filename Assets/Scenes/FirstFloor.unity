@@ -810,7 +810,7 @@ Transform:
   m_GameObject: {fileID: 17467178}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0.0000023692844}
-  m_LocalPosition: {x: -0.36, y: 0, z: -22.674}
+  m_LocalPosition: {x: -0.3600006, y: 0, z: -22.674}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4041,59 +4041,6 @@ Transform:
   m_Children:
   - {fileID: 1414097978}
   m_Father: {fileID: 1653956324}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &95227789
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 95227791}
-  - component: {fileID: 95227790}
-  m_Layer: 0
-  m_Name: Pintu (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!65 &95227790
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 95227789}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 23.302782, y: 0.9999999, z: 0.9999999}
-  m_Center: {x: -11.151394, y: 0, z: 0}
---- !u!4 &95227791
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 95227789}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 77.415, y: 1.2169374, z: 49.05341}
-  m_LocalScale: {x: 0.50466, y: 2.994069, z: 2.994069}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 715009126}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &95535953
 GameObject:
@@ -9174,153 +9121,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 878630799}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &208872038
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 208872043}
-  - component: {fileID: 208872042}
-  - component: {fileID: 208872041}
-  - component: {fileID: 208872040}
-  - component: {fileID: 208872039}
-  m_Layer: 0
-  m_Name: Button
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &208872039
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 208872038}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce0dc692d9d69d64783e8dc4598dd68b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TempSceneChanger
-  targetSceneName: MainLobby_Part2
---- !u!114 &208872040
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 208872038}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 208872041}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 208872039}
-        m_TargetAssemblyTypeName: TempSceneChanger, Assembly-CSharp
-        m_MethodName: LoadTargetScene
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &208872041
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 208872038}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.5686275}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &208872042
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 208872038}
-  m_CullTransparentMesh: 1
---- !u!224 &208872043
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 208872038}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 305}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1749456178}
-  m_Father: {fileID: 1719598722}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0, y: 0}
-  m_SizeDelta: {x: 500, y: 200}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &209435903
 GameObject:
   m_ObjectHideFlags: 0
@@ -14569,7 +14369,7 @@ GameObject:
   m_Component:
   - component: {fileID: 363949744}
   m_Layer: 0
-  m_Name: NPC_Destination_Spot (1)
+  m_Name: NPC_Destination_Spot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15002,7 +14802,6 @@ MonoBehaviour:
   dialogueTextDisplay: {fileID: 1108962542}
   dialogueUIPanel: {fileID: 370645702}
   unfoldDuration: 0.3
-  teleportFadeScript: {fileID: 407062341}
   audioSource: {fileID: 370645704}
   npcAnimator: {fileID: 0}
   dialogueTransitionDuration: 0.4
@@ -15023,7 +14822,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  autoTeleportOnEnd: 0
   typeSpeed: 0.065
   delayBetweenSentences: 2
   dialogueLines:
@@ -17050,158 +16848,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!1 &407062340
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 407062346}
-  - component: {fileID: 407062345}
-  - component: {fileID: 407062344}
-  - component: {fileID: 407062343}
-  - component: {fileID: 407062341}
-  - component: {fileID: 407062342}
-  m_Layer: 0
-  m_Name: TeleportTrigger Rehab Medic
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &407062341
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 407062340}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1b06e4988608734c96ac2bc66fe2a0e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TeleportFade
-  playerController: {fileID: 993888165}
-  screenFader: {fileID: 993888164}
-  isDialogueMission: 1
-  dialogueSystem: {fileID: 2003071290}
-  useTeleport: 0
-  fadeDuration: 1
-  lockMovementDuringMission: 0
-  missionTargetPosition: {fileID: 0}
-  postMissionTargetPosition: {fileID: 0}
-  onPostTeleportFinished:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!114 &407062342
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 407062340}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64359ce10c844b94b92dbdb14cd78aea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PathfinderTrigger
-  destinationTarget: {fileID: 358955710}
-  activateOnStart: 0
---- !u!65 &407062343
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 407062340}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!23 &407062344
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 407062340}
-  m_Enabled: 0
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_MaskInteraction: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &407062345
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 407062340}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &407062346
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 407062340}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.6, y: 0.01, z: 59.42}
-  m_LocalScale: {x: 4.1104975, y: 4.1236696, z: 1.3005}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1492512019}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &407161286
 GameObject:
   m_ObjectHideFlags: 0
@@ -18639,7 +18285,6 @@ MonoBehaviour:
   dialogueTextDisplay: {fileID: 119120179}
   dialogueUIPanel: {fileID: 434910651}
   unfoldDuration: 0.3
-  teleportFadeScript: {fileID: 0}
   audioSource: {fileID: 370645704}
   npcAnimator: {fileID: 0}
   dialogueTransitionDuration: 0.4
@@ -18660,7 +18305,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 482310721}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PathfinderTrigger, Assembly-CSharp
         m_MethodName: ActivateGuidance
         m_Mode: 1
@@ -18672,7 +18317,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  autoTeleportOnEnd: 0
   typeSpeed: 0.065
   delayBetweenSentences: 2
   dialogueLines:
@@ -19137,179 +18781,6 @@ Transform:
   - {fileID: 149653273}
   m_Father: {fileID: 1617780299}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &442210129
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 442210131}
-  - component: {fileID: 442210134}
-  - component: {fileID: 442210133}
-  - component: {fileID: 442210132}
-  - component: {fileID: 442210130}
-  m_Layer: 0
-  m_Name: TeleportTrigger NurseStation
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &442210130
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 442210129}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1b06e4988608734c96ac2bc66fe2a0e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TeleportFade
-  playerController: {fileID: 993888165}
-  screenFader: {fileID: 993888164}
-  isDialogueMission: 1
-  dialogueSystem: {fileID: 1334971969}
-  useTeleport: 0
-  fadeDuration: 1
-  lockMovementDuringMission: 0
-  missionTargetPosition: {fileID: 0}
-  postMissionTargetPosition: {fileID: 0}
-  onPostTeleportFinished:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1928222491}
-        m_TargetAssemblyTypeName: VRIFDialogueSystem, Assembly-CSharp
-        m_MethodName: StartDialogueSequence
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 2110889939}
-        m_TargetAssemblyTypeName: PathfinderTrigger, Assembly-CSharp
-        m_MethodName: ActivateGuidance
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MissionFlowManager, Assembly-CSharp
-        m_MethodName: CompleteCurrentStep
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!4 &442210131
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 442210129}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.534, y: 0.46, z: -6.97}
-  m_LocalScale: {x: 4.587352, y: 2.6999683, z: 2.468219}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1492512019}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &442210132
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 442210129}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!23 &442210133
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 442210129}
-  m_Enabled: 0
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_MaskInteraction: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &442210134
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 442210129}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &446242254
 GameObject:
   m_ObjectHideFlags: 0
@@ -20993,158 +20464,6 @@ Transform:
   - {fileID: 1263536421}
   m_Father: {fileID: 1617312661}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &482310720
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 482310722}
-  - component: {fileID: 482310726}
-  - component: {fileID: 482310725}
-  - component: {fileID: 482310724}
-  - component: {fileID: 482310723}
-  - component: {fileID: 482310721}
-  m_Layer: 0
-  m_Name: TeleportTrigger Poli Anestesi
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &482310721
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 482310720}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64359ce10c844b94b92dbdb14cd78aea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PathfinderTrigger
-  destinationTarget: {fileID: 489519756}
-  activateOnStart: 0
---- !u!4 &482310722
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 482310720}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 17.01, y: -0.113, z: -4}
-  m_LocalScale: {x: 1.3005, y: 1.3005, z: 2.4775827}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1492512019}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &482310723
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 482310720}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1b06e4988608734c96ac2bc66fe2a0e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TeleportFade
-  playerController: {fileID: 993888165}
-  screenFader: {fileID: 993888164}
-  isDialogueMission: 1
-  dialogueSystem: {fileID: 1271439904}
-  useTeleport: 0
-  fadeDuration: 1
-  lockMovementDuringMission: 0
-  missionTargetPosition: {fileID: 0}
-  postMissionTargetPosition: {fileID: 0}
-  onPostTeleportFinished:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!65 &482310724
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 482310720}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!23 &482310725
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 482310720}
-  m_Enabled: 0
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_MaskInteraction: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &482310726
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 482310720}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &483065279
 GameObject:
   m_ObjectHideFlags: 0
@@ -22846,6 +22165,68 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1447305916}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &509627877
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 509627878}
+  m_Layer: 0
+  m_Name: ========== MANAGERS & LOGIC ============
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &509627878
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 509627877}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &512636199
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 512636200}
+  m_Layer: 0
+  m_Name: ========== CHARACTERS =================
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &512636200
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 512636199}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &512748243
 GameObject:
@@ -24723,7 +24104,6 @@ MonoBehaviour:
   dialogueTextDisplay: {fileID: 51302416}
   dialogueUIPanel: {fileID: 542509122}
   unfoldDuration: 0.3
-  teleportFadeScript: {fileID: 442210130}
   audioSource: {fileID: 542509124}
   npcAnimator: {fileID: 7882668900696738496}
   dialogueTransitionDuration: 0.1
@@ -24732,7 +24112,6 @@ MonoBehaviour:
   onDialogueSequenceEnded:
     m_PersistentCalls:
       m_Calls: []
-  autoTeleportOnEnd: 1
   typeSpeed: 0.07
   delayBetweenSentences: 2
   dialogueLines:
@@ -28108,6 +27487,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 601883741}
   m_CullTransparentMesh: 1
+--- !u!1 &601990191
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 601990192}
+  m_Layer: 0
+  m_Name: ========== ENVIRONMENT ================
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &601990192
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 601990191}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &603081192
 GameObject:
   m_ObjectHideFlags: 0
@@ -29487,6 +28897,7 @@ GameObject:
   - component: {fileID: 627124123}
   - component: {fileID: 627124122}
   - component: {fileID: 627124121}
+  - component: {fileID: 627124126}
   m_Layer: 0
   m_Name: Background Rehab Medic (3)
   m_TagString: Untagged
@@ -29628,7 +29039,6 @@ MonoBehaviour:
   dialogueTextDisplay: {fileID: 358074889}
   dialogueUIPanel: {fileID: 627124119}
   unfoldDuration: 0.3
-  teleportFadeScript: {fileID: 407062341}
   audioSource: {fileID: 627124121}
   npcAnimator: {fileID: 0}
   dialogueTransitionDuration: 0.4
@@ -29637,9 +29047,9 @@ MonoBehaviour:
   onDialogueSequenceEnded:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MissionFlowManager, Assembly-CSharp
-        m_MethodName: ResetPlayerSpeed
+      - m_Target: {fileID: 627124126}
+        m_TargetAssemblyTypeName: TempSceneChanger, Assembly-CSharp
+        m_MethodName: LoadTargetScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -29649,7 +29059,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  autoTeleportOnEnd: 0
   typeSpeed: 0.065
   delayBetweenSentences: 2
   dialogueLines:
@@ -29665,19 +29074,7 @@ MonoBehaviour:
         m_Calls: []
     onLineFinished:
       m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 208872038}
-          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_MethodName: SetActive
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 2
+        m_Calls: []
 --- !u!225 &627124123
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -29728,6 +29125,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 627124119}
   m_CullTransparentMesh: 1
+--- !u!114 &627124126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 627124119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce0dc692d9d69d64783e8dc4598dd68b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TempSceneChanger
+  targetSceneName: MainLobby_Part2
 --- !u!1 &627799480
 GameObject:
   m_ObjectHideFlags: 0
@@ -32508,7 +31918,7 @@ GameObject:
   - component: {fileID: 639447853}
   - component: {fileID: 639447852}
   m_Layer: 0
-  m_Name: Visual Guiding Manager (1)
+  m_Name: Visual Guiding Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33032,12 +32442,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 650454113}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.72144, y: -0.01, z: -45.62912}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 14.07682, y: -0.01, z: -30.46884}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 904410728}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &650801599
 GameObject:
@@ -34138,7 +33548,6 @@ MonoBehaviour:
   dialogueTextDisplay: {fileID: 1107774364}
   dialogueUIPanel: {fileID: 668675644}
   unfoldDuration: 0.3
-  teleportFadeScript: {fileID: 0}
   audioSource: {fileID: 668675646}
   npcAnimator: {fileID: 0}
   dialogueTransitionDuration: 0.4
@@ -34159,7 +33568,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  autoTeleportOnEnd: 0
   typeSpeed: 0.065
   delayBetweenSentences: 2
   dialogueLines:
@@ -34535,7 +33943,7 @@ GameObject:
   m_Component:
   - component: {fileID: 676190706}
   m_Layer: 0
-  m_Name: PintuDepan (1)
+  m_Name: PintuRehabMedis
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35164,167 +34572,6 @@ Transform:
   - {fileID: 1331206688}
   m_Father: {fileID: 2081604276}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &686789648
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 686789649}
-  - component: {fileID: 686789653}
-  - component: {fileID: 686789652}
-  - component: {fileID: 686789651}
-  - component: {fileID: 686789650}
-  m_Layer: 0
-  m_Name: Prologue
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &686789649
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 686789648}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.534, y: 0.46, z: 1.535}
-  m_LocalScale: {x: 4.587352, y: 2.6999683, z: 6.1283407}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1492512019}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &686789650
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 686789648}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1b06e4988608734c96ac2bc66fe2a0e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TeleportFade
-  playerController: {fileID: 993888165}
-  screenFader: {fileID: 993888164}
-  isDialogueMission: 1
-  dialogueSystem: {fileID: 1629546500}
-  useTeleport: 0
-  fadeDuration: 1
-  lockMovementDuringMission: 0
-  missionTargetPosition: {fileID: 0}
-  postMissionTargetPosition: {fileID: 0}
-  onPostTeleportFinished:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1928222491}
-        m_TargetAssemblyTypeName: VRIFDialogueSystem, Assembly-CSharp
-        m_MethodName: StartDialogueSequence
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 2110889939}
-        m_TargetAssemblyTypeName: PathfinderTrigger, Assembly-CSharp
-        m_MethodName: ActivateGuidance
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!65 &686789651
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 686789648}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!23 &686789652
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 686789648}
-  m_Enabled: 0
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_MaskInteraction: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &686789653
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 686789648}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &686948685
 GameObject:
   m_ObjectHideFlags: 0
@@ -37015,72 +36262,6 @@ MonoBehaviour:
   bedMountPoint: {fileID: 206284343}
   bedStartPosition: {fileID: 0}
   bedWaypoints:
-  - waypointName: Post Echocardiography
-    destination: {fileID: 1263536421}
-    useTeleport: 1
-    onArrived:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 370645705}
-          m_TargetAssemblyTypeName: VRIFDialogueSystem, Assembly-CSharp
-          m_MethodName: StartDialogueSequence
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 715009127}
-          m_TargetAssemblyTypeName: VRCameraAutofocus, Assembly-CSharp
-          m_MethodName: FocusOnPanel
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 370645703}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    waitForExternalTrigger: 0
-    delayAfterArrive: 0
-    moveSpeed: 3.5
-  - waypointName: OTW Rehab Medis
-    destination: {fileID: 358955710}
-    useTeleport: 0
-    onArrived:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 2003071290}
-          m_TargetAssemblyTypeName: VRIFDialogueSystem, Assembly-CSharp
-          m_MethodName: StartDialogueSequence
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 715009127}
-          m_TargetAssemblyTypeName: VRCameraAutofocus, Assembly-CSharp
-          m_MethodName: FocusOnPanel
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 2003071288}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    waitForExternalTrigger: 1
-    delayAfterArrive: 0
-    moveSpeed: 4
   - waypointName: Prologue
     destination: {fileID: 206284343}
     useTeleport: 0
@@ -37381,6 +36562,72 @@ MonoBehaviour:
     waitForExternalTrigger: 1
     delayAfterArrive: 0
     moveSpeed: 3.5
+  - waypointName: Post Echocardiography
+    destination: {fileID: 1263536421}
+    useTeleport: 1
+    onArrived:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 370645705}
+          m_TargetAssemblyTypeName: VRIFDialogueSystem, Assembly-CSharp
+          m_MethodName: StartDialogueSequence
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 715009127}
+          m_TargetAssemblyTypeName: VRCameraAutofocus, Assembly-CSharp
+          m_MethodName: FocusOnPanel
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 370645703}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    waitForExternalTrigger: 0
+    delayAfterArrive: 0
+    moveSpeed: 3.5
+  - waypointName: OTW Rehab Medis
+    destination: {fileID: 358955710}
+    useTeleport: 0
+    onArrived:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2003071290}
+          m_TargetAssemblyTypeName: VRIFDialogueSystem, Assembly-CSharp
+          m_MethodName: StartDialogueSequence
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 715009127}
+          m_TargetAssemblyTypeName: VRCameraAutofocus, Assembly-CSharp
+          m_MethodName: FocusOnPanel
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 2003071288}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    waitForExternalTrigger: 1
+    delayAfterArrive: 0
+    moveSpeed: 4
   bedMovementAudio: {fileID: 0}
   nextSceneName: 
   onInitialTeleportComplete:
@@ -37476,8 +36723,7 @@ Transform:
   m_LocalPosition: {x: 77.90987, y: 1.153, z: 29.64037}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 95227791}
+  m_Children: []
   m_Father: {fileID: 17467179}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &715009127
@@ -40322,7 +39568,6 @@ MonoBehaviour:
   dialogueTextDisplay: {fileID: 196731166}
   dialogueUIPanel: {fileID: 772726838}
   unfoldDuration: 0.3
-  teleportFadeScript: {fileID: 442210130}
   audioSource: {fileID: 772726840}
   npcAnimator: {fileID: 7882668900696738496}
   dialogueTransitionDuration: 0.1
@@ -40331,7 +39576,6 @@ MonoBehaviour:
   onDialogueSequenceEnded:
     m_PersistentCalls:
       m_Calls: []
-  autoTeleportOnEnd: 0
   typeSpeed: 0.07
   delayBetweenSentences: 2
   dialogueLines:
@@ -42360,7 +41604,7 @@ GameObject:
   m_Component:
   - component: {fileID: 822731749}
   m_Layer: 0
-  m_Name: Target Pathway (1)
+  m_Name: Target Pathway
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45893,7 +45137,6 @@ MonoBehaviour:
   dialogueTextDisplay: {fileID: 1628775122}
   dialogueUIPanel: {fileID: 902178618}
   unfoldDuration: 0.3
-  teleportFadeScript: {fileID: 1324198928}
   audioSource: {fileID: 902178620}
   npcAnimator: {fileID: 0}
   dialogueTransitionDuration: 0.4
@@ -45902,7 +45145,7 @@ MonoBehaviour:
   onDialogueSequenceEnded:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 407062342}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PathfinderTrigger, Assembly-CSharp
         m_MethodName: ActivateGuidance
         m_Mode: 1
@@ -45926,7 +45169,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  autoTeleportOnEnd: 0
   typeSpeed: 0.065
   delayBetweenSentences: 2
   dialogueLines:
@@ -46055,10 +45297,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 650454115}
   - {fileID: 240689981}
   - {fileID: 597688552}
   - {fileID: 806761188}
-  - {fileID: 1719598722}
   - {fileID: 2070710520}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -48133,6 +47375,37 @@ Transform:
   - {fileID: 1319405828}
   m_Father: {fileID: 32173566}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &945409424
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 945409425}
+  m_Layer: 0
+  m_Name: ========== UI =========================
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &945409425
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 945409424}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &945698475
 GameObject:
   m_ObjectHideFlags: 0
@@ -49985,18 +49258,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ac09bf699d4234448aa42c086c9f964c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &993888165 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8416742705891564269, guid: 4ac7df741a9c0a2418ec19477729ee3d,
-    type: 3}
-  m_PrefabInstance: {fileID: 993888163}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4688ae0e7d3f7c7498dd85852dfd2622, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &993888166 stripped
@@ -53156,7 +52417,6 @@ MonoBehaviour:
   dialogueTextDisplay: {fileID: 1099174484}
   dialogueUIPanel: {fileID: 1045398646}
   unfoldDuration: 0.3
-  teleportFadeScript: {fileID: 407062341}
   audioSource: {fileID: 1045398648}
   npcAnimator: {fileID: 0}
   dialogueTransitionDuration: 0.4
@@ -53177,7 +52437,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  autoTeleportOnEnd: 0
   typeSpeed: 0.065
   delayBetweenSentences: 2
   dialogueLines:
@@ -63747,7 +63006,6 @@ MonoBehaviour:
   dialogueTextDisplay: {fileID: 2078362353}
   dialogueUIPanel: {fileID: 1271439901}
   unfoldDuration: 0.3
-  teleportFadeScript: {fileID: 0}
   audioSource: {fileID: 1271439903}
   npcAnimator: {fileID: 0}
   dialogueTransitionDuration: 0.4
@@ -63756,7 +63014,7 @@ MonoBehaviour:
   onDialogueSequenceEnded:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1324198929}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PathfinderTrigger, Assembly-CSharp
         m_MethodName: ActivateGuidance
         m_Mode: 1
@@ -63780,7 +63038,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  autoTeleportOnEnd: 0
   typeSpeed: 0.065
   delayBetweenSentences: 2
   dialogueLines:
@@ -65588,170 +64845,6 @@ Transform:
   - {fileID: 957314389}
   m_Father: {fileID: 557546683}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1324198927
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1324198930}
-  - component: {fileID: 1324198933}
-  - component: {fileID: 1324198932}
-  - component: {fileID: 1324198931}
-  - component: {fileID: 1324198928}
-  - component: {fileID: 1324198929}
-  m_Layer: 0
-  m_Name: TeleportTrigger Echocardiography
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1324198928
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1324198927}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1b06e4988608734c96ac2bc66fe2a0e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TeleportFade
-  playerController: {fileID: 993888165}
-  screenFader: {fileID: 993888164}
-  isDialogueMission: 1
-  dialogueSystem: {fileID: 902178621}
-  useTeleport: 0
-  fadeDuration: 1
-  lockMovementDuringMission: 0
-  missionTargetPosition: {fileID: 0}
-  postMissionTargetPosition: {fileID: 0}
-  onPostTeleportFinished:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 370645705}
-        m_TargetAssemblyTypeName: VRIFDialogueSystem, Assembly-CSharp
-        m_MethodName: StartDialogueSequence
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &1324198929
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1324198927}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64359ce10c844b94b92dbdb14cd78aea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PathfinderTrigger
-  destinationTarget: {fileID: 942239031}
-  activateOnStart: 0
---- !u!4 &1324198930
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1324198927}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 23.261, y: 0.288, z: -5.094}
-  m_LocalScale: {x: 2.3688607, y: 2.0126538, z: 3.1032531}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1492512019}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1324198931
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1324198927}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!23 &1324198932
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1324198927}
-  m_Enabled: 0
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_MaskInteraction: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &1324198933
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1324198927}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1324492656
 GameObject:
   m_ObjectHideFlags: 0
@@ -66309,7 +65402,6 @@ MonoBehaviour:
   dialogueTextDisplay: {fileID: 1731979783}
   dialogueUIPanel: {fileID: 1334971965}
   unfoldDuration: 0.3
-  teleportFadeScript: {fileID: 442210130}
   audioSource: {fileID: 1334971967}
   npcAnimator: {fileID: 7882668900696738496}
   dialogueTransitionDuration: 0.1
@@ -66330,7 +65422,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  autoTeleportOnEnd: 0
   typeSpeed: 0.07
   delayBetweenSentences: 2
   dialogueLines:
@@ -68131,7 +67222,7 @@ GameObject:
   - component: {fileID: 1377508648}
   - component: {fileID: 1377508647}
   m_Layer: 0
-  m_Name: MovementTriggerZone (1)
+  m_Name: MovementTriggerZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -70663,6 +69754,37 @@ Transform:
   m_Children:
   - {fileID: 1303309540}
   m_Father: {fileID: 1691261210}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1419356151
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1419356152}
+  m_Layer: 0
+  m_Name: ========== WAYPOINTS & ZONES ===========
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1419356152
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1419356151}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1419943473
 GameObject:
@@ -73674,7 +72796,6 @@ MonoBehaviour:
   dialogueTextDisplay: {fileID: 543588042}
   dialogueUIPanel: {fileID: 1467255932}
   unfoldDuration: 0.3
-  teleportFadeScript: {fileID: 442210130}
   audioSource: {fileID: 1467255934}
   npcAnimator: {fileID: 7882668900696738496}
   dialogueTransitionDuration: 0.1
@@ -73683,7 +72804,6 @@ MonoBehaviour:
   onDialogueSequenceEnded:
     m_PersistentCalls:
       m_Calls: []
-  autoTeleportOnEnd: 1
   typeSpeed: 0.07
   delayBetweenSentences: 2
   dialogueLines:
@@ -75055,45 +74175,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1450475480}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1492512018
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1492512019}
-  m_Layer: 0
-  m_Name: Teleport Trigger (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1492512019
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1492512018}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6, y: 0.771, z: -27}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 442210131}
-  - {fileID: 686789649}
-  - {fileID: 2110889940}
-  - {fileID: 1593822679}
-  - {fileID: 1552210024}
-  - {fileID: 482310722}
-  - {fileID: 1324198930}
-  - {fileID: 407062346}
-  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1493198022
 GameObject:
@@ -76825,158 +75906,6 @@ Transform:
   - {fileID: 96199572}
   m_Father: {fileID: 1802280155}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1552210022
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1552210024}
-  - component: {fileID: 1552210028}
-  - component: {fileID: 1552210027}
-  - component: {fileID: 1552210026}
-  - component: {fileID: 1552210025}
-  - component: {fileID: 1552210023}
-  m_Layer: 0
-  m_Name: TeleportTrigger Poli Paru
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1552210023
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1552210022}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64359ce10c844b94b92dbdb14cd78aea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PathfinderTrigger
-  destinationTarget: {fileID: 504255650}
-  activateOnStart: 0
---- !u!4 &1552210024
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1552210022}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.305, y: -0.113, z: -4.290001}
-  m_LocalScale: {x: 1.3005, y: 1.3005, z: 2.9823067}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1492512019}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1552210025
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1552210022}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1b06e4988608734c96ac2bc66fe2a0e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TeleportFade
-  playerController: {fileID: 993888165}
-  screenFader: {fileID: 993888164}
-  isDialogueMission: 1
-  dialogueSystem: {fileID: 434910654}
-  useTeleport: 0
-  fadeDuration: 1
-  lockMovementDuringMission: 0
-  missionTargetPosition: {fileID: 0}
-  postMissionTargetPosition: {fileID: 0}
-  onPostTeleportFinished:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!65 &1552210026
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1552210022}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!23 &1552210027
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1552210022}
-  m_Enabled: 0
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_MaskInteraction: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &1552210028
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1552210022}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1553647963
 GameObject:
   m_ObjectHideFlags: 0
@@ -78549,158 +77478,6 @@ Transform:
   - {fileID: 1782716898}
   m_Father: {fileID: 1437082731}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1593822677
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1593822679}
-  - component: {fileID: 1593822683}
-  - component: {fileID: 1593822682}
-  - component: {fileID: 1593822681}
-  - component: {fileID: 1593822680}
-  - component: {fileID: 1593822678}
-  m_Layer: 0
-  m_Name: TeleportTrigger Poli Penyakit Dalam
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1593822678
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1593822677}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64359ce10c844b94b92dbdb14cd78aea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PathfinderTrigger
-  destinationTarget: {fileID: 570557754}
-  activateOnStart: 0
---- !u!4 &1593822679
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1593822677}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.721, y: -0.113, z: -4.29}
-  m_LocalScale: {x: 1.3005, y: 1.3005, z: 2.6284406}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1492512019}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1593822680
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1593822677}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1b06e4988608734c96ac2bc66fe2a0e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TeleportFade
-  playerController: {fileID: 993888165}
-  screenFader: {fileID: 993888164}
-  isDialogueMission: 1
-  dialogueSystem: {fileID: 1778590424}
-  useTeleport: 0
-  fadeDuration: 1
-  lockMovementDuringMission: 0
-  missionTargetPosition: {fileID: 0}
-  postMissionTargetPosition: {fileID: 0}
-  onPostTeleportFinished:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!65 &1593822681
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1593822677}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!23 &1593822682
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1593822677}
-  m_Enabled: 0
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_MaskInteraction: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &1593822683
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1593822677}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1596285167
 GameObject:
   m_ObjectHideFlags: 0
@@ -79716,7 +78493,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1617312661}
   m_Layer: 0
-  m_Name: Teleport Position (1)
+  m_Name: Teleport Position
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -80338,7 +79115,6 @@ MonoBehaviour:
   dialogueTextDisplay: {fileID: 1387409332}
   dialogueUIPanel: {fileID: 1629546499}
   unfoldDuration: 0.3
-  teleportFadeScript: {fileID: 686789650}
   audioSource: {fileID: 1629546501}
   npcAnimator: {fileID: 7882668900696738496}
   dialogueTransitionDuration: 0.1
@@ -80359,7 +79135,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  autoTeleportOnEnd: 0
   typeSpeed: 0.07
   delayBetweenSentences: 2
   dialogueLines:
@@ -83955,108 +82730,6 @@ Transform:
   - {fileID: 348118419}
   m_Father: {fileID: 626571723}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1719598721
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1719598722}
-  - component: {fileID: 1719598725}
-  - component: {fileID: 1719598724}
-  - component: {fileID: 1719598723}
-  m_Layer: 0
-  m_Name: 'Button Change Scene '
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1719598722
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1719598721}
-  m_LocalRotation: {x: -0, y: -0.000000014901161, z: -0, w: -1}
-  m_LocalPosition: {x: 0, y: 0, z: 47.898994}
-  m_LocalScale: {x: 0.002, y: 0.002, z: 0.002}
-  m_ConstrainProportionsScale: 1
-  m_Children:
-  - {fileID: 208872043}
-  m_Father: {fileID: 904410728}
-  m_LocalEulerAnglesHint: {x: 0, y: -360, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 17.254, y: 1.721}
-  m_SizeDelta: {x: 1920, y: 1080}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1719598723
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1719598721}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.GraphicRaycaster
-  m_IgnoreReversedGraphics: 1
-  m_BlockingObjects: 0
-  m_BlockingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
---- !u!114 &1719598724
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1719598721}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.CanvasScaler
-  m_UiScaleMode: 0
-  m_ReferencePixelsPerUnit: 100
-  m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
-  m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
-  m_PhysicalUnit: 3
-  m_FallbackScreenDPI: 96
-  m_DefaultSpriteDPI: 96
-  m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
---- !u!223 &1719598725
-Canvas:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1719598721}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_RenderMode: 2
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
-  m_PixelPerfect: 0
-  m_ReceivesEvents: 1
-  m_OverrideSorting: 0
-  m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 25
-  m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
-  m_TargetDisplay: 0
 --- !u!1 &1719878673
 GameObject:
   m_ObjectHideFlags: 0
@@ -84331,7 +83004,6 @@ MonoBehaviour:
   dialogueTextDisplay: {fileID: 1080764507}
   dialogueUIPanel: {fileID: 1722269296}
   unfoldDuration: 0.3
-  teleportFadeScript: {fileID: 442210130}
   audioSource: {fileID: 1722269298}
   npcAnimator: {fileID: 7882668900696738496}
   dialogueTransitionDuration: 0.1
@@ -84352,7 +83024,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  autoTeleportOnEnd: 0
   typeSpeed: 0.07
   delayBetweenSentences: 2
   dialogueLines:
@@ -85987,145 +84658,6 @@ Transform:
   - {fileID: 840478701}
   m_Father: {fileID: 1367749283}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1749456177
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1749456178}
-  - component: {fileID: 1749456180}
-  - component: {fileID: 1749456179}
-  m_Layer: 0
-  m_Name: Text (TMP)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1749456178
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1749456177}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 208872043}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1749456179
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1749456177}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_text: 'CONTINUE
-
-'
-  m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_fontSharedMaterials: []
-  m_fontMaterial: {fileID: 0}
-  m_fontMaterials: []
-  m_fontColor32:
-    serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
-  m_enableVertexGradient: 0
-  m_colorMode: 3
-  m_fontColorGradient:
-    topLeft: {r: 1, g: 1, b: 1, a: 1}
-    topRight: {r: 1, g: 1, b: 1, a: 1}
-    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
-    bottomRight: {r: 1, g: 1, b: 1, a: 1}
-  m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 0}
-  m_tintAllSprites: 0
-  m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: -1183493901
-  m_overrideHtmlColors: 0
-  m_faceColor:
-    serializedVersion: 2
-    rgba: 4294967295
-  m_fontSize: 50
-  m_fontSizeBase: 50
-  m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
-  m_fontStyle: 0
-  m_HorizontalAlignment: 2
-  m_VerticalAlignment: 512
-  m_textAlignment: 65535
-  m_characterSpacing: 0
-  m_characterHorizontalScale: 1
-  m_wordSpacing: 0
-  m_lineSpacing: 0
-  m_lineSpacingMax: 0
-  m_paragraphSpacing: 0
-  m_charWidthMaxAdj: 0
-  m_TextWrappingMode: 1
-  m_wordWrappingRatios: 0.4
-  m_overflowMode: 0
-  m_linkedTextComponent: {fileID: 0}
-  parentLinkedComponent: {fileID: 0}
-  m_enableKerning: 0
-  m_ActiveFontFeatures: 6e72656b
-  m_enableExtraPadding: 0
-  checkPaddingRequired: 0
-  m_isRichText: 1
-  m_EmojiFallbackSupport: 1
-  m_parseCtrlCharacters: 1
-  m_isOrthographic: 1
-  m_isCullingEnabled: 0
-  m_horizontalMapping: 0
-  m_verticalMapping: 0
-  m_uvLineOffset: 0
-  m_geometrySortingOrder: 0
-  m_IsTextObjectScaleStatic: 0
-  m_VertexBufferAutoSizeReduction: 0
-  m_useMaxVisibleDescender: 1
-  m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
-  m_isUsingLegacyAnimationComponent: 0
-  m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
-  m_baseMaterial: {fileID: 0}
-  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!222 &1749456180
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1749456177}
-  m_CullTransparentMesh: 1
 --- !u!1 &1752321555
 GameObject:
   m_ObjectHideFlags: 0
@@ -87174,7 +85706,6 @@ MonoBehaviour:
   dialogueTextDisplay: {fileID: 107284196}
   dialogueUIPanel: {fileID: 1778590421}
   unfoldDuration: 0.3
-  teleportFadeScript: {fileID: 1593822680}
   audioSource: {fileID: 1778590423}
   npcAnimator: {fileID: 0}
   dialogueTransitionDuration: 0.4
@@ -87195,7 +85726,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1552210023}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PathfinderTrigger, Assembly-CSharp
         m_MethodName: ActivateGuidance
         m_Mode: 1
@@ -87207,7 +85738,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  autoTeleportOnEnd: 0
   typeSpeed: 0.065
   delayBetweenSentences: 2
   dialogueLines:
@@ -90500,7 +89030,6 @@ MonoBehaviour:
   dialogueTextDisplay: {fileID: 508892516}
   dialogueUIPanel: {fileID: 1856619247}
   unfoldDuration: 0.3
-  teleportFadeScript: {fileID: 2110889938}
   audioSource: {fileID: 1856619249}
   npcAnimator: {fileID: 249750924143507533}
   dialogueTransitionDuration: 0.1
@@ -90509,7 +89038,6 @@ MonoBehaviour:
   onDialogueSequenceEnded:
     m_PersistentCalls:
       m_Calls: []
-  autoTeleportOnEnd: 0
   typeSpeed: 0.07
   delayBetweenSentences: 2
   dialogueLines:
@@ -93429,7 +91957,6 @@ MonoBehaviour:
   dialogueTextDisplay: {fileID: 1119484582}
   dialogueUIPanel: {fileID: 1928222488}
   unfoldDuration: 0.3
-  teleportFadeScript: {fileID: 0}
   audioSource: {fileID: 1928222490}
   npcAnimator: {fileID: 0}
   dialogueTransitionDuration: 0.4
@@ -93450,7 +91977,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  autoTeleportOnEnd: 0
   typeSpeed: 0.065
   delayBetweenSentences: 2
   dialogueLines:
@@ -97202,7 +95728,6 @@ MonoBehaviour:
   dialogueTextDisplay: {fileID: 1266265625}
   dialogueUIPanel: {fileID: 2003071287}
   unfoldDuration: 0.3
-  teleportFadeScript: {fileID: 407062341}
   audioSource: {fileID: 2003071289}
   npcAnimator: {fileID: 0}
   dialogueTransitionDuration: 0.4
@@ -97223,7 +95748,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  autoTeleportOnEnd: 0
   typeSpeed: 0.065
   delayBetweenSentences: 2
   dialogueLines:
@@ -101345,7 +99869,6 @@ MonoBehaviour:
   dialogueTextDisplay: {fileID: 627799481}
   dialogueUIPanel: {fileID: 2105003108}
   unfoldDuration: 0.3
-  teleportFadeScript: {fileID: 442210130}
   audioSource: {fileID: 2105003110}
   npcAnimator: {fileID: 7882668900696738496}
   dialogueTransitionDuration: 0.1
@@ -101366,7 +99889,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  autoTeleportOnEnd: 0
   typeSpeed: 0.07
   delayBetweenSentences: 2
   dialogueLines:
@@ -101722,206 +100244,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2108529223}
   m_CullTransparentMesh: 1
---- !u!1 &2110889937
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2110889940}
-  - component: {fileID: 2110889943}
-  - component: {fileID: 2110889942}
-  - component: {fileID: 2110889941}
-  - component: {fileID: 2110889938}
-  - component: {fileID: 2110889939}
-  m_Layer: 0
-  m_Name: TeleportTrigger Doctor
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2110889938
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2110889937}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1b06e4988608734c96ac2bc66fe2a0e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TeleportFade
-  playerController: {fileID: 993888165}
-  screenFader: {fileID: 993888164}
-  isDialogueMission: 1
-  dialogueSystem: {fileID: 1856619250}
-  useTeleport: 0
-  fadeDuration: 1
-  lockMovementDuringMission: 0
-  missionTargetPosition: {fileID: 0}
-  postMissionTargetPosition: {fileID: 0}
-  onPostTeleportFinished:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1856619247}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1593822678}
-        m_TargetAssemblyTypeName: PathfinderTrigger, Assembly-CSharp
-        m_MethodName: ActivateGuidance
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 668675647}
-        m_TargetAssemblyTypeName: VRIFDialogueSystem, Assembly-CSharp
-        m_MethodName: StartDialogueSequence
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MissionFlowManager, Assembly-CSharp
-        m_MethodName: CompleteCurrentStep
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &2110889939
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2110889937}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64359ce10c844b94b92dbdb14cd78aea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PathfinderTrigger
-  destinationTarget: {fileID: 1362201747}
-  activateOnStart: 0
---- !u!4 &2110889940
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2110889937}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.957, y: 0.005, z: -0.48197365}
-  m_LocalScale: {x: 4.444199, y: 3.727184, z: 1.3005}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1492512019}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &2110889941
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2110889937}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!23 &2110889942
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2110889937}
-  m_Enabled: 0
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_MaskInteraction: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &2110889943
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2110889937}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &2111861879
 GameObject:
   m_ObjectHideFlags: 0
@@ -182256,22 +180578,25 @@ Transform:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 363949744}
-  - {fileID: 1377508651}
-  - {fileID: 1449314480}
-  - {fileID: 993888163}
+  - {fileID: 601990192}
   - {fileID: 1863420386}
-  - {fileID: 676190706}
   - {fileID: 7501654609989697751}
-  - {fileID: 904410728}
-  - {fileID: 1542105234}
-  - {fileID: 639447853}
-  - {fileID: 1492512019}
-  - {fileID: 650454115}
+  - {fileID: 676190706}
   - {fileID: 1999506318}
-  - {fileID: 822731749}
-  - {fileID: 1617312661}
-  - {fileID: 573747815}
   - {fileID: 127853948}
+  - {fileID: 1542105234}
+  - {fileID: 573747815}
+  - {fileID: 512636200}
+  - {fileID: 993888163}
+  - {fileID: 1449314480}
+  - {fileID: 509627878}
+  - {fileID: 639447853}
   - {fileID: 17467179}
   - {fileID: 438172204}
+  - {fileID: 1377508651}
+  - {fileID: 1419356152}
+  - {fileID: 822731749}
+  - {fileID: 363949744}
+  - {fileID: 1617312661}
+  - {fileID: 945409425}
+  - {fileID: 904410728}
