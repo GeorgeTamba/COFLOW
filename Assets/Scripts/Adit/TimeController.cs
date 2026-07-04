@@ -2,15 +2,15 @@ using UnityEngine;
 
 public class TimeController : MonoBehaviour
 {
-    [Header("Pengaturan Waktu (Hanya Jalan di Editor)")]
-    [Tooltip("Kecepatan waktu. 1 = Normal, 2 = 2x lebih cepat, 0.5 = Slow motion")]
+    [Header("Time Settings (Editor Only)")]
+    [Tooltip("Time speed multiplier. 1 = Normal, 2 = 2x faster, 0.5 = Slow motion")]
     [Range(0.1f, 30f)]
     public float timeMultiplier = 3.0f;
 
-    [Header("Mode Tombol")]
-    [Tooltip("Jika dicentang, waktu hanya cepat saat kamu MENAHAN tombol di keyboard. Jika tidak, waktu akan otomatis cepat terus.")]
+    [Header("Button Mode")]
+    [Tooltip("If checked, time is only sped up while HOLDING the key. If unchecked, time is always sped up.")]
     public bool holdToFastForward = true;
-    [Tooltip("Tombol keyboard untuk mempercepat waktu")]
+    [Tooltip("Keyboard key to fast forward time")]
     public KeyCode fastForwardKey = KeyCode.F;
 
     private void Update()

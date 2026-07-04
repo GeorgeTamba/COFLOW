@@ -66,20 +66,20 @@ public class NPCMovementTrigger : MonoBehaviour
     {
         isWalking = false;
 
-        // 1. Matikan mesin NavMesh secara total
+        // 1. Completely disable the NavMesh agent
         if (npcAgent != null)
         {
             npcAgent.isStopped = true;
             npcAgent.ResetPath();
         }
 
-        // 2. Putar animasi ke Idle
+        // 2. Play Idle animation
         if (npcAnimator != null && !string.IsNullOrEmpty(idleAnimationState))
         {
             npcAnimator.CrossFade(idleAnimationState, 0.3f);
         }
 
-        // 3. Putar badan menghadap target, baru eksekusi Event
+        // 3. Rotate to face target, then execute Event
         if (destinationTarget != null)
         {
             StartCoroutine(RotateToFaceTarget(destinationTarget.rotation));
@@ -91,28 +91,28 @@ public class NPCMovementTrigger : MonoBehaviour
         }
     }
 
-    // Coroutine untuk memutar NPC dengan halus
+    // Coroutine to smoothly rotate the NPC
     private IEnumerator RotateToFaceTarget(Quaternion targetRotation)
     {
-        float duration = 0.5f; // Durasi waktu berputar (setengah detik)
+        float duration = 0.5f; // Rotation duration
         float elapsed = 0f;
         Quaternion startRotation = npcAgent.transform.rotation;
 
         while (elapsed < duration)
         {
-            // Slerp membuat putaran menjadi sangat mulus
+            // Smoothly interpolate rotation
             npcAgent.transform.rotation = Quaternion.Slerp(startRotation, targetRotation, elapsed / duration);
             elapsed += Time.deltaTime;
             yield return null;
         }
 
-        // Pastikan rotasi benar-benar presisi di akhir
+        // Ensure precise final rotation
         npcAgent.transform.rotation = targetRotation;
 
-        // Eksekusi event/dialog SETELAH NPC selesai menghadap depan
+        // Execute event after rotation is complete
         onNPCArrived?.Invoke();
 
-        // Matikan skrip
+        // Disable script
         this.enabled = false;
     }
 }

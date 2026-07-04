@@ -4,92 +4,88 @@ using UnityEngine.AI;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
-// Struktur data modular untuk setiap "Halte" atau titik pemberhentian
+// Modular data structure for each waypoint
 [System.Serializable]
 public class BedWaypoint
 {
-    [Tooltip("Nama halte (misal: Ruang Pra-Operasi, ICU)")]
-    public string waypointName = "Halte Baru";
+    [Tooltip("Waypoint name (e.g., Pre-Op Room, ICU)")]
+    public string waypointName = "New Waypoint";
 
-    [Tooltip("Titik tujuan kasur (Bisa lokasi jalan, atau titik spawn teleport)")]
+    [Tooltip("Target destination (Walking target or teleport spawn)")]
     public Transform destination;
 
-    [Tooltip("Centang jika ke titik ini menggunakan Teleport (layar gelap), BUKAN jalan biasa")]
+    [Tooltip("Check to use Teleport (fade screen) instead of normal walking")]
     public bool useTeleport = false;
 
-    [Tooltip("Event yang menyala saat kasur sampai (Misal: menyalakan VRIFDialogueSystem)")]
+    [Tooltip("Event triggered upon arrival")]
     public UnityEvent onArrived;
 
-    [Tooltip("Centang ini jika kasur harus BERHENTI MENUNGGU sampai fungsi ResumeSequence() dipanggil (Misal: nunggu dialog selesai)")]
+    [Tooltip("Check to pause movement until ResumeSequence() is called")]
     public bool waitForExternalTrigger = false;
 
-    [Tooltip("Jeda waktu sebelum mengeksekusi Event, atau jeda sebelum lanjut jalan")]
+    [Tooltip("Delay before executing the arrival event or moving to the next waypoint")]
     public float delayAfterArrive = 1.0f;
 
-    // === TAMBAHAN BARU: KECEPATAN KASUR ===
-    [Tooltip("Kecepatan jalan kasur MENUJU halte ini. (Misal: 3.5 untuk normal, 1.5 untuk pelan)")]
+    [Tooltip("Movement speed towards this waypoint")]
     public float moveSpeed = 3.5f;
 }
 
 [RequireComponent(typeof(Collider))]
 public class BedTransitionSequence : MonoBehaviour
 {
-    [Header("Mode Memulai")]
-    [Tooltip("Centang jika ingin kasur langsung jalan saat scene dimuat (Tanpa perlu nabrak trigger)")]
+    [Header("Start Mode")]
+    [Tooltip("Start sequence automatically on Awake (No trigger collision required)")]
     public bool autoStartOnAwake = false;
 
-    [Header("Referensi Transisi & UI")]
+    [Header("Transition & UI References")]
     public BNG.ScreenFader screenFader;
     public CanvasGroup nextDayTextCanvas;
 
-    [Header("Durasi (Detik)")]
+    [Header("Durations (Seconds)")]
     public float fadeDuration = 1.0f;
     public float textDisplayDuration = 3.0f;
 
-    [Header("Referensi Player VR")]
+    [Header("VR Player References")]
     public Transform playerRig;
     public MonoBehaviour[] movementScripts;
 
-    [Header("Pergerakan Kasur Modular")]
+    [Header("Modular Bed Movement")]
     public NavMeshAgent bedAgent;
     public Transform bedMountPoint;
 
-    [Tooltip("Posisi awal kasur saat sequence dimulai (mis. tepat di DEPAN PINTU). " +
-             "Kasur dipindah ke sini selagi layar MASIH GELAP, jadi player langsung muncul di depan pintu, " +
-             "bukan di posisi parkir kasur (di dalam kamar). Kosongkan jika kasur sudah diletakkan di posisi awal yang benar di editor.")]
+    [Tooltip("Initial bed position during the black screen. Leave empty if already placed correctly in the scene.")]
     public Transform bedStartPosition;
 
-    [Tooltip("Daftar titik halte kasur secara berurutan")]
-    public BedWaypoint[] bedWaypoints; // ARRAY MODULAR KITA
+    [Tooltip("Sequential list of waypoints")]
+    public BedWaypoint[] bedWaypoints;
 
-    [Header("Audio Kasur")]
-    [Tooltip("Masukkan komponen AudioSource yang berisi suara roda kasur.")]
+    [Header("Bed Audio")]
+    [Tooltip("AudioSource for the bed wheel sounds.")]
     public AudioSource bedMovementAudio;
 
-    [Header("Scene Berikutnya")]
+    [Header("Next Scene")]
     public string nextSceneName;
 
     [Header("Optional Events")]
-    [Tooltip("Dipanggil tepat setelah layar kembali terang dan pemain sudah berada di atas kasur awal")]
+    [Tooltip("Called immediately after the screen fades in at the initial position")]
     public UnityEvent onInitialTeleportComplete;
 
     private bool sequenceStarted = false;
-    private bool isWaitingForResume = false; // Kunci penahan kasur
+    private bool isWaitingForResume = false;
 
     private void Start()
     {
         if (nextDayTextCanvas != null) nextDayTextCanvas.alpha = 0f;
         if (bedAgent != null) bedAgent.enabled = false;
 
-        // --- PENGATURAN OTOMATIS AUDIO ---
+        // Auto-configure audio
         if (bedMovementAudio != null)
         {
-            bedMovementAudio.loop = true; // Memaksa audio 8 detikmu me-looping terus
-            bedMovementAudio.playOnAwake = false; // Mencegah suara bocor di awal scene
+            bedMovementAudio.loop = true;
+            bedMovementAudio.playOnAwake = false;
         }
-        // ----------------------------------
 
-        // MODE SCENE BARU: Langsung eksekusi tanpa trigger
+        // Auto-start mode
         if (autoStartOnAwake)
         {
             sequenceStarted = true;
@@ -99,7 +95,7 @@ public class BedTransitionSequence : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        // MODE SCENE LAMA: Tunggu player nabrak kubus trigger
+        // Trigger mode: Wait for player collision
         if (!autoStartOnAwake && !sequenceStarted && other.CompareTag("Player"))
         {
             sequenceStarted = true;
@@ -107,10 +103,10 @@ public class BedTransitionSequence : MonoBehaviour
         }
     }
 
-    // FUNGSI PENTING: Dipanggil dari panel dialog untuk melepas rem kasur
+    // Called externally (e.g., from a dialogue panel) to resume movement
     public void ResumeSequence()
     {
-        Debug.Log("<color=green>Perintah diterima: Kasur melanjutkan perjalanan!</color>");
+        Debug.Log("<color=green>Command received: Resuming bed movement!</color>");
         isWaitingForResume = false;
     }
 
@@ -120,7 +116,7 @@ public class BedTransitionSequence : MonoBehaviour
 
         if (!isAutoStart)
         {
-            // Flow Scene Lama (Layar gelap -> Teks Keesokan harinya)
+            // Legacy flow: Fade out -> Next day text -> Fade in
             if (screenFader != null) screenFader.DoFadeIn();
             yield return new WaitForSeconds(fadeDuration);
 
@@ -133,54 +129,48 @@ public class BedTransitionSequence : MonoBehaviour
         }
         else
         {
-            // Flow Scene Baru (Gelap kilat untuk persiapan posisi awal)
+            // Auto-start flow: Quick fade for initial positioning
             if (screenFader != null) screenFader.DoFadeIn();
             yield return new WaitForSeconds(0.5f);
         }
 
-        // ============================================================
-        // PENEMPATAN AWAL (LAYAR MASIH GELAP)
-        // ------------------------------------------------------------
+        // --- INITIAL POSITIONING (DURING BLACK SCREEN) ---
         if (bedAgent != null)
         {
-            bedAgent.enabled = false; // matikan NavMesh agar bisa dipindah manual
+            bedAgent.enabled = false; // Disable NavMesh for manual repositioning
             if (bedStartPosition != null)
                 bedAgent.transform.SetPositionAndRotation(bedStartPosition.position, bedStartPosition.rotation);
         }
 
-        // Dudukkan player di kasur YANG SUDAH di posisi awal.
+        // Parent player to the positioned bed
         if (bedMountPoint != null && playerRig != null)
         {
             playerRig.SetParent(bedAgent != null ? bedAgent.transform : null);
             playerRig.SetPositionAndRotation(bedMountPoint.position, bedMountPoint.rotation);
         }
 
-        // Reveal SEKALI: layar terang, player sudah di depan pintu di atas kasur.
+        // Reveal Scene
         if (screenFader != null) screenFader.DoFadeOut();
         yield return new WaitForSeconds(fadeDuration);
 
-        // PANGGIL EVENT SETELAH REVEAL
         onInitialTeleportComplete?.Invoke();
 
-        // ============================================
-        // MESIN MODULAR: Eksekusi setiap Halte
-        // ============================================
+        // --- MODULAR WAYPOINT EXECUTION ---
         foreach (BedWaypoint waypoint in bedWaypoints)
         {
             if (waypoint.destination == null) continue;
 
             if (waypoint.useTeleport)
             {
-                // MODE TELEPORT (Contoh: Masuk kamar ICU tembus tembok)
+                // Teleport mode
                 if (screenFader != null) screenFader.DoFadeIn();
                 yield return new WaitForSeconds(fadeDuration);
 
                 if (bedAgent != null) bedAgent.enabled = false;
 
-                // Pindah posisi kasur (player ikut karena di-parent ke kasur)
                 bedAgent.transform.SetPositionAndRotation(waypoint.destination.position, waypoint.destination.rotation);
 
-                // Samakan kepala player ke titik duduk kasur
+                // Snap player to mount point
                 if (bedMountPoint != null && playerRig != null)
                     playerRig.SetPositionAndRotation(bedMountPoint.position, bedMountPoint.rotation);
 
@@ -189,37 +179,32 @@ public class BedTransitionSequence : MonoBehaviour
             }
             else
             {
-                // MODE JALAN (NavMesh biasa)
+                // Walking mode (NavMesh)
                 if (bedAgent != null)
                 {
                     bedAgent.enabled = true;
-                    // Warp agar agent ter-snap rapi ke NavMesh setelah dipindah manual
-                    bedAgent.Warp(bedAgent.transform.position);
+                    bedAgent.Warp(bedAgent.transform.position); // Snap agent to NavMesh
 
-                    // --- ATUR KECEPATAN NAVMESH SESUAI WAYPOINT ---
                     bedAgent.speed = waypoint.moveSpeed;
-
                     bedAgent.isStopped = false;
                     bedAgent.SetDestination(waypoint.destination.position);
 
-                    // --- NYALAKAN SUARA RODA KASUR (Looping akan bekerja otomatis) ---
                     if (bedMovementAudio != null && !bedMovementAudio.isPlaying)
                     {
                         bedMovementAudio.Play();
                     }
 
-                    // Tunggu sampai jarak ke halte tersisa sangat dekat
+                    // Wait until close to destination
                     while (bedAgent.pathPending || bedAgent.remainingDistance > 0.1f)
                     {
                         yield return null;
                     }
 
-                    // Tarik Rem!
+                    // Stop movement
                     bedAgent.isStopped = true;
                     bedAgent.ResetPath();
                     bedAgent.enabled = false;
 
-                    // --- MATIKAN SUARA RODA KASUR (Begitu kasur berhenti, audio ikut mati) ---
                     if (bedMovementAudio != null && bedMovementAudio.isPlaying)
                     {
                         bedMovementAudio.Stop();
@@ -227,26 +212,23 @@ public class BedTransitionSequence : MonoBehaviour
                 }
             }
 
-            // Eksekusi Event di halte tersebut (Misal: StartDialogueSequence)
+            // Execute arrival event
             waypoint.onArrived?.Invoke();
 
-            // Beri jeda sesuai inputan di Inspector
             yield return new WaitForSeconds(waypoint.delayAfterArrive);
 
-            // Tahan kasur di sini jika dicentang, sampai ResumeSequence() dipanggil!
+            // Wait for external trigger to resume
             if (waypoint.waitForExternalTrigger)
             {
                 isWaitingForResume = true;
                 while (isWaitingForResume)
                 {
-                    yield return null; // Looping diam di tempat
+                    yield return null;
                 }
             }
         }
 
-        // ============================================
-        // AKHIR SEQUENCE (Pindah Scene Akhir)
-        // ============================================
+        // --- SEQUENCE END (Load Next Scene) ---
         if (!string.IsNullOrEmpty(nextSceneName))
         {
             if (screenFader != null) screenFader.DoFadeIn();

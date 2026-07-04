@@ -8,11 +8,11 @@ public class VRPanelController : MonoBehaviour
     private void Awake()
     {
         canvasGroup = GetComponent<CanvasGroup>();
-        // Sembunyikan panel secara otomatis saat simulasi dimulai
+        // Hide panel automatically when the simulation starts
         HidePanel();
     }
 
-    // Panggil ini dari UnityEvent saat panel perlu muncul
+    // Call this from a UnityEvent when the panel needs to appear
     public void ShowPanel()
     {
         canvasGroup.alpha = 1f;
@@ -20,7 +20,7 @@ public class VRPanelController : MonoBehaviour
         canvasGroup.blocksRaycasts = true;
     }
 
-    // Panggil ini saat tombol "Selesai" ditekan
+    // Call this when the "Done" button is pressed
     public void HidePanel()
     {
         canvasGroup.alpha = 0f;

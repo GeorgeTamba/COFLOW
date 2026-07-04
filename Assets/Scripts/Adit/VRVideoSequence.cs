@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.Video;
-using UnityEngine.Events; // Wajib dipanggil untuk memunculkan kolom Event di Inspector
+using UnityEngine.Events; // Required to show the Event column in the Inspector
 
 [RequireComponent(typeof(VideoPlayer))]
 public class VRVideoSequence : MonoBehaviour
@@ -8,26 +8,26 @@ public class VRVideoSequence : MonoBehaviour
     private VideoPlayer videoPlayer;
 
     [Header("Video Events")]
-    [Tooltip("Semua yang ada di list ini akan tereksekusi otomatis saat video selesai, fungsinya persis seperti OnClick pada Button")]
+    [Tooltip("Everything in this list will execute automatically when the video finishes, acting exactly like an OnClick event for a Button")]
     public UnityEvent onVideoFinished;
 
     private void Start()
     {
         videoPlayer = GetComponent<VideoPlayer>();
 
-        // Daftarkan event: saat video mencapai detik terakhir, jalankan fungsi OnVideoEnd
+        // Register event: run the OnVideoEnd function when the video reaches the last second
         if (videoPlayer != null)
         {
             videoPlayer.loopPointReached += OnVideoEnd;
         }
     }
 
-    // Fungsi ini akan otomatis terpanggil oleh sistem Unity saat video selesai berputar
+    // This function is automatically called by the Unity system when the video finishes playing
     private void OnVideoEnd(VideoPlayer vp)
     {
-        Debug.Log("<color=orange>Video Selesai! Mengeksekusi semua event di daftar...</color>");
+        Debug.Log("<color=orange>Video Finished! Executing all events in the list...</color>");
 
-        // Memanggil/menjalankan semua fungsi yang kamu daftarkan di Inspector
+        // Invoke/run all functions registered in the Inspector
         onVideoFinished?.Invoke();
     }
 }

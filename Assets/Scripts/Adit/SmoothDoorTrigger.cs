@@ -21,10 +21,10 @@ public class DoorGroup
     public GameObject triggerZone;
     public float animationSpeed = 2.5f;
 
-    [Tooltip("Jika true, pintu mulai nonaktif dan baru merespons setelah ActivateReturnRoute() dipanggil. Untuk pintu rute pulang.")]
+    [Tooltip("If true, the door starts inactive and responds only after ActivateReturnRoute() is called. Used for return routes.")]
     public bool requiresManualActivation = false;
 
-    [Tooltip("Centang agar trigger menonaktifkan dirinya setelah dipakai sekali")]
+    [Tooltip("Check to disable the trigger after a single use.")]
     public bool oneTimeUseOnly = false;
 
     public DoorPanelSettings[] doorPanels;
@@ -49,7 +49,7 @@ public class SmoothDoorTrigger : MonoBehaviour
             {
                 DoorTriggerHelper helper = group.triggerZone.AddComponent<DoorTriggerHelper>();
                 helper.Setup(this, i);
-                helper.isEnabled = !group.requiresManualActivation; // pintu rute pulang mulai nonaktif
+                helper.isEnabled = !group.requiresManualActivation; // Return route doors start inactive
                 group.helper = helper;
             }
 
@@ -71,7 +71,7 @@ public class SmoothDoorTrigger : MonoBehaviour
         }
     }
 
-    // Dipanggil oleh event Dialog UI saat rute pulang harus diaktifkan
+    // Called by UI Dialogue event when the return route needs to be activated
     public void ActivateReturnRoute()
     {
         foreach (var group in allDoorGroups)
@@ -99,7 +99,7 @@ public class SmoothDoorTrigger : MonoBehaviour
         RunAnimation(group, false);
 
         if (group.oneTimeUseOnly && group.helper != null)
-            group.helper.isEnabled = false; // berhenti merespons setelah dipakai
+            group.helper.isEnabled = false; // Stop responding after one use
     }
 
     private bool IsValidMover(Collider other)
@@ -137,7 +137,7 @@ public class SmoothDoorTrigger : MonoBehaviour
             yield return null;
         }
 
-        // Snap ke posisi final agar presisi
+        // Snap to final position for precision
         foreach (var panel in group.doorPanels)
         {
             if (panel != null && panel.panelTransform != null)

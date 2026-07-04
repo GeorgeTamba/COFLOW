@@ -4,17 +4,17 @@ using UnityEngine;
 public class VRCameraAutofocus : MonoBehaviour
 {
     [Header("VR Rig References")]
-    [Tooltip("Tarik objek PlayerController milik VRIF ke sini")]
+    [Tooltip("Drag the VRIF PlayerController object here")]
     public Transform playerController;
 
-    [Tooltip("Tarik objek CenterEyeAnchor (kamera VR) ke sini")]
+    [Tooltip("Drag the CenterEyeAnchor (VR Camera) object here")]
     public Transform centerEyeAnchor;
 
     [Header("Settings")]
-    [Tooltip("Kecepatan putaran kamera menuju panel. Semakin besar makin cepat.")]
+    [Tooltip("Camera rotation speed towards the panel. Higher means faster.")]
     public float rotationSpeed = 3f;
 
-    // Fungsi ini dipanggil dari UnityEvent (misal dari halte BedTransitionSequence)
+    // This function is called from a UnityEvent (e.g., from a BedTransitionSequence waypoint)
     public void FocusOnPanel(Transform targetPanel)
     {
         if (targetPanel == null || playerController == null || centerEyeAnchor == null) return;
@@ -29,27 +29,27 @@ public class VRCameraAutofocus : MonoBehaviour
 
         while (isFocusing)
         {
-            // 1. Cari arah dari posisi mata pemain ke posisi target panel
-            // Kita nol-kan sumbu Y agar pemain tidak dipaksa menunduk/mendangak
+            // 1. Find the direction from the player's eye position to the target panel
+            // Zero out the Y axis so the player isn't forced to look up/down
             Vector3 dirToTarget = target.position - centerEyeAnchor.position;
             dirToTarget.y = 0;
 
             if (dirToTarget.sqrMagnitude > 0.001f)
             {
-                // 2. Hitung rotasi ideal yang seharusnya
+                // 2. Calculate the ideal target rotation
                 Quaternion desiredCameraRot = Quaternion.LookRotation(dirToTarget);
 
-                // 3. Hitung selisih derajat antara arah lihat pemain saat ini dengan arah panel
+                // 3. Calculate the angle difference between current view direction and panel direction
                 float angleDifference = Mathf.DeltaAngle(centerEyeAnchor.eulerAngles.y, desiredCameraRot.eulerAngles.y);
 
-                // 4. Jika selisih sudut sudah sangat kecil (< 2 derajat), LEPASKAN KUNCIAN!
+                // 4. If the angle difference is very small (< 2 degrees), RELEASE THE LOCK!
                 if (Mathf.Abs(angleDifference) < 2f)
                 {
                     isFocusing = false;
                     break;
                 }
 
-                // 5. Putar badan pemain (PlayerController) secara halus menuju panel
+                // 5. Smoothly rotate the player's body (PlayerController) towards the panel
                 float step = angleDifference * Time.deltaTime * rotationSpeed;
                 playerController.Rotate(0, step, 0, Space.World);
             }

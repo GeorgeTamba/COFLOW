@@ -13,7 +13,7 @@ public class VRFollowPanel : MonoBehaviour
     [Tooltip("X: Left/Right, Y: Height from floor, Z: Distance FORWARD from player's face")]
     public Vector3 spawnOffset = new Vector3(0f, 1.3f, 1.5f);
 
-    [Tooltip("CENTANG HANYA SAAT TESTING DI EDITOR untuk menggeser offset secara live. MATIKAN saat game sudah rilis/build agar lebih ringan!")]
+    [Tooltip("CHECK ONLY DURING EDITOR TESTING to adjust offset live. DISABLE in release/build for better performance!")]
     public bool liveEditOffset = false;
 
     [Tooltip("How smoothly the panel follows the player (Higher = more responsive)")]
@@ -27,7 +27,7 @@ public class VRFollowPanel : MonoBehaviour
 
     void Awake()
     {
-        // Simpan rotasi/kemiringan awal dari scene
+        // Save the initial scene rotation/tilt
         sceneRotation = transform.rotation;
     }
 
@@ -40,7 +40,7 @@ public class VRFollowPanel : MonoBehaviour
 
         if (playerRoot != null && playerCamera != null)
         {
-            // Kunci arah depan dan kanan saat pertama kali panel menyala
+            // Lock the forward and right directions when the panel first activates
             lockedForward = playerCamera.forward;
             lockedForward.y = 0;
             lockedForward.Normalize();
@@ -49,10 +49,10 @@ public class VRFollowPanel : MonoBehaviour
             lockedRight.y = 0;
             lockedRight.Normalize();
 
-            // Hitung jarak awal
+            // Calculate initial distance
             RecalculateOffset();
 
-            // Langsung pindahkan ke posisi target seketika di frame pertama (tanpa Lerp)
+            // Move immediately to target position on the first frame (without Lerp)
             transform.position = playerRoot.position + fixedWorldOffset;
             transform.rotation = sceneRotation;
 
@@ -64,21 +64,21 @@ public class VRFollowPanel : MonoBehaviour
     {
         if (!isInitialized || playerRoot == null) return;
 
-        // Jika mode edit nyala, CPU akan menghitung ulang offsetnya tiap frame (Real-time update)
+        // If edit mode is on, recalculate offset every frame (Real-time update)
         if (liveEditOffset)
         {
             RecalculateOffset();
         }
 
-        // Panel bergerak mulus mengikuti posisi tersebut berdasarkan jarak paten yang sudah dikunci
+        // Smoothly move panel to follow the target position based on the locked distance
         Vector3 targetPosition = playerRoot.position + fixedWorldOffset;
         transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime * followSpeed);
 
-        // Terus kunci rotasinya dengan kemiringan dari scene
+        // Keep the rotation locked to the scene's tilt
         transform.rotation = sceneRotation;
     }
 
-    // Fungsi pembantu untuk mengkalkulasi offset
+    // Helper function to calculate the offset
     private void RecalculateOffset()
     {
         Vector3 targetSpawnPos = playerRoot.position
@@ -86,7 +86,7 @@ public class VRFollowPanel : MonoBehaviour
                                  + (Vector3.up * spawnOffset.y)
                                  + (lockedForward * spawnOffset.z);
 
-        // Mengunci jarak absolut antara badan player dan panel
+        // Lock the absolute distance between the player's body and the panel
         fixedWorldOffset = targetSpawnPos - playerRoot.position;
     }
 }
