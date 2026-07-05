@@ -24,7 +24,7 @@ public class DialogueLine
     public UnityEvent onLineFinished;
 }
 
-public class VRIFDialogueSystem : MonoBehaviour
+public class NPCDialogueSystem : MonoBehaviour
 {
     [Header("References")]
     public TextMeshProUGUI dialogueTextDisplay;

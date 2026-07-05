@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class VRCameraAutofocus : MonoBehaviour
+public class AutoFacePanel : MonoBehaviour
 {
     [Header("VR Rig References")]
     [Tooltip("Drag the VRIF PlayerController object here")]

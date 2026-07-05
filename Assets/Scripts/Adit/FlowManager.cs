@@ -31,7 +31,7 @@ public class BedWaypoint
 }
 
 [RequireComponent(typeof(Collider))]
-public class BedTransitionSequence : MonoBehaviour
+public class FlowManager : MonoBehaviour
 {
     [Header("Start Mode")]
     [Tooltip("Start sequence automatically on Awake (No trigger collision required)")]
