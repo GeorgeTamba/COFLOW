@@ -9911,7 +9911,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &240689981
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10038,7 +10038,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 240689980}
   m_Enabled: 1
-  m_Alpha: 0
+  m_Alpha: 1
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -10051,9 +10051,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 240689980}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06d354df5d42023468f32307206b3150, type: 3}
+  m_Script: {fileID: 11500000, guid: 7ee805472840d5843b863535775bbe97, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::VRPanelController
+  m_EditorClassIdentifier: Assembly-CSharp::BNG.VRCanvas
 --- !u!1 &242034891
 GameObject:
   m_ObjectHideFlags: 0
@@ -24168,10 +24168,10 @@ MonoBehaviour:
     onLineFinished:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 240689987}
-          m_TargetAssemblyTypeName: VRPanelController, Assembly-CSharp
-          m_MethodName: ShowPanel
-          m_Mode: 1
+        - m_Target: {fileID: 240689980}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -24192,17 +24192,17 @@ MonoBehaviour:
     onLineFinished:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 597688559}
-          m_TargetAssemblyTypeName: VRPanelController, Assembly-CSharp
-          m_MethodName: ShowPanel
-          m_Mode: 1
+        - m_Target: {fileID: 597688551}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
-            m_BoolArgument: 0
+            m_BoolArgument: 1
           m_CallState: 2
 --- !u!114 &542509127
 MonoBehaviour:
@@ -27119,7 +27119,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &597688552
 RectTransform:
   m_ObjectHideFlags: 0
@@ -27290,8 +27290,8 @@ CanvasGroup:
   m_GameObject: {fileID: 597688551}
   m_Enabled: 1
   m_Alpha: 1
-  m_Interactable: 0
-  m_BlocksRaycasts: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
 --- !u!114 &597688558
 MonoBehaviour:
@@ -27316,9 +27316,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 597688551}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06d354df5d42023468f32307206b3150, type: 3}
+  m_Script: {fileID: 11500000, guid: 7ee805472840d5843b863535775bbe97, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::VRPanelController
+  m_EditorClassIdentifier: Assembly-CSharp::BNG.VRCanvas
 --- !u!1 &599665906
 GameObject:
   m_ObjectHideFlags: 0
@@ -39178,10 +39178,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 597688559}
-        m_TargetAssemblyTypeName: VRPanelController, Assembly-CSharp
-        m_MethodName: HidePanel
-        m_Mode: 1
+      - m_Target: {fileID: 597688551}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -39591,10 +39591,10 @@ MonoBehaviour:
     onLineFinished:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 240689987}
-          m_TargetAssemblyTypeName: VRPanelController, Assembly-CSharp
-          m_MethodName: ShowPanel
-          m_Mode: 1
+        - m_Target: {fileID: 240689980}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -40903,14 +40903,14 @@ GameObject:
   - component: {fileID: 806761192}
   - component: {fileID: 806761191}
   - component: {fileID: 806761190}
-  - component: {fileID: 806761189}
+  - component: {fileID: 806761195}
   m_Layer: 0
   m_Name: Doctor Video Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &806761188
 RectTransform:
   m_ObjectHideFlags: 0
@@ -40931,18 +40931,6 @@ RectTransform:
   m_AnchoredPosition: {x: 6.784, y: 1.998}
   m_SizeDelta: {x: 1080, y: 1920}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &806761189
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 806761187}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06d354df5d42023468f32307206b3150, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::VRPanelController
 --- !u!225 &806761190
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -41034,6 +41022,18 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &806761195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 806761187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ee805472840d5843b863535775bbe97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BNG.VRCanvas
 --- !u!1 &807351982
 GameObject:
   m_ObjectHideFlags: 0
@@ -72819,17 +72819,17 @@ MonoBehaviour:
     onLineFinished:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 597688559}
-          m_TargetAssemblyTypeName: VRPanelController, Assembly-CSharp
-          m_MethodName: ShowPanel
-          m_Mode: 1
+        - m_Target: {fileID: 597688551}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
-            m_BoolArgument: 0
+            m_BoolArgument: 1
           m_CallState: 2
 --- !u!114 &1467255937
 MonoBehaviour:
@@ -89053,17 +89053,17 @@ MonoBehaviour:
     onLineFinished:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 806761189}
-          m_TargetAssemblyTypeName: VRPanelController, Assembly-CSharp
-          m_MethodName: ShowPanel
-          m_Mode: 1
+        - m_Target: {fileID: 806761187}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
-            m_BoolArgument: 0
+            m_BoolArgument: 1
           m_CallState: 2
 --- !u!225 &1856619251
 CanvasGroup:
