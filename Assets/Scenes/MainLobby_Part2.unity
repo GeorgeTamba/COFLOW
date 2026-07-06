@@ -18091,6 +18091,7 @@ GameObject:
   - component: {fileID: 1019047269}
   - component: {fileID: 1019047271}
   - component: {fileID: 1019047270}
+  - component: {fileID: 1019047272}
   m_Layer: 0
   m_Name: Target Registration
   m_TagString: Untagged
@@ -18148,6 +18149,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1019047272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1019047268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64359ce10c844b94b92dbdb14cd78aea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PathfinderTrigger
+  destinationTarget: {fileID: 1019047269}
+  activateOnStart: 1
 --- !u!1 &1019822123
 GameObject:
   m_ObjectHideFlags: 0

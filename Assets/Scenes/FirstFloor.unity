@@ -3075,7 +3075,7 @@ Transform:
   m_GameObject: {fileID: 73957995}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -26.138536, y: -0.13100001, z: -2.4842205}
+  m_LocalPosition: {x: -26.138536, y: -0.13100001, z: -1.87}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3094,7 +3094,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PathfinderTrigger
   destinationTarget: {fileID: 73957996}
-  activateOnStart: 1
+  activateOnStart: 0
 --- !u!114 &73957998
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13973,8 +13973,9 @@ GameObject:
   - component: {fileID: 358955710}
   - component: {fileID: 358955709}
   - component: {fileID: 358955708}
+  - component: {fileID: 358955711}
   m_Layer: 0
-  m_Name: Target Rehab Medic
+  m_Name: Target Rehab Medis
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14030,6 +14031,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 822731749}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &358955711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 358955707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64359ce10c844b94b92dbdb14cd78aea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PathfinderTrigger
+  destinationTarget: {fileID: 358955710}
+  activateOnStart: 0
 --- !u!1 &360076077
 GameObject:
   m_ObjectHideFlags: 0
@@ -18305,7 +18320,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 489519759}
         m_TargetAssemblyTypeName: PathfinderTrigger, Assembly-CSharp
         m_MethodName: ActivateGuidance
         m_Mode: 1
@@ -20636,6 +20651,7 @@ GameObject:
   - component: {fileID: 489519756}
   - component: {fileID: 489519758}
   - component: {fileID: 489519757}
+  - component: {fileID: 489519759}
   m_Layer: 0
   m_Name: Target Poli Anestesi
   m_TagString: Untagged
@@ -20693,6 +20709,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &489519759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 489519755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64359ce10c844b94b92dbdb14cd78aea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PathfinderTrigger
+  destinationTarget: {fileID: 489519756}
+  activateOnStart: 0
 --- !u!1 &489895428
 GameObject:
   m_ObjectHideFlags: 0
@@ -21751,6 +21781,7 @@ GameObject:
   - component: {fileID: 504255650}
   - component: {fileID: 504255652}
   - component: {fileID: 504255651}
+  - component: {fileID: 504255653}
   m_Layer: 0
   m_Name: Target Poli Paru
   m_TagString: Untagged
@@ -21808,6 +21839,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &504255653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 504255649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64359ce10c844b94b92dbdb14cd78aea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PathfinderTrigger
+  destinationTarget: {fileID: 504255650}
+  activateOnStart: 0
 --- !u!1 &504862223
 GameObject:
   m_ObjectHideFlags: 0
@@ -25509,6 +25554,7 @@ GameObject:
   - component: {fileID: 570557754}
   - component: {fileID: 570557756}
   - component: {fileID: 570557755}
+  - component: {fileID: 570557757}
   m_Layer: 0
   m_Name: Target Poli Penyakit Dalam
   m_TagString: Untagged
@@ -25543,7 +25589,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58aaf80e4cb35bb48b61be01553ae553, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PathfinderDestination
-  disableAfterArrival: 0
+  disableAfterArrival: 1
   dialogPanel: {fileID: 0}
 --- !u!65 &570557756
 BoxCollider:
@@ -25566,6 +25612,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &570557757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 570557753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64359ce10c844b94b92dbdb14cd78aea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PathfinderTrigger
+  destinationTarget: {fileID: 570557754}
+  activateOnStart: 0
 --- !u!1 &570616371
 GameObject:
   m_ObjectHideFlags: 0
@@ -33568,6 +33628,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 570557757}
+        m_TargetAssemblyTypeName: PathfinderTrigger, Assembly-CSharp
+        m_MethodName: ActivateGuidance
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   typeSpeed: 0.065
   delayBetweenSentences: 2
   dialogueLines:
@@ -39583,7 +39655,7 @@ MonoBehaviour:
       berikut? Jika ada silahkan di ceklis
     dialogueAudio: {fileID: 8300000, guid: 1a072dd84d2be4b42a6914d5087bad35, type: 3}
     animationStateName: Idle
-    waitForButtonPress: 1
+    waitForButtonPress: 0
     hideMainPanelDuringWait: 1
     onLineStarted:
       m_PersistentCalls:
@@ -45145,7 +45217,7 @@ MonoBehaviour:
   onDialogueSequenceEnded:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 358955711}
         m_TargetAssemblyTypeName: PathfinderTrigger, Assembly-CSharp
         m_MethodName: ActivateGuidance
         m_Mode: 1
@@ -46997,6 +47069,7 @@ GameObject:
   - component: {fileID: 942239031}
   - component: {fileID: 942239033}
   - component: {fileID: 942239032}
+  - component: {fileID: 942239034}
   m_Layer: 0
   m_Name: Target Echocardiography
   m_TagString: Untagged
@@ -47054,6 +47127,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &942239034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 942239030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64359ce10c844b94b92dbdb14cd78aea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PathfinderTrigger
+  destinationTarget: {fileID: 942239031}
+  activateOnStart: 0
 --- !u!1 &942934745
 GameObject:
   m_ObjectHideFlags: 0
@@ -63014,7 +63101,7 @@ MonoBehaviour:
   onDialogueSequenceEnded:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 942239034}
         m_TargetAssemblyTypeName: PathfinderTrigger, Assembly-CSharp
         m_MethodName: ActivateGuidance
         m_Mode: 1
@@ -66562,6 +66649,7 @@ GameObject:
   - component: {fileID: 1362201747}
   - component: {fileID: 1362201749}
   - component: {fileID: 1362201748}
+  - component: {fileID: 1362201750}
   m_Layer: 0
   m_Name: Target Doctor Video Room
   m_TagString: Untagged
@@ -66619,6 +66707,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1362201750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1362201746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64359ce10c844b94b92dbdb14cd78aea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PathfinderTrigger
+  destinationTarget: {fileID: 1362201747}
+  activateOnStart: 0
 --- !u!1 &1363346135
 GameObject:
   m_ObjectHideFlags: 0
@@ -72803,7 +72905,19 @@ MonoBehaviour:
   endTransitionDuration: 0.1
   onDialogueSequenceEnded:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1362201750}
+        m_TargetAssemblyTypeName: PathfinderTrigger, Assembly-CSharp
+        m_MethodName: ActivateGuidance
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   typeSpeed: 0.07
   delayBetweenSentences: 2
   dialogueLines:
@@ -72811,7 +72925,7 @@ MonoBehaviour:
       kecemasan sebelum tindakan
     dialogueAudio: {fileID: 8300000, guid: 0e4d02d2747c00b498fac7b7165a1cd2, type: 3}
     animationStateName: Idle
-    waitForButtonPress: 1
+    waitForButtonPress: 0
     hideMainPanelDuringWait: 1
     onLineStarted:
       m_PersistentCalls:
@@ -79126,6 +79240,18 @@ MonoBehaviour:
       - m_Target: {fileID: 715009122}
         m_TargetAssemblyTypeName: BedTransitionSequence, Assembly-CSharp
         m_MethodName: ResumeSequence
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 73957997}
+        m_TargetAssemblyTypeName: PathfinderTrigger, Assembly-CSharp
+        m_MethodName: ActivateGuidance
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -85726,7 +85852,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 504255653}
         m_TargetAssemblyTypeName: PathfinderTrigger, Assembly-CSharp
         m_MethodName: ActivateGuidance
         m_Mode: 1
@@ -89037,7 +89163,19 @@ MonoBehaviour:
   endTransitionDuration: 0.1
   onDialogueSequenceEnded:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1362201746}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   typeSpeed: 0.07
   delayBetweenSentences: 2
   dialogueLines:
