@@ -7,7 +7,7 @@ public static class SessionDataStore
     public static int anxietyScore = 0;
     public static int quizScore = 0;
 
-    // --- NEW: The Array Baskets for the Web Dashboard ---
+    // --- The Array Baskets for the Web Dashboard ---
     public static List<int> anxietyAnswers = new List<int>();
     public static List<int> quizAnswers = new List<int>();
 

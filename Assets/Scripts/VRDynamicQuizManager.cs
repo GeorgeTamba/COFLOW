@@ -14,8 +14,6 @@ public class VRDynamicQuizManager : MonoBehaviour
     public TMP_Text progressTextUI;
     public TMP_Text scoreTextUI;
     public TMP_Text anxietyStatusTextUI;
-
-    // --- NEW: The Warning Text GameObject ---
     public GameObject warningTextObj;
 
     [Header("Radio Button Toggles")]
@@ -45,7 +43,6 @@ public class VRDynamicQuizManager : MonoBehaviour
         savedAnswers = new int[questions.Length];
         for (int i = 0; i < savedAnswers.Length; i++) savedAnswers[i] = -1;
 
-        // Ensure warning is hidden at the very beginning
         if (warningTextObj != null) warningTextObj.SetActive(false);
 
         UpdatePanel();
@@ -73,7 +70,6 @@ public class VRDynamicQuizManager : MonoBehaviour
     // Attach to the "Prev" Button OnClick()
     public void OnPrevClick()
     {
-        // We still save whatever they had checked (if anything) before moving back
         SaveCurrentAnswer();
 
         if (currentIndex > 0)
@@ -143,7 +139,6 @@ public class VRDynamicQuizManager : MonoBehaviour
 
     // --- INTERNAL HELPER FUNCTIONS ---
 
-    // CHANGED: Now returns a boolean (true if answered, false if blank)
     private bool SaveCurrentAnswer()
     {
         for (int i = 0; i < optionToggles.Length; i++)
@@ -151,15 +146,15 @@ public class VRDynamicQuizManager : MonoBehaviour
             if (optionToggles[i].gameObject.activeSelf && optionToggles[i].isOn)
             {
                 savedAnswers[currentIndex] = i;
-                return true; // Found an answer!
+                return true;
             }
         }
-        return false; // No toggles were checked
+        return false;
     }
 
     private void UpdatePanel()
     {
-        // Hide the warning text every time a new question loads
+
         if (warningTextObj != null) warningTextObj.SetActive(false);
 
         progressTextUI.text = $"{currentIndex + 1} / {questions.Length}";
@@ -178,7 +173,6 @@ public class VRDynamicQuizManager : MonoBehaviour
             }
         }
 
-        // Restore the previous answer OR uncheck everything if unanswered (-1)
         int previousAnswer = savedAnswers[currentIndex];
         for (int i = 0; i < optionToggles.Length; i++)
         {

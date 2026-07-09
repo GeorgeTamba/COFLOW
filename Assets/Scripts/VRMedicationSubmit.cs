@@ -4,7 +4,6 @@ using UnityEngine.UI;
 public class VRMedicationSubmit : MonoBehaviour
 {
     [Header("Canvas Transition (Use Canvas Groups!)")]
-    // CHANGE 1: We use CanvasGroup instead of GameObject
     public CanvasGroup medicationCanvasGroup;
     public CanvasGroup anxietyCanvasGroup;
 

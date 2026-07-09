@@ -23,7 +23,6 @@ public class VREducationalQuizManager : MonoBehaviour
     public GameObject nextButton;
     public GameObject submitButton;
 
-    // --- UPGRADE: Added correctAnswerIndex to grade the quiz! ---
     [System.Serializable]
     public class EducationalQuestion
     {
@@ -82,19 +81,16 @@ public class VREducationalQuizManager : MonoBehaviour
             return;
         }
 
-        // --- UPGRADE: The Grading Logic ---
+        // --- The Grading Logic ---
         int totalCorrect = 0;
         for (int i = 0; i < questions.Length; i++)
         {
-            // Check if what they clicked matches the correct answer key
             if (savedAnswers[i] == questions[i].correctAnswerIndex)
             {
                 totalCorrect++;
             }
         }
 
-        // Scale the score to be out of 10 (e.g., 4/5 correct = 8/10 score)
-        // Using Mathf.RoundToInt to ensure it stays a clean Integer for the database
         int finalScore = totalCorrect;
 
         // REROUTED: Drop it into the quizScore slot in the Backpack!

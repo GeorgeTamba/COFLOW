@@ -10,8 +10,6 @@ public class VRSubmitResults : MonoBehaviour
     private string submitUrl = "https://coflowbackendapi-production.up.railway.app/api/vr/submit-results";
 
     // --- JSON BLUEPRINTS ---
-    // Notice how perfectly these match your Node.js index.js req.body!
-    // --- JSON BLUEPRINTS ---
     [System.Serializable]
     public class SubmitResultReq
     {
@@ -19,7 +17,7 @@ public class VRSubmitResults : MonoBehaviour
         public int anxietyScore;
         public int quizScore;
 
-        // --- NEW: Add the arrays to the JSON payload ---
+        // --- Add the arrays to the JSON payload ---
         public List<int> anxietyAnswers;
         public List<int> quizAnswers;
 

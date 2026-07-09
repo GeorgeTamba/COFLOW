@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEngine.SceneManagement; // CRITICAL: This is required to load scenes!
+using UnityEngine.SceneManagement;
 
 public class TempSceneChanger : MonoBehaviour
 {

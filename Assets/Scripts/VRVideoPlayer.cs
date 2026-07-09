@@ -21,7 +21,6 @@ public class VRVideoPlayer : MonoBehaviour
         if (darkRoomRenderer != null)
         {
             SetBoxAlpha(0f);
-            // Matikan objek sejak awal agar tidak memakan performa
             darkRoomRenderer.gameObject.SetActive(false);
         }
     }
@@ -33,7 +32,6 @@ public class VRVideoPlayer : MonoBehaviour
             myVideoPlayer.Play();
             if (darkRoomRenderer != null)
             {
-                // Nyalakan objek sebelum mulai digelapkan
                 darkRoomRenderer.gameObject.SetActive(true);
                 StopAllCoroutines();
                 StartCoroutine(FadeBox(maxDarkness));
@@ -50,13 +48,12 @@ public class VRVideoPlayer : MonoBehaviour
         }
     }
 
-    // Fungsi baru untuk dipanggil saat video selesai atau pemain teleport
     public void TurnOffDarkRoom()
     {
         if (darkRoomRenderer != null && darkRoomRenderer.gameObject.activeInHierarchy)
         {
             StopAllCoroutines();
-            StartCoroutine(FadeBox(0f, true)); // true = matikan objek setelah transparan
+            StartCoroutine(FadeBox(0f, true));
         }
     }
 
@@ -77,7 +74,6 @@ public class VRVideoPlayer : MonoBehaviour
         matColor.a = targetAlpha;
         boxMat.color = matColor;
 
-        // Matikan Game Object secara menyeluruh setelah layar kembali terang
         if (disableAfterFade)
         {
             darkRoomRenderer.gameObject.SetActive(false);
