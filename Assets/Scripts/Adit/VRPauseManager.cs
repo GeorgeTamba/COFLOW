@@ -98,12 +98,21 @@ public class VRPauseManager : MonoBehaviour
         }
     }
 
-    public void PauseGame()
+public void PauseGame()
     {
         isPaused = true;
 
-        // 1. Activate dark screen quad (attached to camera)
-        if (darkScreenEffect != null) darkScreenEffect.SetActive(true);
+        // 1. Activate dark screen quad and ALL its children
+        if (darkScreenEffect != null) 
+        {
+            darkScreenEffect.SetActive(true);
+            
+            // Loop untuk menyalakan semua child di dalam darkScreenEffect
+            foreach (Transform child in darkScreenEffect.transform)
+            {
+                child.gameObject.SetActive(true);
+            }
+        }
 
         // 2. Show and position pause panel
         if (pausePanel != null)
@@ -150,7 +159,6 @@ public class VRPauseManager : MonoBehaviour
         Time.timeScale = 0f;
         AudioListener.pause = true;
     }
-
     public void ResumeGame()
     {
         isPaused = false;
