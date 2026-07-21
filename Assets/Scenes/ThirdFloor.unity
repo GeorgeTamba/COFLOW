@@ -20764,6 +20764,7 @@ MonoBehaviour:
   timeMultiplier: 30
   holdToFastForward: 1
   fastForwardKey: 102
+  fastForwardButton: 0
 --- !u!4 &1079559802
 Transform:
   m_ObjectHideFlags: 0

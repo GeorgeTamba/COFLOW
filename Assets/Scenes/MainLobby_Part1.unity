@@ -13697,7 +13697,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::VRFollowPanel
   playerRoot: {fileID: 315636801}
   playerCamera: {fileID: 829216869}
-  spawnOffset: {x: 0, y: 1, z: 2}
+  spawnOffset: {x: -1, y: 0.6, z: 2}
   liveEditOffset: 1
   followSpeed: 5
 --- !u!4 &829216869 stripped
@@ -14665,7 +14665,7 @@ Transform:
   m_GameObject: {fileID: 882446648}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.8, z: 0}
+  m_LocalPosition: {x: 0, y: 1.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -17040,7 +17040,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -18.367, y: 1.9619839}
+  m_AnchoredPosition: {x: -18.367, y: 1.7}
   m_SizeDelta: {x: 1000, y: 780}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1037652042
@@ -21532,6 +21532,7 @@ MonoBehaviour:
   timeMultiplier: 30
   holdToFastForward: 1
   fastForwardKey: 102
+  fastForwardButton: 0
 --- !u!4 &1293604336
 Transform:
   m_ObjectHideFlags: 0

@@ -119,6 +119,12 @@ public void PauseGame()
         {
             pausePanel.SetActive(true);
 
+            // Force every child (at any depth) active too, in case one got disabled independently
+            foreach (Transform child in pausePanel.GetComponentsInChildren<Transform>(true))
+            {
+                child.gameObject.SetActive(true);
+            }
+
             if (playerCamera != null)
             {
                 Vector3 flatForward = playerCamera.forward;

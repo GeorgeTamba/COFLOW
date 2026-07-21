@@ -18934,6 +18934,7 @@ MonoBehaviour:
   timeMultiplier: 30
   holdToFastForward: 1
   fastForwardKey: 102
+  fastForwardButton: 0
 --- !u!4 &438172204
 Transform:
   m_ObjectHideFlags: 0
@@ -63394,7 +63395,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1271439901}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: -13022}
+  m_LocalPosition: {x: 0, y: 0, z: -12242}
   m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_ConstrainProportionsScale: 1
   m_Children:
