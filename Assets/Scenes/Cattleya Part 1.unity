@@ -10116,6 +10116,11 @@ MonoBehaviour:
   idleAnimationState: Idle
   destinationTarget: {fileID: 1321616475}
   playerTag: Player
+  arrivalTolerance: 0.35
+  settledSpeedThreshold: 0.08
+  minStoppingDistance: 0.25
+  maxWalkDuration: 30
+  rotationDuration: 0.5
   onNPCArrived:
     m_PersistentCalls:
       m_Calls: []
@@ -27032,7 +27037,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 1
+  m_Speed: 3
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
