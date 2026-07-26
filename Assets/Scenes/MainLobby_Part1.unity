@@ -13697,7 +13697,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::VRFollowPanel
   playerRoot: {fileID: 315636801}
   playerCamera: {fileID: 829216869}
-  spawnOffset: {x: -1, y: 0.6, z: 2}
+  spawnOffset: {x: 0, y: 0.6, z: 2}
   liveEditOffset: 1
   followSpeed: 5
 --- !u!4 &829216869 stripped
@@ -21529,7 +21529,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5645c4ba78fd10342baa438d8fa2d097, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TimeController
-  timeMultiplier: 30
+  timeMultiplier: 10
   holdToFastForward: 1
   fastForwardKey: 102
   fastForwardButton: 0

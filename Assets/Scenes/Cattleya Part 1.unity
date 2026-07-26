@@ -11228,7 +11228,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5645c4ba78fd10342baa438d8fa2d097, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TimeController
-  timeMultiplier: 30
+  timeMultiplier: 10
   holdToFastForward: 1
   fastForwardKey: 102
   fastForwardButton: 0
