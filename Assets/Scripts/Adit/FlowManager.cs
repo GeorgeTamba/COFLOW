@@ -134,7 +134,7 @@ public class FlowManager : MonoBehaviour
             yield return new WaitForSeconds(0.5f);
         }
 
-        // --- INITIAL POSITIONING (DURING BLACK SCREEN) ---
+        // INITIAL POSITIONING (DURING BLACK SCREEN) 
         if (bedAgent != null)
         {
             bedAgent.enabled = false; // Disable NavMesh for manual repositioning
