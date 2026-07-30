@@ -8,6 +8,7 @@ public class VRDynamicQuizManager : MonoBehaviour
     [Header("GameObject References")]
     public GameObject anxietyPanel;
     public GameObject resultPanel;
+    public GameObject alertPanel;
 
     [Header("UI Text References")]
     public TMP_Text questionTextUI;
@@ -132,6 +133,7 @@ public class VRDynamicQuizManager : MonoBehaviour
         // 4. Disable UI 
         scoreTextUI.text = totalScore + " / " + questions.Length * 5;
         anxietyPanel.gameObject.SetActive(false);
+        if (totalScore >= 19) alertPanel.gameObject.SetActive(true);
         resultPanel.gameObject.SetActive(true);
 
         foreach (Toggle t in optionToggles) t.gameObject.SetActive(false);
