@@ -64,11 +64,6 @@ public class NPCDialogueSystem : MonoBehaviour
     private GraphicRaycaster parentRaycaster;
     private CanvasGroup canvasGroup;
 
-    // Guards against StartDialogueSequence() being called again (e.g. double trigger,
-    // double button press) while a sequence is already running. Without this, two
-    // PlayDialogueSequence coroutines can run in parallel, both writing to the same
-    // dialogueTextDisplay and fighting over the same AudioSource — causing overlapping
-    // text and stuttering/overlapping audio.
     private bool isSequenceRunning = false;
 
     private void Start()
@@ -120,11 +115,6 @@ public class NPCDialogueSystem : MonoBehaviour
                 audioSource.Stop();
                 audioSource.clip = line.dialogueAudio;
 
-                // Defensive: always match whatever fast-forward speed is currently active.
-                // TimeController only re-applies pitch to AudioSources it can find via
-                // FindObjectsOfType() at the moment the FF button is pressed/released, so an
-                // AudioSource that wasn't active/found at that exact moment could be left at
-                // the wrong pitch. Setting it here guarantees this clip is always correct.
                 audioSource.pitch = Time.timeScale > 0f ? Time.timeScale : 1f;
 
                 audioSource.Play();
@@ -186,23 +176,6 @@ public class NPCDialogueSystem : MonoBehaviour
         }
     }
 
-    // Typewriter effect using maxVisibleCharacters to prevent word wrap jump.
-    //
-    // WHY audio-driven instead of WaitForSeconds:
-    // Previously the reveal speed was timed independently with WaitForSeconds(typeSpeed),
-    // which is scaled by Time.timeScale. AudioSource.pitch is *also* used to speed up audio
-    // during fast-forward, but the two are not the same kind of "fast": WaitForSeconds still
-    // needs at least one rendered frame to resume no matter how small the scaled duration is,
-    // so at high fast-forward multipliers the typewriter hits a hard floor of ~1 character per
-    // frame. Audio playback has no such floor — it speeds up exactly linearly with pitch. The
-    // result was audio finishing well before the text (or vice versa), and sentences visibly
-    // overlapping/out of sync.
-    //
-    // Fix: when a line has voice audio, don't time the text independently at all — derive the
-    // number of revealed characters directly from how far the AudioSource has actually played
-    // (audioSource.time / clip.length). Since AudioSource.time already reflects the true
-    // playback position under any pitch/Time.timeScale, the caption is mathematically
-    // guaranteed to always match the voice line, at 1x or during fast-forward.
     public IEnumerator TypeSentence(string sentence, AudioClip clip = null)
     {
         // 1. Insert the entire text from the beginning
@@ -232,8 +205,6 @@ public class NPCDialogueSystem : MonoBehaviour
         else
         {
             // 4b. Fallback for silent lines (no dialogueAudio assigned): use the fixed
-            // typeSpeed timer. Still affected by Time.timeScale during fast-forward, but
-            // there's no audio to desync from here, so it's not a problem.
             int counter = 0;
             while (counter <= totalVisibleCharacters)
             {
@@ -244,7 +215,6 @@ public class NPCDialogueSystem : MonoBehaviour
         }
 
         // 5. Always finish with the full sentence fully revealed, even if the loop above
-        // exited a frame early (e.g. audio stopped exactly on the last sample).
         dialogueTextDisplay.maxVisibleCharacters = totalVisibleCharacters;
     }
 
