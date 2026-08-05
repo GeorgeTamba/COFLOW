@@ -7,7 +7,7 @@ using System.Text;
 
 public class VRSubmitResults : MonoBehaviour
 {
-    private string submitUrl = "https://coflowbackendapi-production.up.railway.app/api/vr/submit-results";
+    private string submitUrl = "https://coflow-dashboard.up.railway.app/api/vr/submit-results";
 
     // --- JSON BLUEPRINTS ---
     [System.Serializable]
