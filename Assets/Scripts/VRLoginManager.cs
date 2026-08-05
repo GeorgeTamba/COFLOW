@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.Networking;
 using System.Collections;
 using System.Text;
+using System;
 
 public class VRLoginManager : MonoBehaviour
 {
@@ -17,13 +18,13 @@ public class VRLoginManager : MonoBehaviour
     [System.Serializable] public class StartSessionRes { public string message; public string sessionId; }
 
     // Connect this to your BNG Keypad "Enter" button!
-    public void OnSubmitCode(string enteredCode)
+    public void OnSubmitCode(string enteredCode, Action<bool, string> callback)
     {
         Debug.Log("Player entered code: " + enteredCode);
-        StartCoroutine(ProcessLoginChain(enteredCode));
+        StartCoroutine(ProcessLoginChain(enteredCode, callback));
     }
 
-    private IEnumerator ProcessLoginChain(string code)
+    private IEnumerator ProcessLoginChain(string code, Action<bool, string> callback)
     {
         // ==========================================
         // STEP 1: VALIDATE THE CODE
@@ -35,7 +36,8 @@ public class VRLoginManager : MonoBehaviour
 
         if (req1.result != UnityWebRequest.Result.Success)
         {
-            Debug.LogError("Code Invalid! Turn keypad screen red.");
+            Debug.LogError("Code Invalid! Telling CustomKeypad.cs error.");
+            callback?.Invoke(false, "INVALID CODE");
             // Stop the chain right here.
             yield break;
         }
@@ -65,6 +67,7 @@ public class VRLoginManager : MonoBehaviour
         if (req2.result != UnityWebRequest.Result.Success)
         {
             Debug.LogError("Failed to start session: " + req2.error);
+            callback?.Invoke(false, "SERVER ERROR");
             yield break;
         }
 
@@ -73,6 +76,7 @@ public class VRLoginManager : MonoBehaviour
 
         // SAVE IT GLOBALLY!
         SessionDataStore.sessionId = startResponse.sessionId;
+        callback?.Invoke(true, "SUCCESS!");
         Debug.Log("<color=green>SESSION STARTED!</color> Session ID: " + SessionDataStore.sessionId);
 
         // ==========================================
