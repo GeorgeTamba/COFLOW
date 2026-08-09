@@ -112,16 +112,36 @@ namespace BNG {
         PlayerTeleport playerTeleport;
         bool didFirstActivate = false;
 
+        // The head / controller anchors keep applying their last tracked pose after a headset goes
+        // away, which fights the emulator for control of those transforms. Cached so we can switch
+        // them off while running on desktop.
+        List<TrackedDevice> trackedDevices = new List<TrackedDevice>();
+
+        // Once a physical controller is detected these tilt the controller transforms to line up with it.
+        // That tilt has to come back off on desktop, or it leaves the UI pointer aiming at the floor.
+        List<ControllerOffsetHelper> controllerOffsets = new List<ControllerOffsetHelper>();
+
         Grabber grabberLeft;
         Grabber grabberRight;
 
         private float _originalPlayerYOffset = 1.65f;
+
+        // Last real eye height reported by the HMD while tracked. Used as a more accurate
+        // fallback than the fixed ElevateCameraHeight default when the HMD disconnects.
+        private float _lastKnownRealEyeHeight = -1f;
 
         [Header("Shown for Debug : ")]
         public bool HMDIsActive;
 
         public Vector3 LeftControllerPosition = new Vector3(-0.2f, -0.2f, 0.5f);
         public Vector3 RightControllerPosition = new Vector3(0.2f, -0.2f, 0.5f);
+
+        [Header("Mirrored Eye Compensation : ")]
+        [Tooltip("If true, shift both emulated controllers sideways while the XR display is still running. The desktop window mirrors one headset eye in that case, which isn't centred, so the hands look shifted. Has no effect in the editor or in a build that never connected to a headset.")]
+        public bool CompensateForMirroredEye = true;
+
+        [Tooltip("How far sideways to shift both controllers while compensating, in meters. Negative moves them left. The two controllers sit 0.4m apart, so if the pair still looks off centre by a quarter of the gap between them, adjust this by 0.1.")]
+        public float MirroredEyeOffsetX = -0.12f;
 
         bool priorStraightSetting;
 
@@ -145,6 +165,13 @@ namespace BNG {
             rightControllerTranform = GameObject.Find("RightControllerAnchor").transform;
 
             player = FindObjectOfType<BNGPlayerController>();
+
+            cacheTrackedDevice(player != null ? player.CenterEyeAnchor : null);
+            cacheTrackedDevice(leftControllerTranform);
+            cacheTrackedDevice(rightControllerTranform);
+
+            cacheControllerOffset(leftControllerTranform);
+            cacheControllerOffset(rightControllerTranform);
 
             if (player) {
                 // Use this to keep our head up high
@@ -171,6 +198,72 @@ namespace BNG {
             }
         }
 
+        /// <summary>
+        /// Hand the UI pointer system a clean slate. Its caster parent, canvas event cameras and pointer
+        /// event data are cached at startup, so state carried over from a VR session can otherwise leave
+        /// the UI raycast dead - and with it the pointer line used to click things.
+        /// </summary>
+        public virtual void RefreshUISystem() {
+            VRUISystem uiSystem = FindObjectOfType<VRUISystem>();
+
+            if (uiSystem != null) {
+                uiSystem.ReinitializeUISystem();
+            }
+        }
+
+        void cacheControllerOffset(Transform anchor) {
+            if (anchor == null) {
+                return;
+            }
+
+            ControllerOffsetHelper offsetHelper = anchor.GetComponentInChildren<ControllerOffsetHelper>(true);
+            if (offsetHelper != null) {
+                controllerOffsets.Add(offsetHelper);
+            }
+        }
+
+        /// <summary>
+        /// Add or remove the physical controller alignment offsets. Left applied on desktop they tilt the
+        /// controllers - and the UI pointer parented to them - away from where the player is looking.
+        /// </summary>
+        public virtual void SetControllerOffsetsApplied(bool offsetsApplied) {
+            for (var x = 0; x < controllerOffsets.Count; x++) {
+                if (controllerOffsets[x] != null) {
+                    controllerOffsets[x].ApplyOffset(offsetsApplied);
+                }
+            }
+        }
+
+        void cacheTrackedDevice(Transform anchor) {
+            if (anchor == null) {
+                return;
+            }
+
+            TrackedDevice device = anchor.GetComponent<TrackedDevice>();
+            if (device != null) {
+                trackedDevices.Add(device);
+            }
+        }
+
+        /// <summary>
+        /// Hand the head / controller anchors back to their tracked devices, or take them over for the
+        /// emulator. While disabled the anchors are returned to their initial pose so a stale tracked
+        /// pose left over from VR doesn't stay stuck on them.
+        /// </summary>
+        public virtual void SetTrackedDevicesEnabled(bool devicesEnabled) {
+            for (var x = 0; x < trackedDevices.Count; x++) {
+                if (trackedDevices[x] == null) {
+                    continue;
+                }
+
+                trackedDevices[x].enabled = devicesEnabled;
+
+                if (!devicesEnabled) {
+                    trackedDevices[x].ResetToInitialPose();
+                }
+            }
+        }
+
         public virtual void LockCursor() {
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
@@ -193,6 +286,11 @@ namespace BNG {
         }
 
         void onFirstActivate() {
+
+            // Make sure the emulator owns the anchors, not a headset that isn't there
+            SetTrackedDevicesEnabled(false);
+            SetControllerOffsetsApplied(false);
+
             UpdateControllerPositions();
 
             didFirstActivate = true;
@@ -204,6 +302,12 @@ namespace BNG {
             // bool userAbsent = XRDevice.userPresence == UserPresenceState.NotPresent || XRDevice.userPresence == UserPresenceState.Unknown;
             // Updated to show in Debug Settings
             HMDIsActive = InputBridge.Instance.HMDActive;
+
+            // Keep track of the real tracked eye height while the HMD is active so we have
+            // an accurate fallback to use if/when it disconnects (instead of a fixed guess)
+            if (HMDIsActive && player != null) {
+                _lastKnownRealEyeHeight = player.CameraHeight;
+            }
 
             if (emulatorWasActive != HMDIsActive) {
                 OnEmulatorStateChange();
@@ -260,8 +364,15 @@ namespace BNG {
         }
 
         public virtual void OnSwitchToVR() {
+
+            // Give the anchors back to the headset
+            SetTrackedDevicesEnabled(true);
+            SetControllerOffsetsApplied(true);
+
             mainCameraTransform.localPosition = Vector3.zero;
             mainCameraTransform.localEulerAngles = Vector3.zero;
+
+            RefreshUISystem();
 
             // No longer elevate camera now that hmd is back online
             if(emulatorActivatedBefore || didFirstActivate) {
@@ -271,14 +382,34 @@ namespace BNG {
 
         public virtual void OnSwitchToPC() {
             emulatorActivatedBefore = true;
+
+            // Stop the anchors from replaying the last pose the headset reported, which would otherwise
+            // leave the view tilted and drag the controllers back out of reach of the emulator
+            SetTrackedDevicesEnabled(false);
+            SetControllerOffsetsApplied(false);
+
             mainCameraTransform.localEulerAngles = Vector3.zero;
             ResetHands();
+
+            RefreshUISystem();
+
+            if (player != null) {
+                // OnSwitchToVR turns this off, so turn it back on or the rig will sit on the
+                // floor once the headset goes away again
+                player.ElevateCameraIfNoHMDPresent = ElevatePlayerHeightOnDisconnect;
+
+                // Prefer the last real tracked eye height over the fixed ElevateCameraHeight
+                // guess so the view doesn't jump when the headset disconnects
+                if (_lastKnownRealEyeHeight > 0.1f) {
+                    player.ElevateCameraHeight = _lastKnownRealEyeHeight;
+                }
+            }
         }
 
         public virtual bool HasRequiredFocus() {
 
             // No Focus Required
-            if(EditorOnly == false || RequireGameFocus == false) {
+            if(RequireGameFocus == false) {
                 return true;
             }
 
@@ -335,6 +466,13 @@ namespace BNG {
         /// Overwrite InputBridge inputs with our own bindings
         /// </summary>
         public void UpdateInputs() {
+
+            // This is driven by a static event, so a destroyed emulator can still be called here if it
+            // ever fails to unsubscribe. Its HMDIsActive is frozen at whatever it last saw, so it would
+            // happily go on overwriting the live controller inputs with zeroes.
+            if (this == null) {
+                return;
+            }
 
             // Only override controls if no hmd is active and this script is enabled
             if (EmulatorEnabled == false || HMDIsActive) {
@@ -439,11 +577,29 @@ namespace BNG {
         //}
 
         public virtual void UpdateControllerPositions() {
-            leftControllerTranform.transform.localPosition = LeftControllerPosition;
-            leftControllerTranform.transform.localEulerAngles = Vector3.zero;
 
-            rightControllerTranform.transform.localPosition = RightControllerPosition;
-            rightControllerTranform.transform.localEulerAngles = Vector3.zero;
+            Vector3 mirroredEyeOffset = new Vector3(GetMirroredEyeOffsetX(), 0f, 0f);
+
+            leftControllerTranform.localPosition = LeftControllerPosition + mirroredEyeOffset;
+            leftControllerTranform.localEulerAngles = Vector3.zero;
+
+            rightControllerTranform.localPosition = RightControllerPosition + mirroredEyeOffset;
+            rightControllerTranform.localEulerAngles = Vector3.zero;
+        }
+
+        /// <summary>
+        /// While the XR display is still running, the desktop window shows a mirrored headset eye rather
+        /// than a centred view, so everything in it - the hands included - appears shifted sideways.
+        /// Returns a sideways offset to compensate, or zero when XR isn't running and the window is
+        /// already showing a centred view (the editor, or a build that never connected to a headset).
+        /// </summary>
+        public virtual float GetMirroredEyeOffsetX() {
+
+            if (!CompensateForMirroredEye || !UnityEngine.XR.XRSettings.isDeviceActive) {
+                return 0f;
+            }
+
+            return MirroredEyeOffsetX;
         }
 
 
@@ -494,19 +650,32 @@ namespace BNG {
         }
 
         public virtual void ResetHands() {
-            leftControllerTranform.transform.localPosition = Vector3.zero;
-            leftControllerTranform.transform.localEulerAngles = Vector3.zero;
 
-            rightControllerTranform.transform.localPosition = Vector3.zero;
-            rightControllerTranform.transform.localEulerAngles = Vector3.zero;
+            // Null checks matter here : this also runs from OnDisable, by which point a scene change
+            // may already have destroyed the anchors
+            if (leftControllerTranform != null) {
+                leftControllerTranform.localPosition = Vector3.zero;
+                leftControllerTranform.localEulerAngles = Vector3.zero;
+            }
+
+            if (rightControllerTranform != null) {
+                rightControllerTranform.localPosition = Vector3.zero;
+                rightControllerTranform.localEulerAngles = Vector3.zero;
+            }
         }
 
         public virtual void ResetAll() {
 
+            // Always hand the anchors back, so tearing down the emulator can't leave them switched off
+            SetTrackedDevicesEnabled(true);
+            SetControllerOffsetsApplied(true);
+
             ResetHands();
 
             // Reset Camera
-            mainCameraTransform.localEulerAngles = Vector3.zero;
+            if (mainCameraTransform != null) {
+                mainCameraTransform.localEulerAngles = Vector3.zero;
+            }
 
             // Reset Player
             if (player) {
@@ -554,15 +723,17 @@ namespace BNG {
 
             Application.onBeforeRender -= OnBeforeRender;
 
+            // Unsubscribe from input events first. OnInputsUpdated is a static event, so if anything
+            // below throws and skips this, a destroyed emulator stays subscribed for the rest of the
+            // session and keeps overwriting the real controller inputs with its own emulated ones.
+            InputBridge.OnInputsUpdated -= UpdateInputs;
+
             if (isQuitting) {
                 return;
             }
 
             // Reset Hand Positions
             ResetAll();
-
-            // Unsubscribe from input events
-            InputBridge.OnInputsUpdated -= UpdateInputs;
         }
 
         bool isQuitting = false;

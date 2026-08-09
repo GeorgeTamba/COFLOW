@@ -25,6 +25,15 @@ namespace BNG {
 
         public List<ControllerOffset> ControllerOffsets;
 
+        Vector3 preOffsetLocalPosition;
+        Vector3 preOffsetLocalEulerAngles;
+
+        void Awake() {
+            // Remember where we sit before any offset is added, so it can be taken back off later
+            preOffsetLocalPosition = transform.localPosition;
+            preOffsetLocalEulerAngles = transform.localEulerAngles;
+        }
+
         void Start() {
             if(ControllerOffsets == null) {
                 ControllerOffsets = new List<ControllerOffset>();
@@ -56,17 +65,30 @@ namespace BNG {
                 if(ControllerHand == ControllerHand.Left) {
                     OffsetPosition = thisOffset.LeftControllerPositionOffset;
                     OffsetRotation = thisOffset.LeftControllerRotationOffset;
-
-                    transform.localPosition += OffsetPosition;
-                    transform.localEulerAngles += OffsetRotation;
                 }
                 else if (ControllerHand == ControllerHand.Right) {
                     OffsetPosition = thisOffset.RightControllerPositionOffset;
                     OffsetRotation = thisOffset.RightControlleRotationOffset;
-
-                    transform.localPosition += OffsetPosition;
-                    transform.localEulerAngles += OffsetRotation;
                 }
+
+                ApplyOffset(true);
+            }
+        }
+
+        /// <summary>
+        /// Add the controller offset, or take it back off. The offset exists to line this transform up
+        /// with a physical controller, so it needs removing when there is no controller to line up with -
+        /// left on, it also misaims anything parented here, such as a UI pointer.
+        /// Assigns absolute values, so calling this repeatedly is safe.
+        /// </summary>
+        public virtual void ApplyOffset(bool applyOffset) {
+            if (applyOffset) {
+                transform.localPosition = preOffsetLocalPosition + OffsetPosition;
+                transform.localEulerAngles = preOffsetLocalEulerAngles + OffsetRotation;
+            }
+            else {
+                transform.localPosition = preOffsetLocalPosition;
+                transform.localEulerAngles = preOffsetLocalEulerAngles;
             }
         }
 

@@ -354,6 +354,20 @@ namespace BNG {
         [Tooltip("Is there an HMD present and in use.")]
         public bool HMDActive = false;
 
+        [Tooltip("If true, treat the HMD as inactive once its pose stops changing entirely for StalePoseTimeout seconds. Some runtimes (notably OpenXR + Meta Link on Windows) keep reporting an active headset after it has physically disconnected.")]
+        public bool DetectDisconnectFromStalePose = true;
+
+        [Tooltip("How many seconds the HMD pose must be completely frozen before we consider the headset disconnected. Only used if DetectDisconnectFromStalePose is true.")]
+        public float StalePoseTimeout = 2f;
+
+        [Tooltip("Log a message whenever the HMD active state changes. Useful for diagnosing VR connect / disconnect in a build via the Player.log.")]
+        public bool LogHMDActiveChanges = true;
+
+        Vector3 _lastHeadPosition;
+        Quaternion _lastHeadRotation;
+        float _headStaleTime;
+        int _headStaleFrames;
+
         public SDKProvider LoadedSDK { get; private set; }
 
         public bool IsOculusDevice { get; private set; }
@@ -1129,23 +1143,36 @@ namespace BNG {
 
         public virtual void UpdateDeviceActive() {
 
+            bool wasActive = HMDActive;
+
             // Check XR Input to see if we can get active status
             if(GetSupportsXRInput()) {
                 InputDevice hmd = GetHMD();
 
                 // Check if hmd is valid from XRInput
                 if (hmd.isValid == false) {
+                    // Nothing connected. Stop here instead of falling through to the checks below,
+                    // which can still report active after a headset has gone away because the XR
+                    // session itself is left running.
                     HMDActive = false;
                 }
-
-                // Make sure the device supports the presence feature
-                bool userPresent = false;
-                bool presenceFeatureSupported = hmd.TryGetFeatureValue(CommonUsages.userPresence, out userPresent);
-                if (presenceFeatureSupported) {
-                    HMDActive = userPresent;
-                }
                 else {
-                    HMDActive = XRSettings.isDeviceActive;
+                    // Make sure the device supports the presence feature
+                    bool userPresent = false;
+                    bool presenceFeatureSupported = hmd.TryGetFeatureValue(CommonUsages.userPresence, out userPresent);
+                    if (presenceFeatureSupported) {
+                        HMDActive = userPresent;
+                    }
+                    else {
+                        HMDActive = XRSettings.isDeviceActive;
+                    }
+
+                    // The checks above rely on the runtime telling us the truth. Some runtimes keep
+                    // reporting a present, active headset after it disconnects, so fall back to
+                    // watching the head pose itself for any sign of life.
+                    if (HMDActive && DetectDisconnectFromStalePose && GetHeadTrackingIsStale(hmd)) {
+                        HMDActive = false;
+                    }
                 }
             }
 
@@ -1157,6 +1184,63 @@ namespace BNG {
                 }
             }
 #endif
+
+            if (LogHMDActiveChanges && HMDActive != wasActive) {
+                Debug.Log("InputBridge : HMDActive changed to " + HMDActive);
+            }
+        }
+
+        /// <summary>
+        /// Returns true if the HMD has stopped feeding us any tracking data for StalePoseTimeout seconds.
+        /// Live tracking always jitters by a tiny amount, so a completely frozen pose means nothing is
+        /// driving the headset anymore - it has disconnected, gone to sleep, or the runtime has gone stale.
+        /// </summary>
+        public virtual bool GetHeadTrackingIsStale(InputDevice hmd) {
+
+            // Read the same feature usages GetHMDLocalPosition / GetHMDLocalRotation track the head
+            // with, so we're watching values this runtime is known to actually populate
+            Vector3 headPosition = Vector3.zero;
+            Quaternion headRotation = Quaternion.identity;
+
+            bool readPosition = hmd.TryGetFeatureValue(CommonUsages.devicePosition, out headPosition);
+            bool readRotation = hmd.TryGetFeatureValue(CommonUsages.deviceRotation, out headRotation);
+
+            // We have no pose to judge liveness by, so don't guess - assuming the worst here would
+            // drop a perfectly good headset out of VR. A headset that has truly gone away gets caught
+            // by the isValid check instead.
+            if (!readPosition && !readRotation) {
+                _headStaleTime = 0f;
+                _headStaleFrames = 0;
+                return false;
+            }
+
+            // Note that Vector3 / Quaternion comparison is approximate, so this ignores floating point
+            // noise while still picking up the tiny jitter that live tracking always has.
+            bool receivingTracking = (readPosition && headPosition != _lastHeadPosition) || (readRotation && headRotation != _lastHeadRotation);
+
+            _lastHeadPosition = headPosition;
+            _lastHeadRotation = headRotation;
+
+            // Some runtimes also expose an explicit tracking flag. Believe it when it reports tracking
+            // has been lost, but don't let it vouch for liveness on its own - a stale runtime can keep
+            // reporting isTracked = true long after the headset is physically gone.
+            bool isTracked = false;
+            if (hmd.TryGetFeatureValue(CommonUsages.isTracked, out isTracked) && isTracked == false) {
+                receivingTracking = false;
+            }
+
+            if (receivingTracking) {
+                _headStaleTime = 0f;
+                _headStaleFrames = 0;
+                return false;
+            }
+
+            // Clamp the per frame contribution and require a sustained run of frames so that a single
+            // long frame - a scene load, for example - can't be mistaken for a disconnect.
+            _headStaleTime += Mathf.Min(Time.unscaledDeltaTime, 0.1f);
+            _headStaleFrames++;
+
+            return _headStaleTime >= StalePoseTimeout && _headStaleFrames >= 30;
         }
 
         /// <summary>

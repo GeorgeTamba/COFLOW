@@ -91,6 +91,16 @@ namespace BNG {
             }
     }
 
+        /// <summary>
+        /// Snap this transform back to the pose it started with. UpdateDevice only writes a pose while
+        /// the device is valid and never clears one, so a stale pose - a tilted head, for example - can
+        /// otherwise stay stuck on the transform after a headset disconnects.
+        /// </summary>
+        public virtual void ResetToInitialPose() {
+            transform.localPosition = currentLocalPosition = initialLocalPosition;
+            transform.localRotation = currentLocalRotation = initialLocalRotation;
+        }
+
         protected virtual void OnBeforeRender() {
 #if UNITY_WEBGL
             if (Application.isEditor) {

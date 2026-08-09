@@ -92,6 +92,19 @@ namespace BNG {
             EventData.position = new Vector2(cameraCaster.pixelWidth / 2, cameraCaster.pixelHeight / 2);
         }
 
+        /// <summary>
+        /// Put the UI system back into the same state it starts up in. Worth calling after switching
+        /// between VR and desktop : the caster's parent, the event camera on each canvas and the pointer
+        /// event data are all cached, and state left over from a VR session can otherwise stop the UI
+        /// raycast from finding anything - which also hides the pointer line that follows that raycast.
+        /// </summary>
+        public virtual void ReinitializeUISystem() {
+
+            initEventSystem();
+
+            Debug.Log("VRUISystem : reinitialized. Caster ready : " + CameraCasterReady() + ", parent : " + (cameraCaster != null && cameraCaster.transform.parent != null ? cameraCaster.transform.parent.name : "none"));
+        }
+
         protected override void Start() {
             base.Start();
 
