@@ -76,7 +76,7 @@ public class NPCDialogueSystem : MonoBehaviour
 
     public void StartDialogueSequence()
     {
-        if (isSequenceRunning) return; // already running — ignore duplicate calls
+        if (isSequenceRunning) return; // already running ï¿½ ignore duplicate calls
         isSequenceRunning = true;
 
         ToggleUI(true);
@@ -176,6 +176,17 @@ public class NPCDialogueSystem : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// True while the game is paused. The pause manager sets AudioListener.pause, which suspends the
+    /// dialogue audio and makes AudioSource.isPlaying report false even though the line has not
+    /// finished. The audio driven reveal has to know the difference, otherwise it reads a pause as
+    /// "the voice line ended", completes the line and lets the sequence run on to the end.
+    /// </summary>
+    private bool IsGamePaused()
+    {
+        return AudioListener.pause || Time.timeScale <= 0f;
+    }
+
     public IEnumerator TypeSentence(string sentence, AudioClip clip = null)
     {
         // 1. Insert the entire text from the beginning
@@ -190,12 +201,13 @@ public class NPCDialogueSystem : MonoBehaviour
         // Get the total number of characters to be displayed
         int totalVisibleCharacters = dialogueTextDisplay.textInfo.characterCount;
 
-        bool hasAudio = audioSource != null && clip != null && audioSource.isPlaying;
+        bool hasAudio = audioSource != null && clip != null && (audioSource.isPlaying || IsGamePaused());
 
         if (hasAudio)
         {
             // 4a. Audio-driven reveal: always matches the voice line's real progress
-            while (audioSource != null && audioSource.isPlaying)
+            // Keep holding while paused : the line hasn't finished, the audio has only been suspended
+            while (audioSource != null && (audioSource.isPlaying || IsGamePaused()))
             {
                 float progress = Mathf.Clamp01(audioSource.time / clip.length);
                 dialogueTextDisplay.maxVisibleCharacters = Mathf.FloorToInt(progress * totalVisibleCharacters);
