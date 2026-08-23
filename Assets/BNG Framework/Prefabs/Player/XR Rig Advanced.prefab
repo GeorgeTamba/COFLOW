@@ -32001,7 +32001,7 @@ LineRenderer:
   - {x: 0, y: 0, z: 0.3}
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.005
+    widthMultiplier: 0.012
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -32019,10 +32019,10 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 0.54901963}
-      key1: {r: 1, g: 1, b: 1, a: 0}
-      key2: {r: 1, g: 1, b: 1, a: 0}
-      key3: {r: 1, g: 1, b: 1, a: 0}
+      key0: {r: 0, g: 1, b: 0, a: 0.54901963}
+      key1: {r: 0, g: 1, b: 0, a: 0}
+      key2: {r: 0, g: 1, b: 0, a: 0}
+      key3: {r: 0, g: 1, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
       key5: {r: 0, g: 0, b: 0, a: 0}
       key6: {r: 0, g: 0, b: 0, a: 0}
@@ -32166,7 +32166,7 @@ LineRenderer:
   - {x: 0, y: 0, z: 0.3}
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.005
+    widthMultiplier: 0.012
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -32184,10 +32184,10 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 0.54901963}
-      key1: {r: 1, g: 1, b: 1, a: 0}
-      key2: {r: 1, g: 1, b: 1, a: 0}
-      key3: {r: 1, g: 1, b: 1, a: 0}
+      key0: {r: 0, g: 1, b: 0, a: 0.54901963}
+      key1: {r: 0, g: 1, b: 0, a: 0}
+      key2: {r: 0, g: 1, b: 0, a: 0}
+      key3: {r: 0, g: 1, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
       key5: {r: 0, g: 0, b: 0, a: 0}
       key6: {r: 0, g: 0, b: 0, a: 0}
