@@ -2845,25 +2845,35 @@ MonoBehaviour:
   anxietyCanvasGroup: {fileID: 0}
   drugsInUI:
   - drugCode: Miniaspi
-    yesNoToggle: {fileID: 0}
+    continueMedToggle: {fileID: 0}
+    stopMedToggle: {fileID: 0}
   - drugCode: Ascardia
-    yesNoToggle: {fileID: 0}
+    continueMedToggle: {fileID: 0}
+    stopMedToggle: {fileID: 0}
   - drugCode: Simarc
-    yesNoToggle: {fileID: 0}
+    continueMedToggle: {fileID: 0}
+    stopMedToggle: {fileID: 0}
   - drugCode: Pletaal
-    yesNoToggle: {fileID: 0}
+    continueMedToggle: {fileID: 0}
+    stopMedToggle: {fileID: 0}
   - drugCode: Clopidogrel
-    yesNoToggle: {fileID: 0}
+    continueMedToggle: {fileID: 0}
+    stopMedToggle: {fileID: 0}
   - drugCode: Thrombo Aspilet
-    yesNoToggle: {fileID: 0}
+    continueMedToggle: {fileID: 0}
+    stopMedToggle: {fileID: 0}
   - drugCode: Warfarin
-    yesNoToggle: {fileID: 0}
+    continueMedToggle: {fileID: 0}
+    stopMedToggle: {fileID: 0}
   - drugCode: Clotaire
-    yesNoToggle: {fileID: 0}
+    continueMedToggle: {fileID: 0}
+    stopMedToggle: {fileID: 0}
   - drugCode: Aspilet
-    yesNoToggle: {fileID: 0}
+    continueMedToggle: {fileID: 0}
+    stopMedToggle: {fileID: 0}
   - drugCode: Cilostazol
-    yesNoToggle: {fileID: 0}
+    continueMedToggle: {fileID: 0}
+    stopMedToggle: {fileID: 0}
 --- !u!114 &266893730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4272,7 +4282,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 165, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1.5911884, y: 3.617}
+  m_AnchoredPosition: {x: 1.5911884, y: 3.842}
   m_SizeDelta: {x: 1004.6729, y: 834.6514}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!225 &472815775
@@ -5192,7 +5202,7 @@ MonoBehaviour:
         m_Calls: []
     waitForExternalTrigger: 0
     delayAfterArrive: 0
-    moveSpeed: 2
+    moveSpeed: 1.4
   - waypointName: Transit3
     destination: {fileID: 1640075350}
     useTeleport: 0
@@ -5201,7 +5211,7 @@ MonoBehaviour:
         m_Calls: []
     waitForExternalTrigger: 0
     delayAfterArrive: 0
-    moveSpeed: 2
+    moveSpeed: 1.4
   bedMovementAudio: {fileID: 518445769}
   nextSceneName: ThirdFloor
   onInitialTeleportComplete:
@@ -5920,7 +5930,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::VRFollowPanel
   playerRoot: {fileID: 980536591}
   playerCamera: {fileID: 1929524588}
-  spawnOffset: {x: 2.38, y: 1.09, z: 0}
+  spawnOffset: {x: 2.38, y: 0.65, z: 0}
   liveEditOffset: 1
   followSpeed: 5
 --- !u!1 &596376961
@@ -8910,8 +8920,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 210, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -151.4}
-  m_SizeDelta: {x: 0, y: -548.6}
+  m_AnchoredPosition: {x: 0, y: -187.3}
+  m_SizeDelta: {x: 0, y: -458.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!82 &1057247303
 AudioSource:
@@ -9072,8 +9082,8 @@ MonoBehaviour:
   typeSpeed: 0.065
   delayBetweenSentences: 2
   dialogueLines:
-  - sentence: Setengah jam sebelum operasi ditentukan Anda akan diantar ke ruang
-      operasi
+  - sentence: 30 menit sebelum jadwal operasi yang telah ditentukan, Anda akan diantar
+      ke ruang operasi. Sebelum operasi, Anda diwajibkan berpuasa selama 8 jam
     dialogueAudio: {fileID: 8300000, guid: 28cfbb371d78562408d7f8f29935b415, type: 3}
     animationStateName: NPCDialogue
     waitForButtonPress: 0
@@ -11807,7 +11817,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1445865461}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.00008010864}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11815,7 +11825,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -90.64987, y: 107.79993}
+  m_AnchoredPosition: {x: -134, y: 113}
   m_SizeDelta: {x: 1004.6729, y: 834.6515}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1445865463
@@ -11904,7 +11914,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: -99.74707, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -17136,7 +17146,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -414.53644, y: 74}
+  m_AnchoredPosition: {x: -414.53644, y: 126}
   m_SizeDelta: {x: -181.29999, y: -215.59999}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2059366090
