@@ -15,7 +15,8 @@ public class VRMedicationSubmit : MonoBehaviour
     public class MedToggleMap
     {
         public string drugCode;
-        public Toggle yesNoToggle;
+        public Toggle continueMedToggle;
+        public Toggle stopMedToggle;
     }
 
     [Header("Drug List")]
@@ -26,17 +27,30 @@ public class VRMedicationSubmit : MonoBehaviour
         // 1. Save the drugs to the Backpack
         foreach (var med in drugsInUI)
         {
-            string finalStatus = med.yesNoToggle.isOn ? statusChecked : statusUnchecked;
-            SessionDataStore.medications.Add(new SessionDataStore.MedRecord
+            // Check which toggle is active
+            if (med.continueMedToggle.isOn)
             {
-                drugCode = med.drugCode,
-                status = finalStatus
-            });
+                SessionDataStore.medications.Add(new SessionDataStore.MedRecord
+                {
+                    drugCode = med.drugCode,
+                    status = statusChecked
+                });
+            }
+            else if (med.stopMedToggle.isOn)
+            {
+                SessionDataStore.medications.Add(new SessionDataStore.MedRecord
+                {
+                    drugCode = med.drugCode,
+                    status = statusUnchecked
+                });
+            }
+            // If neither is checked (both are false), it skips adding anything to the list.
         }
+
         Debug.Log($"Packed {SessionDataStore.medications.Count} medications into the Backpack!");
 
         // ==========================================
-        // CHANGE 2: THE SAFE UI TRANSITION
+        // THE SAFE UI TRANSITION
         // ==========================================
 
         // Hide Medication Canvas (Fade out and disable lasers)

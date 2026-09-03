@@ -27,8 +27,18 @@ public class TimeController : MonoBehaviour
 
     private bool isFastForwarding = false;
 
+    // The pause manager owns Time.timeScale while paused; fast forward must not fight it.
+    private static bool IsPaused => AudioListener.pause || Time.timeScale <= 0f;
+
     private void Update()
     {
+        if (IsPaused)
+        {
+            // Drop fast forward so resuming never comes back at the sped-up rate
+            if (isFastForwarding) SetFastForward(false);
+            return;
+        }
+
         bool buttonDown = Input.GetKeyDown(fastForwardKey) || CheckVRButtonDown();
         bool buttonUp = Input.GetKeyUp(fastForwardKey) || CheckVRButtonUp();
 
@@ -76,7 +86,7 @@ public class TimeController : MonoBehaviour
         isFastForwarding = fastForward;
         float speed = fastForward ? timeMultiplier : 1f;
 
-        Time.timeScale = speed;
+        if (!IsPaused) Time.timeScale = speed;
 
         // Keep in-game audio and video in sync with the time speed so they don't clash
         foreach (AudioSource source in FindObjectsOfType<AudioSource>())
