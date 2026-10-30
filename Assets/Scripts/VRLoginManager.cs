@@ -6,8 +6,8 @@ using System;
 
 public class VRLoginManager : MonoBehaviour
 {
-    private string validateUrl = "https://coflow-dashboard.up.railway.app/api/vr/validate";
-    private string startSessionUrl = "https://coflow-dashboard.up.railway.app/api/vr/start-session";
+    private string validateUrl = "https://172.30.2.187:3000/api/vr/validate";
+    private string startSessionUrl = "https://172.30.2.187:3000/api/vr/start-session";
 
     // Classes for packing/unpacking JSON
     [System.Serializable] public class ValidateReq { public string code; }
